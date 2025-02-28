@@ -2,6 +2,17 @@
 node_modules/
 dist/
 
+# Ignore unnecessary files inside backend, but keep the folder itself
+backend/node_modules/
+backend/dist/
+backend/.env
+backend/.env.local
+backend/.env.*.local
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/pnpm-debug.log*
+backend/pnpm-error.log*
+
 # Environment variables
 .env
 .env.local
