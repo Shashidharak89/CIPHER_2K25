@@ -1,6 +1,8 @@
 import React,{ useState } from 'react'
 import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
+import Home from './components/Home'
+import Footer from './components/footer'
 
 
 function App() {
@@ -10,6 +12,8 @@ function App() {
     <div>
       <Navbar/>
       {/* <Sidebar/> */}
+      <Home/>
+      <Footer/>
     </div>
   )
 }
