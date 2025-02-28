@@ -12,6 +12,7 @@ backend/npm-debug.log*
 backend/yarn-debug.log*
 backend/pnpm-debug.log*
 backend/pnpm-error.log*
+backend/package-lock.json
 
 # Environment variables
 .env
@@ -37,3 +38,6 @@ Thumbs.db
 
 # TypeScript build outputs
 *.tsbuildinfo
+
+# Ignore package-lock.json globally
+package-lock.json
