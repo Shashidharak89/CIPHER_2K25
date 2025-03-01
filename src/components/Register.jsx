@@ -64,6 +64,7 @@ const Register = () => {
       <form className="register-form" onSubmit={handleSubmit}>
         <input
           type="text"
+          className="team-name"
           placeholder="Team Name"
           required
           value={teamName}
@@ -71,6 +72,7 @@ const Register = () => {
         />
         <input
           type="text"
+          className="leader-name"
           placeholder="Team Leader Name"
           required
           value={leaderName}
@@ -78,6 +80,7 @@ const Register = () => {
         />
         <input
           type="number"
+          className="num-of-members"
           min="1"
           max="10"
           placeholder="Number of Members"
@@ -105,7 +108,8 @@ const Register = () => {
               required
               onChange={(e) => handleFileUpload(index, e.target.files[0])}
             />
-            {member.photo && <p className="file-name">File selected</p>} {/* Show default text */}
+             {/* Show default text */}
+             
           </div>
         ))}
 
@@ -116,6 +120,7 @@ const Register = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        
         <button type="submit" className="register-btn" disabled={loading}>
           {loading ? "Registering..." :!status? "Submit":"Submitted"}
         </button>
