@@ -6,11 +6,13 @@
   color: white;
   padding: 50px 0;
   text-align: center;
+  /* display: flex;
+  align-content:center; */
 }
 
 .event-box {
-  width: 90%;
-  max-width: 800px;
+  width: 13%;
+  height: 40%;
   margin: 40px auto;
   padding: 40px;
   background: linear-gradient(135deg, #ff0066, #330033);
@@ -19,6 +21,7 @@
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   position: relative;
+  align-content: center;
 }
 
 .event-box:hover {
@@ -37,6 +40,11 @@
   font-size: 18px;
   margin-top: 10px;
   opacity: 0.9;
+}
+
+.eventimg{
+  width: 100%;
+  object-fit: contain;
 }
 
 .view-more {
@@ -88,6 +96,15 @@
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(255, 0, 102, 0.8);
   animation: popupFadeIn 0.3s ease-in-out;
+}
+.popup-content ul{
+  text-align: left;
+  list-style: none;
+}
+
+.popup-content ul li{
+  margin-bottom: 20px;
+
 }
 
 @keyframes popupFadeIn {
