@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import "./styles/Register.css";
+import SampleContext from "./contexts/SampleContext";
 
 const Register = () => {
   const [teamName, setTeamName] = useState("");
@@ -10,6 +11,8 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+
+  const {URL}=useContext(SampleContext);
 
   const handleMemberChange = (index, field, value) => {
     const updatedMembers = [...members];
@@ -41,10 +44,11 @@ const Register = () => {
     });
 
     try {
-      const res = await axios.post("http://localhost:5000/api/team/register", formData, {
+      const res = await axios.post(URL+"/api/team/register", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setMessage(res.data.message);
+      console.log("data submitted");
     } catch (error) {
       setMessage(error.response?.data?.error || "Something went wrong");
     }
