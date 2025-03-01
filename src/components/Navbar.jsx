@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="squid-navbar">
-        <div className="logo">CIPHER</div>
+        <div className="logo">CIPHER-2K25</div>
 
         <div className="nav-links">
           <Link to="/" className="nav-item">Home</Link>
