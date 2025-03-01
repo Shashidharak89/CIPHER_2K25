@@ -1,21 +1,21 @@
-import React,{ useState } from 'react'
-import Navbar from './components/Navbar'
-import Sidebar from './components/Sidebar'
-import Home from './components/Home'
-import Footer from './components/Footer'
-
+import React from 'react';
+import { Routes, Route } from 'react-router-dom'; // Import Routes and Route
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Register from './components/Register';
+import Footer from './components/Footer';
 
 function App() {
-  
-
   return (
-    <div>
-      <Navbar/>
-      {/* <Sidebar/> */}
-      <Home/>
-      <Footer/>
-    </div>
-  )
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+      <Footer />
+    </>
+  );
 }
 
-export default App
+export default App;

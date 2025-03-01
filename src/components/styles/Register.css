@@ -10,6 +10,7 @@
   box-shadow: 0 0 15px #ff0066;
   text-align: center;
   border: 2px solid #ff0066;
+  margin-top: 80px;
 }
 
 .register-title {
@@ -124,6 +125,7 @@
   .register-container {
     padding: 20px;
     width: 90%;
+    margin-top: 70px;
   }
 
   .register-form input, .register-btn {

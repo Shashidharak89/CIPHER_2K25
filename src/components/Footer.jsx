@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="squid-footer">
       <div className="footer-content">
-        <h2 className="footer-title">CIPHER - IT FEST 2025</h2>
+        <h2 className="footer-title">CIPHER - 2K25</h2>
         <p className="footer-text">
           Inspired by Squid Game | Join the ultimate tech battle!
         </p>
