@@ -31,7 +31,7 @@ const eventsData = [
     headno:"89512 85746"  
   },
   { name: "The Front man Challenge", 
-    description: "Test your coding skills against the best!",
+    description: "Game on: play to win, survive the game",
     img:"/eventimgs/coding.jpeg",
     rules:"Number of participants: 1.Number of rounds: 4.Qualification for the next round will be based on the performance of participants, in the previous round.Round 1, 2 & 3 will be conducted prior the fest.Topics will be disclosed on the same day.Top 4 teams will be selected for the final round.The Judges dicision will be final.There is elimination in every round.",
     ehead:"Vinita Viniyola Fernandes",
@@ -54,21 +54,22 @@ const eventsData = [
   { name: "The Survival hunt", 
     description: "Test your coding skills against the best!",
     img:"/eventimgs/coding.jpeg",
-    rules:"",
-    ehead:"",
-    headno:"" 
+    rules:"Make a team of 2 memebers, Each team must include one participant from each year. Taking help from non-participants will lead to the immediate disqualification of the team. Participants cannot be involved in the IT Quiz, Photography & videography events. GENERAL RULES for each round will be updated prior to the start of the round.",
+    ehead:"Sanath Shetty",
+    headno:"97416 30689"
+
   },
   { name: "Risk It All", 
     description: "Test your coding skills against the best!",
     img:"/eventimgs/coding.jpeg",
-    rules:"Make a team of 2 memebers, Each team must include one participant from each year. Taking help from non-participants will lead to the immediate disqualification of the team. Participants cannot be involved in the IT Quiz, Photography & videography events. GENERAL RULES for each round will be updated prior to the start of the round.",
-    ehead:"Sanath Shetty",
-    headno:"97416 30689" 
+    rules:"There will be two participants ( 1 Boy, 1 Girl) There will be 6 rounds. Event will be conducted on the spot. There is elimination in every round. Judge’s decision is final.",
+    ehead:"Anusha Shetty",
+    headno:"83102 21587" 
   },
   { name: "Squilog", 
     description: "Test your coding skills against the best!",
     img:"/eventimgs/coding.jpeg",
-    rules:"The competition duration is strictly 1 minute.Each team must consist of exactly 2 participants.Please ensure that no vulgarity is allowedRespect Privacy and GENERAL RULES avoid filming in restricted areas.Participants are allowed to shoot their vlogs between 8:00 am - 9:30 am and 3:45 pm - 4:30 pm.The topic and its corresponding guidelines for the vlog will be provided soon.The vlog must be presented in either Kannada or English.The decision of the judges and organisers shall be final and binding on all participants.",
+    rules:"The competition duration is strictly 1 minute.Each team must consist of exactly 2 participants.Please ensure that no vulgarity is allowed Respect Privacy and GENERAL RULES avoid filming in restricted areas.Participants are allowed to shoot their vlogs between 8:00 am - 9:30 am and 3:45 pm - 4:30 pm.The topic and its corresponding guidelines for the vlog will be provided soon.The vlog must be presented in either Kannada or English.The decision of the judges and organisers shall be final and binding on all participants.",
     ehead:"Mahammad Razik",
     headno:"73376 16956" 
   },
@@ -146,6 +147,7 @@ const EventsSection = () => {
             </ul>
             <h3>{selectedEvent.ehead}</h3>
             <h3>{selectedEvent.headno}</h3>
+            <button className="close-popup" onClick={() => setSelectedEvent(null)}>Close</button>
             <button className="close-popup" onClick={() => setSelectedEvent(null)}>Close</button>
           </div>
         </div>
