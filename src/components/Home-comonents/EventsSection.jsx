@@ -68,37 +68,37 @@ const eventsData = [
   { name: "Squilog", 
     description: "Test your coding skills against the best!",
     img:"/eventimgs/coding.jpeg",
-    rules:"",
-    ehead:"",
-    headno:"" 
+    rules:"The competition duration is strictly 1 minute.Each team must consist of exactly 2 participants.Please ensure that no vulgarity is allowedRespect Privacy and GENERAL RULES avoid filming in restricted areas.Participants are allowed to shoot their vlogs between 8:00 am - 9:30 am and 3:45 pm - 4:30 pm.The topic and its corresponding guidelines for the vlog will be provided soon.The vlog must be presented in either Kannada or English.The decision of the judges and organisers shall be final and binding on all participants.",
+    ehead:"Mahammad Razik",
+    headno:"73376 16956" 
   },
   { name: "Mimic Mania", 
     description: "Test your coding skills against the best!",
     img:"/eventimgs/coding.jpeg",
-    rules:"",
-    ehead:"",
-    headno:"" 
+    rules:"There will be two participants.There will be multiple rounds. There must be two players on each team—one to play and the other to assist.Players have to finish the assignment in the allotted time for each round. The team receives a point if they properly estimate the task within the allotted time. Familiarity with web series and films(all language), as well as proficiency with IT and a few common expressions.Elimination is included.",
+    ehead:"Kavya",
+    headno:"87924 36605" 
   },
   { name: "Run For Survival", 
     description: "Test your coding skills against the best!",
     img:"/eventimgs/coding.jpeg",
-    rules:"",
-    ehead:"",
-    headno:"" 
+    rules:"Participants-1(anyone can participate).Event will be held on track (outdoor).There will be 2 rounds.Elimination will be done in each round.Properties will be provided by the event handlers.",
+    ehead:"Shawn veigas",
+    headno:"8050365040" 
   },
   { name: "Sutter Bug", 
     description: "Test your coding skills against the best!",
     img:"/eventimgs/coding.jpeg",
-    rules:"",
-    ehead:"",
-    headno:"" 
+    rules:"Two members from a team.  Topics will be given on the spot.  Only mobile phones are allowed for [photography videography] .For photography editing is not allowed. Video length must be 30s.  Participants of photography  & videography are not allowed to take part in Tresure Hunt, It Quiz, It manager.",
+    ehead:"Vineeth Hv",
+    headno:"99017 92801" 
   },
   { name: "Squid Sketch", 
     description: "Test your coding skills against the best!",
     img:"/eventimgs/coding.jpeg",
-    rules:"",
-    ehead:"",
-    headno:"" 
+    rules:"Time allotted: 1 hour.Number of participants – 2The theme of the content is given on the spot.Laptops are provided by event handlers.No participants are allowed to bring mobile phones.Internet facility will be provided (If required).Participants are asked to gather before 10 min of the event.Each teams are allowed to create only one poster.Pre-edited posters are not allowed.Using templates in Canva are not allowed. If found the team will be disqualified.",
+    ehead:"Ashwin Rodrigues",
+    headno:"8317383882" 
   }
 
 ];
