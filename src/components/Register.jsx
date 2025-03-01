@@ -11,6 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const[status,setStatus]=useState(false);
 
   const {URL}=useContext(SampleContext);
 
@@ -31,6 +32,7 @@ const Register = () => {
     e.preventDefault();
     setLoading(true);
     setMessage("");
+    setStatus(true);
 
     const formData = new FormData();
     formData.append("teamName", teamName);
@@ -115,7 +117,7 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
         <button type="submit" className="register-btn" disabled={loading}>
-          {loading ? "Registering..." : "Submit"}
+          {loading ? "Registering..." :!status? "Submit":"Submitted"}
         </button>
       </form>
     </div>
