@@ -1,17 +1,17 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const TeamSchema = new mongoose.Schema({
+const teamSchema = new mongoose.Schema({
   teamName: { type: String, required: true },
-  teamLeader: { type: String, required: true },
-  contactNumber: { type: String, required: true },
-  membersCount: { type: Number, required: true },
+  leaderName: { type: String, required: true },
+  numMembers: { type: Number, required: true },
+  password: { type: String, required: true },
   members: [
     {
       name: { type: String, required: true },
-      image: { type: String, required: true }, // Cloudinary URL
-    }
+      photoUrl: { type: String },
+    },
   ],
-  password: { type: String, required: true } // Bcrypted
 });
 
-export default mongoose.model("Team", TeamSchema);
+const Team = mongoose.model("Team", teamSchema);
+module.exports = Team;

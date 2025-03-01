@@ -1,8 +1,11 @@
-import express from "express";
-import { registerTeam, upload } from "../controllers/teamController.js";
+const express = require("express");
+const { registerTeam } = require("../controllers/teamController");
+const multer = require("multer");
+const { cloudinaryStorage } = require("../utils/multerConfig");
 
+const upload = multer({ storage: cloudinaryStorage });
 const router = express.Router();
 
-router.post("/register", upload.array("images", 5), registerTeam); // Accepts multiple images
+router.post("/register", upload.array("photos"), registerTeam);
 
-export default router;
+module.exports = router;
