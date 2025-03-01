@@ -1,56 +1,31 @@
-import Team from "../models/Team.js";
-import bcrypt from "bcryptjs";
-import { v2 as cloudinary } from "cloudinary";
-import multer from "multer";
+const Team = require("../models/Team");
+const bcrypt = require("bcrypt");
 
-// Cloudinary Configuration
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
-});
-
-// Multer Storage (Temporary)
-const storage = multer.memoryStorage();
-const upload = multer({ storage });
-
-export const registerTeam = async (req, res) => {
+const registerTeam = async (req, res) => {
   try {
-    const { teamName, teamLeader, contactNumber, membersCount, password } = req.body;
-    
-    // Hash Password
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const { teamName, leaderName, numMembers, password, members } = req.body;
+    const parsedMembers = JSON.parse(members); // Convert string to object
 
-    // Upload Images to Cloudinary
-    const uploadedMembers = await Promise.all(
-      req.files.map(async (file) => {
-        const result = await cloudinary.uploader.upload_stream({
-          folder: "team_members"
-        }, (error, result) => {
-          if (error) throw new Error(error);
-          return result.secure_url;
-        }).end(file.buffer);
-        
-        return { name: req.body.memberNames, image: result };
-      })
-    );
+    const hashedPassword = await bcrypt.hash(password, 10); // Encrypt password
 
-    // Save to MongoDB
+    const memberDetails = parsedMembers.map((member, index) => ({
+      name: member.name,
+      photoUrl: req.files[index]?.path || null, // Cloudinary URL
+    }));
+
     const newTeam = new Team({
       teamName,
-      teamLeader,
-      contactNumber,
-      membersCount,
-      members: uploadedMembers,
-      password: hashedPassword
+      leaderName,
+      numMembers,
+      password: hashedPassword,
+      members: memberDetails,
     });
 
     await newTeam.save();
-    res.status(201).json({ message: "Team registered successfully" });
+    res.status(201).json({ message: "Team registered successfully!" });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
 };
 
-// Export Multer Upload Middleware
-export { upload };
+module.exports = { registerTeam };
