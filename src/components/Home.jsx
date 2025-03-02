@@ -4,7 +4,6 @@ import EventsSection from './Home-comonents/EventsSection';
 import Register from './Register';
 import TeamSelection from './Register-component/TeamSelection';
 import BugSlayer from './Event-components/BugSlayer';
-
 const Home=()=>{
     return (
         <div>
@@ -13,7 +12,7 @@ const Home=()=>{
             {/* <Register/> */}
             {/* <BugSlayer/> */}
 
-            <TeamSelection/>
+            {/* <TeamSelection/> */}
         </div>
     )
 }
