@@ -12,15 +12,17 @@ const TeamSelection = () => {
   const [password, setPassword] = useState("");
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
 
-  const {URL}=useContext(SampleContext);
+  const { URL } = useContext(SampleContext);
+
   // Fetch Teams and Events
   useEffect(() => {
-    axios.get(URL+"/api/team/getusers").then((response) => {
+    axios.get(`${URL}/api/team/getusers`).then((response) => {
       setTeams(response.data);
     });
 
-    axios.get(URL+"/api/event/events").then((response) => {
+    axios.get(`${URL}/api/event/events`).then((response) => {
       setEvents(response.data);
     });
   }, []);
@@ -44,8 +46,20 @@ const TeamSelection = () => {
     }
   }, [selectedTeam, password]);
 
+  // Check if the selected team is already registered in the selected event
+  useEffect(() => {
+    if (selectedEvent && selectedTeam) {
+      const isRegistered = selectedEvent.participants.some(
+        (participant) => participant.teamid === selectedTeam._id
+      );
+      setIsAlreadyRegistered(isRegistered);
+    } else {
+      setIsAlreadyRegistered(false);
+    }
+  }, [selectedEvent, selectedTeam]);
+
   const handleSubmit = () => {
-    if (!selectedTeam || !selectedEvent) return;
+    if (!selectedTeam || !selectedEvent || isAlreadyRegistered) return;
 
     const payload = {
       teamname: selectedTeam.teamName,
@@ -88,7 +102,7 @@ const TeamSelection = () => {
 
       {selectedTeam && selectedEvent && (
         <>
-          <label>Select Members (Max: {selectedEvent.maxparticipants}):</label>
+          <label>Select Members (Max: {selectedEvent.maxentry}):</label>
           <div className="members-container">
             {selectedTeam.members.map((member) => (
               <div key={member._id} className="member-item">
@@ -96,7 +110,7 @@ const TeamSelection = () => {
                   <input
                     type="checkbox"
                     disabled={
-                      selectedMembers.length >= selectedEvent.maxparticipants &&
+                      selectedMembers.length >= selectedEvent.maxentry &&
                       !selectedMembers.find((m) => m._id === member._id)
                     }
                     checked={selectedMembers.some((m) => m._id === member._id)}
@@ -124,7 +138,11 @@ const TeamSelection = () => {
           />
           {errorMessage && <p className="error">{errorMessage}</p>}
 
-          <button disabled={!isPasswordValid} onClick={handleSubmit}>
+          {isAlreadyRegistered && (
+            <p className="error">This team is already registered for the selected event.</p>
+          )}
+
+          <button disabled={!isPasswordValid || isAlreadyRegistered} onClick={handleSubmit}>
             Submit
           </button>
         </>
