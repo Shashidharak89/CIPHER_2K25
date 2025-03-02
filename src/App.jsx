@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Footer from './components/Footer';
 import EventsSection from './components/Home-comonents/EventsSection';
+import BugSlayer from './components/Event-components/BugSlayer';
 
 function App() {
   return (
@@ -18,6 +19,8 @@ function App() {
         <Route path="/EventsSection" element={<EventsSection/>} />
 
         <Route path="/register" element={<Register />} />
+
+        <Route path="/team" element={<BugSlayer/>} />
       </Routes>
       <Footer />
     </>

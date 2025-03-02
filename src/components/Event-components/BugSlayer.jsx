@@ -7,14 +7,15 @@ import SampleContext from "../contexts/SampleContext";
 
 const BugSlayer = () => {
   const [eventData, setEventData] = useState(null);
+  
 
-  const {URL}=useContext(SampleContext);
+  const {URL,index}=useContext(SampleContext);
 
   useEffect(() => {
     axios.get(URL+"/api/event/events")
       .then(response => {
         if (response.data.length > 0) {
-          setEventData(response.data[0]);
+          setEventData(response.data[index]);
         }
       })
       .catch(error => console.error("Error fetching event data:", error));
