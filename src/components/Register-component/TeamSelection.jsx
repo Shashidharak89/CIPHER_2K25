@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import "./styles/TeamSelection.css";
+import SampleContext from "../contexts/SampleContext";
 
 const TeamSelection = () => {
   const [teams, setTeams] = useState([]);
@@ -12,13 +13,14 @@ const TeamSelection = () => {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const {URL}=useContext(SampleContext);
   // Fetch Teams and Events
   useEffect(() => {
-    axios.get("http://localhost:5000/api/team/getusers").then((response) => {
+    axios.get(URL+"/api/team/getusers").then((response) => {
       setTeams(response.data);
     });
 
-    axios.get("http://localhost:5000/api/event/events").then((response) => {
+    axios.get(URL+"/api/event/events").then((response) => {
       setEvents(response.data);
     });
   }, []);
@@ -27,7 +29,7 @@ const TeamSelection = () => {
   useEffect(() => {
     if (selectedTeam && password) {
       axios
-        .get(`http://localhost:5000/api/team/${selectedTeam._id}/${password}`)
+        .get(`${URL}/api/team/${selectedTeam._id}/${password}`)
         .then((res) => {
           setIsPasswordValid(res.data.success);
           setErrorMessage(res.data.success ? "" : "Incorrect password");
@@ -55,7 +57,7 @@ const TeamSelection = () => {
     };
 
     axios
-      .post(`http://localhost:5000/api/event/events/${selectedEvent._id}/participants`, payload)
+      .post(`${URL}/api/event/events/${selectedEvent._id}/participants`, payload)
       .then(() => alert("Team Registered Successfully"))
       .catch((err) => console.error(err));
   };
