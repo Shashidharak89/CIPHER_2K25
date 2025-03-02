@@ -1,112 +1,103 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styles/TeamSelection.css";
-import SampleContext from "../contexts/SampleContext";
 
 const TeamSelection = () => {
   const [teams, setTeams] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState(null);
-  const [selectedMembers, setSelectedMembers] = useState({});
-
-  const {URL}=useContext(SampleContext);
+  const [selectedEvent, setSelectedEvent] = useState("");
+  const [selectedParticipants, setSelectedParticipants] = useState({});
 
   useEffect(() => {
-    axios.get(URL+"/api/team/getusers")
+    axios.get("http://localhost:5000/api/team/getusers")
       .then(response => setTeams(response.data))
       .catch(error => console.error("Error fetching teams:", error));
   }, []);
 
-  const handleTeamSelect = (teamId) => {
-    const team = teams.find(team => team._id === teamId);
+  const handleTeamChange = (event) => {
+    const team = teams.find(t => t._id === event.target.value);
     setSelectedTeam(team);
-    setSelectedMembers({});
+    setSelectedParticipants({});
   };
 
-  const handleMemberSelect = (eventName, member) => {
-    const eventLimit = selectedTeam.events[eventName]?.numParticipants || 0;
-    const currentMembers = selectedMembers[eventName] || [];
+  const handleEventChange = (event) => {
+    setSelectedEvent(event.target.value);
+    setSelectedParticipants({});
+  };
 
-    if (currentMembers.includes(member)) {
-      // Remove member if already selected
-      setSelectedMembers({
-        ...selectedMembers,
-        [eventName]: currentMembers.filter(m => m !== member),
-      });
-    } else if (currentMembers.length < eventLimit) {
-      // Add member if limit is not exceeded
-      setSelectedMembers({
-        ...selectedMembers,
-        [eventName]: [...currentMembers, member],
-      });
-    }
+  const handleParticipantSelection = (member) => {
+    setSelectedParticipants(prev => {
+      const updated = { ...prev };
+      if (updated[member._id]) {
+        delete updated[member._id];
+      } else {
+        updated[member._id] = member;
+      }
+      return updated;
+    });
   };
 
   const handleSubmit = () => {
-    const requests = [];
+    if (!selectedTeam || !selectedEvent) return alert("Please select a team and an event");
+    
+    const participants = Object.values(selectedParticipants);
+    if (participants.length !== selectedTeam.numMembers) {
+      return alert(`Please select exactly ${selectedTeam.numMembers} participants`);
+    }
 
-    Object.entries(selectedMembers).forEach(([eventName, members]) => {
-      members.forEach(member => {
-        requests.push(
-          axios.post(URL+"/api/team/adduser", {
-            teamId: selectedTeam._id,
-            eventName,
-            userName: member.name,
-            imageUrl: member.photoUrl
-          })
-        );
-      });
-    });
-
-    Promise.all(requests)
-      .then(() => alert("Users added to all selected events successfully!"))
-      .catch(error => console.error("Error adding users:", error));
+    axios.post("http://localhost:5000/api/team/adduser", {
+      teamId: selectedTeam._id,
+      eventName: selectedEvent,
+      participants: participants.map(p => ({
+        userName: p.name,
+        imageUrl: p.photoUrl
+      }))
+    })
+    .then(() => alert("Participants successfully added!"))
+    .catch(error => console.error("Error submitting participants:", error));
   };
-
-  // Check if all events have the exact required number of participants
-  const isSubmitDisabled = !selectedTeam || 
-    Object.keys(selectedTeam.events).some(event =>
-      (selectedMembers[event]?.length || 0) !== selectedTeam.events[event]?.numParticipants
-    );
 
   return (
     <div className="team-selection-container">
-      <h1 className="title">Select Team & Event Members</h1>
-      <select className="dropdown" onChange={(e) => handleTeamSelect(e.target.value)}>
+      <h1 className="title">Team Selection</h1>
+      <select onChange={handleTeamChange} className="dropdown">
         <option value="">Select a Team</option>
-        {teams.map(team => <option key={team._id} value={team._id}>{team.teamName}</option>)}
+        {teams.map(team => (
+          <option key={team._id} value={team._id}>{team.teamName}</option>
+        ))}
       </select>
 
       {selectedTeam && (
-        <>
-          {Object.keys(selectedTeam.events).map(event => (
-            <div key={event} className="event-section">
-              <h2 className="subtitle">
-                {event} - Select {selectedTeam.events[event]?.numParticipants} Participants
-              </h2>
-              <div className="members-list">
-                {selectedTeam.members.map(member => (
-                  <div 
-                    key={member._id} 
-                    className={`member-item ${selectedMembers[event]?.includes(member) ? "selected" : ""}`}
-                    onClick={() => handleMemberSelect(event, member)}
-                  >
-                    <img src={member.photoUrl} alt={member.name} className="member-photo" />
-                    <span className="member-name">{member.name}</span>
-                    {selectedMembers[event]?.includes(member) && <span className="tick-mark">✔</span>}
-                  </div>
-                ))}
-              </div>
+        <div>
+          <h2 className="subtitle">Select Event</h2>
+          <select onChange={handleEventChange} className="dropdown">
+            <option value="">Choose an Event</option>
+            {Object.keys(selectedTeam.events || {}).map(event => (
+              <option key={event} value={event}>{event}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
+      {selectedEvent && (
+        <div className="participants-container">
+          <h3 className="subtitle">Select Participants</h3>
+          {selectedTeam.members.map(member => (
+            <div key={member._id} className="participant-card">
+              <img src={member.photoUrl} alt={member.name} className="participant-img" />
+              <span>{member.name}</span>
+              <input
+                type="checkbox"
+                checked={!!selectedParticipants[member._id]}
+                onChange={() => handleParticipantSelection(member)}
+              />
             </div>
           ))}
+        </div>
+      )}
 
-          <button 
-            className="submit-btn" 
-            onClick={handleSubmit} 
-            disabled={isSubmitDisabled}
-          >
-            Submit
-          </button>
-        </>
+      {selectedEvent && (
+        <button className="submit-btn" onClick={handleSubmit}>Submit</button>
       )}
     </div>
   );

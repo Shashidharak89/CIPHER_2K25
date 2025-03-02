@@ -1,103 +1,76 @@
-.team-selection-container {
-    max-width: 600px;
+body {
+    background-color: #000;
+    color: white;
+    font-family: 'Squid Game Font', sans-serif;
+    text-align: center;
+  }
+  
+  .team-selection-container {
+    width: 80%;
     margin: auto;
     padding: 20px;
-    background: black;
-    color: white;
-    border: 2px solid red;
+    background: #111;
     border-radius: 10px;
-    text-align: center;
+    box-shadow: 0px 0px 15px #ff0055;
   }
   
   .title {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: red;
-    font-family: 'Squid Game', sans-serif;
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #ff0055;
   }
   
   .dropdown {
-    width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
     background: black;
     color: white;
-    border: 2px solid red;
-    cursor: pointer;
-  }
-  
-  .event-section {
-    margin-top: 20px;
-    border: 2px solid red;
-    padding: 15px;
+    border: 2px solid #ff0055;
     border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 20px;
   }
   
-  .subtitle {
-    color: white;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .members-list {
+  .participants-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
   }
   
-  .member-item {
-    position: relative;
-    width: 100px;
-    margin: 10px;
+  .participant-card {
+    background: #222;
     padding: 10px;
+    border-radius: 10px;
     text-align: center;
-    border: 2px solid white;
-    cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0px 0px 10px #ff0055;
+    transition: transform 0.3s ease-in-out;
   }
   
-  .member-item:hover {
-    background: red;
-    color: black;
+  .participant-card:hover {
+    transform: scale(1.1);
   }
   
-  .selected {
-    border: 2px solid green;
-    background: red;
-  }
-  
-  .member-photo {
-    width: 50px;
-    height: 50px;
+  .participant-img {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-  }
-  
-  .member-name {
-    display: block;
-    margin-top: 5px;
-  }
-  
-  .tick-mark {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    font-size: 18px;
-    color: green;
+    border: 3px solid #ff0055;
   }
   
   .submit-btn {
     margin-top: 20px;
     padding: 10px 20px;
-    background: red;
+    font-size: 1.2em;
+    background: #ff0055;
     color: white;
     border: none;
     cursor: pointer;
-    transition: 0.3s;
-    font-size: 16px;
+    border-radius: 5px;
+    transition: background 0.3s;
   }
   
-  .submit-btn:disabled {
-    background: grey;
-    cursor: not-allowed;
+  .submit-btn:hover {
+    background: #ff3366;
   }
   
