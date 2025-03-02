@@ -11,7 +11,7 @@ const Home=()=>{
             <HeroSection/>
             <EventsSection/>
             {/* <Register/> */}
-            <BugSlayer/>
+            {/* <BugSlayer/> */}
 
             <TeamSelection/>
         </div>
