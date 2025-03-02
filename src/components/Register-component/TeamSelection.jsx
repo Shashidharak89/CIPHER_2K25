@@ -23,19 +23,14 @@ const TeamSelection = () => {
     });
   }, []);
 
-  // Verify password when team & password are selected
+  // Verify password
   useEffect(() => {
     if (selectedTeam && password) {
       axios
         .get(`http://localhost:5000/api/team/${selectedTeam._id}/${password}`)
         .then((res) => {
-          if (res.data.success) {
-            setIsPasswordValid(true);
-            setErrorMessage("");
-          } else {
-            setIsPasswordValid(false);
-            setErrorMessage("Incorrect password");
-          }
+          setIsPasswordValid(res.data.success);
+          setErrorMessage(res.data.success ? "" : "Incorrect password");
         })
         .catch(() => {
           setIsPasswordValid(false);
@@ -92,27 +87,32 @@ const TeamSelection = () => {
       {selectedTeam && selectedEvent && (
         <>
           <label>Select Members (Max: {selectedEvent.maxparticipants}):</label>
-          {selectedTeam.members.map((member) => (
-            <div key={member._id} className="member-item">
-              <input
-                type="checkbox"
-                disabled={
-                  selectedMembers.length >= selectedEvent.maxparticipants &&
-                  !selectedMembers.find((m) => m._id === member._id)
-                }
-                checked={selectedMembers.some((m) => m._id === member._id)}
-                onChange={(e) => {
-                  setSelectedMembers((prev) =>
-                    e.target.checked
-                      ? [...prev, member]
-                      : prev.filter((m) => m._id !== member._id)
-                  );
-                }}
-              />
-              <img src={member.photoUrl} alt={member.name} className="member-img" />
-              <span>{member.name}</span>
-            </div>
-          ))}
+          <div className="members-container">
+            {selectedTeam.members.map((member) => (
+              <div key={member._id} className="member-item">
+                <label className="custom-checkbox">
+                  <input
+                    type="checkbox"
+                    disabled={
+                      selectedMembers.length >= selectedEvent.maxparticipants &&
+                      !selectedMembers.find((m) => m._id === member._id)
+                    }
+                    checked={selectedMembers.some((m) => m._id === member._id)}
+                    onChange={(e) => {
+                      setSelectedMembers((prev) =>
+                        e.target.checked
+                          ? [...prev, member]
+                          : prev.filter((m) => m._id !== member._id)
+                      );
+                    }}
+                  />
+                  <span className="checkmark"></span>
+                </label>
+                <img src={member.photoUrl} alt={member.name} className="member-img" />
+                <span>{member.name}</span>
+              </div>
+            ))}
+          </div>
 
           <label>Enter Password:</label>
           <input
