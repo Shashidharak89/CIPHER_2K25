@@ -1,0 +1,103 @@
+.team-selection-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: black;
+    color: white;
+    border: 2px solid red;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: red;
+    font-family: 'Squid Game', sans-serif;
+  }
+  
+  .dropdown {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: black;
+    color: white;
+    border: 2px solid red;
+    cursor: pointer;
+  }
+  
+  .event-section {
+    margin-top: 20px;
+    border: 2px solid red;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  .subtitle {
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .members-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .member-item {
+    position: relative;
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .member-item:hover {
+    background: red;
+    color: black;
+  }
+  
+  .selected {
+    border: 2px solid green;
+    background: red;
+  }
+  
+  .member-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .member-name {
+    display: block;
+    margin-top: 5px;
+  }
+  
+  .tick-mark {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 18px;
+    color: green;
+  }
+  
+  .submit-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+  }
+  
+  .submit-btn:disabled {
+    background: grey;
+    cursor: not-allowed;
+  }
+  
