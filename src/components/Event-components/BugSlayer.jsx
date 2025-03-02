@@ -24,7 +24,7 @@ const BugSlayer = () => {
   return (
     <div className="bug-slayer-container">
       <header className="header">
-        <h1 className="event-title">{eventData ? eventData.eventname : "Loading..."}</h1>
+        <h1 className="event-title1">{eventData ? eventData.eventname : "Loading..."}</h1>
         <p className="host-info">Hosted by Shashidhara K | Ph: 7760770725</p>
       </header>
       

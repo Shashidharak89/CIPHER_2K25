@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import "./styles/EventsSection.css";
 import { useNavigate } from "react-router-dom";
 import SampleContext from "../contexts/SampleContext";
+import {motion} from 'framer-motion';
 
 const eventsData = [
   {
@@ -158,8 +159,6 @@ const EventsSection = () => {
       {eventsData.map((event, index) => (
         <div key={index} className="event-box">
           <img src={event.img} alt="" className="eventimg" />
-          <h2 className="event-title">{event.name}</h2>
-          <p className="event-description">{event.description}</p>
           <button
             className="view-more"
             onClick={() => {
@@ -169,6 +168,12 @@ const EventsSection = () => {
           >
             View More
           </button>
+          <motion.h2
+          initial={{x:-20}}
+          whileInView={{x:0}}
+          className="event-name">{event.name}</motion.h2>
+          <p className="event-description">{event.description}</p>
+
         </div>
       ))}
       {selectedEvent && (
