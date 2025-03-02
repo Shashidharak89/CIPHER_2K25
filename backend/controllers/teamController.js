@@ -1,6 +1,7 @@
 const Team = require("../models/Team");
 const bcrypt = require("bcrypt");
 
+// Register a new team
 const registerTeam = async (req, res) => {
   try {
     const { teamName, leaderName, numMembers, password, members } = req.body;
@@ -28,4 +29,35 @@ const registerTeam = async (req, res) => {
   }
 };
 
-module.exports = { registerTeam }; 
+// Get all teams (excluding password)
+const getAllTeams = async (req, res) => {
+  try {
+    const teams = await Team.find().select("-password"); // Exclude password field
+    res.status(200).json(teams);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+// Verify password (GET /:id/:password)
+const verifyTeamPassword = async (req, res) => {
+  try {
+    const { id, password } = req.params;
+
+    const team = await Team.findById(id);
+    if (!team) {
+      return res.status(404).json({ success: false, message: "Team not found" });
+    }
+
+    const isMatch = await bcrypt.compare(password, team.password);
+    if (isMatch) {
+      res.json({ success: true, message: "Password is correct" });
+    } else {
+      res.status(401).json({ success: false, message: "Incorrect password" });
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+module.exports = { registerTeam, getAllTeams, verifyTeamPassword };
