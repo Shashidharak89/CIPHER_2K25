@@ -12,7 +12,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/events" element={<EventsSection/>} />
+
+        <Route path="/EventsSection" element={<EventsSection/>} />
+
         <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
