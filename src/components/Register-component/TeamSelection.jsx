@@ -13,6 +13,8 @@ const TeamSelection = () => {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
+  const [status,setStatus]=useState("Submit");
+  // const [registering,setRegistering]=useState();
 
   const { URL } = useContext(SampleContext);
 
@@ -25,7 +27,7 @@ const TeamSelection = () => {
     axios.get(`${URL}/api/event/events`).then((response) => {
       setEvents(response.data);
     });
-  }, []);
+  }, [URL]);
 
   // Verify password
   useEffect(() => {
@@ -44,7 +46,7 @@ const TeamSelection = () => {
       setIsPasswordValid(false);
       setErrorMessage("");
     }
-  }, [selectedTeam, password]);
+  }, [selectedTeam, password, URL]);
 
   // Check if the selected team is already registered in the selected event
   useEffect(() => {
@@ -60,7 +62,7 @@ const TeamSelection = () => {
 
   const handleSubmit = () => {
     if (!selectedTeam || !selectedEvent || isAlreadyRegistered) return;
-
+setStatus("Registering..")
     const payload = {
       teamname: selectedTeam.teamName,
       teamid: selectedTeam._id,
@@ -72,7 +74,11 @@ const TeamSelection = () => {
 
     axios
       .post(`${URL}/api/event/events/${selectedEvent._id}/participants`, payload)
-      .then(() => alert("Team Registered Successfully"))
+      .then(() => {
+        // alert("Team Registered Successfully");
+        setIsAlreadyRegistered(true);
+        setStatus("Registered");
+      })
       .catch((err) => console.error(err));
   };
 
@@ -81,7 +87,12 @@ const TeamSelection = () => {
       <h1>Team Registration</h1>
 
       <label>Select Your Team:</label>
-      <select onChange={(e) => setSelectedTeam(teams.find((t) => t._id === e.target.value))}>
+      <select
+        onChange={(e) => {
+          const team = teams.find((t) => t._id === e.target.value);
+          setSelectedTeam(team || null);
+        }}
+      >
         <option value="">-- Select Team --</option>
         {teams.map((team) => (
           <option key={team._id} value={team._id}>
@@ -91,7 +102,12 @@ const TeamSelection = () => {
       </select>
 
       <label>Select Event:</label>
-      <select onChange={(e) => setSelectedEvent(events.find((ev) => ev._id === e.target.value))}>
+      <select
+        onChange={(e) => {
+          const event = events.find((ev) => ev._id === e.target.value);
+          setSelectedEvent(event || null);
+        }}
+      >
         <option value="">-- Select Event --</option>
         {events.map((event) => (
           <option key={event._id} value={event._id}>
@@ -143,7 +159,8 @@ const TeamSelection = () => {
           )}
 
           <button disabled={!isPasswordValid || isAlreadyRegistered} onClick={handleSubmit}>
-            Submit
+{status}
+      {/* {!status?"Submit":"Submitted"} */}
           </button>
         </>
       )}
