@@ -13,6 +13,10 @@ const EventSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  maxentry:{
+    type:Number,
+    required:true,
+  },
   participants: [
     {
       teamname: {

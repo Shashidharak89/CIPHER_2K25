@@ -3,8 +3,8 @@ const Event = require("../models/Event");
 // Create an empty Event
 exports.createEvent = async (req, res) => {
     try {
-        const { event, eventname, maxparticipants } = req.body;
-        const newEvent = new Event({ event, eventname, maxparticipants, participants: [] });
+        const { event, eventname, maxparticipants,maxentry } = req.body;
+        const newEvent = new Event({ event, eventname, maxparticipants,maxentry, participants: [] });
         await newEvent.save();
         res.status(201).json(newEvent);
     } catch (error) {
