@@ -13,7 +13,7 @@ const TeamSelection = () => {
   const [isPasswordValid, setIsPasswordValid] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
-  const [status,setStatus]=useState("Submit");
+  const [status, setStatus] = useState("Submit");
   // const [registering,setRegistering]=useState();
 
   const { URL } = useContext(SampleContext);
@@ -62,7 +62,7 @@ const TeamSelection = () => {
 
   const handleSubmit = () => {
     if (!selectedTeam || !selectedEvent || isAlreadyRegistered) return;
-setStatus("Registering..")
+    setStatus("Registering..")
     const payload = {
       teamname: selectedTeam.teamName,
       teamid: selectedTeam._id,
@@ -159,8 +159,8 @@ setStatus("Registering..")
           )}
 
           <button disabled={!isPasswordValid || isAlreadyRegistered} onClick={handleSubmit}>
-{status}
-      {/* {!status?"Submit":"Submitted"} */}
+            {status}
+            {/* {!status?"Submit":"Submitted"} */}
           </button>
         </>
       )}

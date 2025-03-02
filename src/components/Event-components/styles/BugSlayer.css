@@ -1,0 +1,118 @@
+.bug-slayer-container {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+    font-family: "Squid Game", sans-serif;
+    overflow: hidden;
+  }
+  
+  .header {
+    margin-bottom: 40px;
+  }
+  
+  .event-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ff004f;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .host-info {
+    font-size: 1rem;
+    margin-top: 5px;
+    color: #bbb;
+  }
+  
+  .team-section {
+    margin: 50px 0;
+    padding: 20px;
+    border: 2px solid #ff004f;
+    border-radius: 15px;
+    background: rgba(255, 0, 79, 0.1);
+    backdrop-filter: blur(5px);
+  }
+  
+  .team-name {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .image-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .participant-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #ff004f;
+    box-shadow: 0 0 20px rgba(255, 0, 79, 0.8);
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s;
+  }
+  
+  .participant-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 0, 79, 1);
+  }
+  
+  .name-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ff004f;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 15px;
+    border-radius: 10px;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .participant-image {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .event-title {
+      font-size: 2rem;
+    }
+  
+    .team-name {
+      font-size: 1.5rem;
+    }
+  
+    .participant-image {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .name {
+      font-size: 1.2rem;
+    }
+  }
+  
