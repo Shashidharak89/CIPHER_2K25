@@ -87,7 +87,7 @@ const Register = () => {
           required
           value={numMembers}
           onChange={(e) => {
-            const count = parseInt(e.target.value, 10);
+            const count = parseInt(e.target.value, 20);
             setNumMembers(count);
             setMembers(Array.from({ length: count }, () => ({ name: "", photo: null })));
           }}

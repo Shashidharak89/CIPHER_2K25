@@ -85,7 +85,7 @@ const TeamSelection = () => {
   return (
     <div>
     <div className="team-selection">
-      <h1>Team Registration</h1>
+      <h1>Event Registration</h1>
 
       <label>Select Your Team:</label>
       <select

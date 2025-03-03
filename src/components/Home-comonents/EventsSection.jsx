@@ -196,7 +196,7 @@ const EventsSection = () => {
               className="close-popup"
               onClick={() => handleTeams(selectedIndex)} // Pass the stored index
             >
-              Teams {selectedIndex}
+              Teams
             </button>
             <button className="close-popup" onClick={() => setSelectedEvent(null)}>
               Close
