@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
 .team-selection {
     background: black;
     color: white;
@@ -6,9 +8,11 @@
     max-width: 400px;
     margin: auto;
     text-align: center;
-    font-family: 'Squid Game', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     box-shadow: 0px 0px 15px rgba(255, 0, 85, 0.6);
     animation: fadeIn 0.8s ease-in-out;
+    /* margin-top: 30px; */
+    /* margin-bottom: 30px; */
   }
   
   @keyframes fadeIn {

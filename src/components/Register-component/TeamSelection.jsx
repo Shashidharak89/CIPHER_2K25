@@ -83,6 +83,7 @@ const TeamSelection = () => {
   };
 
   return (
+    <div>
     <div className="team-selection">
       <h1>Team Registration</h1>
 
@@ -164,6 +165,8 @@ const TeamSelection = () => {
           </button>
         </>
       )}
+    </div>
+    <br /><br />
     </div>
   );
 };
