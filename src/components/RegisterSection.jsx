@@ -1,4 +1,5 @@
 import Register from "./Register";
+import Teams from "./Register-component/Teams";
 import TeamSelection from "./Register-component/TeamSelection";
 import './styles/RegisterSection.css';
 const RegisterSection=()=>{
@@ -7,6 +8,7 @@ const RegisterSection=()=>{
 
             <Register/>
             <TeamSelection/>
+            <Teams/>
 
         </div>
     );
