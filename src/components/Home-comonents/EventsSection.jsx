@@ -7,7 +7,7 @@ import {motion} from 'framer-motion';
 const eventsData = [
   {
     name: "BUG SLAYER",
-    description: "Test your coding skills against the best!",
+    description: "Crack the code, rule the game.",
     img: "/eventimgs/coding.jpeg",
     rules: "Each team should make a team of two members.There will be 3 rounds.Participants should have knowledge of C,C++,java, Data Structure and general knowledge of Computer Science.They should be comfortable using Turbo C and Visual Studio Code.There is elimination in each round.Internet and smart phones are strictly prohibited.Judges decision is final.",
     ehead: "Shashidhara K",

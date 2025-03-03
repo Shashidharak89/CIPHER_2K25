@@ -14,13 +14,16 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/events" element={<EventsSection/>} />
+        <Route path="*" element={<Home />} />
+
+        {/* <Route path="/events" element={<EventsSection/>} /> */}
 
         <Route path="/EventsSection" element={<EventsSection/>} />
 
         <Route path="/register" element={<RegisterSection/>} />
 
         <Route path="/team" element={<BugSlayer/>} />
+
       </Routes>
       <Footer />
     </>
