@@ -1,62 +1,161 @@
-import React, { useContext, useEffect, useState } from "react";
-import axios from "axios";
-import { motion } from "framer-motion";
-import { FaUsers } from "react-icons/fa";
-import "./styles/Teams.css";
-import SampleContext from "../contexts/SampleContext";
+import { useState, useEffect, useContext } from 'react';
+import './styles/Teams.css';
+import SampleContext from '../contexts/SampleContext';
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
-  const [activeTeam, setActiveTeam] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [expandedTeamId, setExpandedTeamId] = useState(null);
+  const [error, setError] = useState(null);
+  const [animatingId, setAnimatingId] = useState(null);
+
+
   const {URL}=useContext(SampleContext);
+
   useEffect(() => {
-    axios
-      .get(URL+"/api/team/getusers")
-      .then((response) => setTeams(response.data))
-      .catch((error) => console.error("Error fetching teams:", error));
+    const fetchTeams = async () => {
+      try {
+        const response = await fetch(URL+'/api/team/getusers');
+        if (!response.ok) {
+          throw new Error('Failed to fetch teams');
+        }
+        const data = await response.json();
+        setTeams(data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchTeams();
   }, []);
 
-  const toggleTeam = (teamId) => {
-    setActiveTeam(activeTeam === teamId ? null : teamId);
+  const toggleTeamExpand = (teamId) => {
+    if (animatingId) return; // Prevent clicking during animation
+    
+    setAnimatingId(teamId);
+    setTimeout(() => setAnimatingId(null), 600); // Match animation duration
+    
+    setExpandedTeamId(expandedTeamId === teamId ? null : teamId);
   };
 
-  return (
-    <div className="teams-container">
-      {teams.map((team) => (
-        <motion.div
-          key={team._id}
-          className="team-card"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <div
-            className="team-header"
-            onClick={() => toggleTeam(team._id)}
-            onMouseEnter={() => setActiveTeam(team._id)}
-            onMouseLeave={() => setActiveTeam(null)}
-          >
-            <FaUsers className="team-icon" />
-            <h2>{team.teamName}</h2>
+  if (loading) {
+    return (
+      <div className="sg-loading-container">
+        <div className="sg-logo">
+          <div className="sg-shapes">
+            <div className="sg-triangle"></div>
+            <div className="sg-circle"></div>
+            <div className="sg-square"></div>
           </div>
-          <motion.div
-            className={`team-members ${activeTeam === team._id ? "show" : ""}`}
-            initial={{ opacity: 0, y: -10 }}
-            animate={activeTeam === team._id ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }}
-            transition={{ duration: 0.5 }}
+        </div>
+        <p className="sg-loading-text">LOADING TEAMS...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="sg-error">
+        <div className="sg-error-icon">!</div>
+        <h3 className="sg-error-title">GAME ERROR</h3>
+        <p className="sg-error-message">{error}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="sg-teams-container">
+      <div className="sg-header">
+        <div className="sg-logo-small">
+          <div className="sg-triangle-small"></div>
+          <div className="sg-circle-small"></div>
+          <div className="sg-square-small"></div>
+        </div>
+        <h1 className="sg-title">PLAYER TEAMS</h1>
+      </div>
+      
+      <div className="sg-teams-list">
+        {teams.map((team) => (
+          <div 
+            key={team._id} 
+            className={`sg-team-card ${expandedTeamId === team._id ? 'sg-expanded' : ''} ${animatingId === team._id ? 'sg-animating' : ''}`}
           >
-            {team.members.map((member) => (
-              <motion.div
-                key={member._id}
-                className="member-card"
-                whileHover={{ scale: 1.1 }}
-              >
-                <img src={member.photoUrl} alt={member.name} />
-                <p>{member.name}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      ))}
+            <div 
+              className="sg-team-header"
+              onClick={() => toggleTeamExpand(team._id)}
+            >
+              <div className="sg-team-number">#{team._id.slice(-3)}</div>
+              <h2 className="sg-team-name">{team.teamName}</h2>
+              <div className="sg-team-stats">
+                <span className="sg-team-member-count">{team.numMembers} PLAYERS</span>
+              </div>
+              <div className="sg-team-badge">
+                {expandedTeamId === team._id ? (
+                  <span className="sg-badge-icon">▼</span>
+                ) : (
+                  <span className="sg-badge-icon">▲</span>
+                )}
+              </div>
+            </div>
+            
+            <div className="sg-team-details">
+              <div className="sg-team-info">
+                <div className="sg-info-row">
+                  <div className="sg-info-label">LEADER</div>
+                  <div className="sg-info-value">{team.leaderName}</div>
+                </div>
+                <div className="sg-separator">
+                  <div className="sg-separator-line"></div>
+                  <div className="sg-separator-circle"></div>
+                  <div className="sg-separator-line"></div>
+                </div>
+              </div>
+              
+              <h3 className="sg-members-title">TEAM ROSTER</h3>
+              
+              <div className="sg-members-wrapper">
+                <div className="sg-members-grid">
+                  {team.members.map((member, index) => (
+                    <div 
+                      key={member._id} 
+                      className="sg-member-card"
+                      style={{animationDelay: `${index * 0.1}s`}}
+                    >
+                      <div className="sg-member-photo-wrapper">
+                        <div className="sg-photo-frame">
+                          <img 
+                            src={member.photoUrl} 
+                            alt={`${member.name}`} 
+                            className="sg-member-photo" 
+                          />
+                        </div>
+                        <div className="sg-player-number">
+                          <span>{member._id.slice(-3)}</span>
+                        </div>
+                      </div>
+                      <div className="sg-member-info">
+                        <p className="sg-member-name">{member.name}</p>
+                        <div className="sg-member-status">ACTIVE</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div className="sg-footer">
+        <div className="sg-footer-decoration">
+          <span className="sg-footer-diamond"></span>
+          <span className="sg-footer-line"></span>
+          <span className="sg-footer-diamond"></span>
+        </div>
+        <p className="sg-footer-text">TOTAL TEAMS: {teams.length}</p>
+      </div>
     </div>
   );
 };
