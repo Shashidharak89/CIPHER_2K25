@@ -2,7 +2,8 @@ import { useContext, useState } from "react";
 import "./styles/EventsSection.css";
 import { useNavigate } from "react-router-dom";
 import SampleContext from "../contexts/SampleContext";
-import {motion} from 'framer-motion';
+import { motion } from 'framer-motion';
+import bug_slayer from './images/bug_slayer.jpg';
 
 const eventsData = [
   {
@@ -169,9 +170,9 @@ const EventsSection = () => {
             View More
           </button>
           <motion.h2
-          initial={{x:-20}}
-          whileInView={{x:0}}
-          className="event-name">{event.name}</motion.h2>
+            initial={{ x: -20 }}
+            whileInView={{ x: 0 }}
+            className="event-name">{event.name}</motion.h2>
           <p className="event-description">{event.description}</p>
 
         </div>
@@ -192,12 +193,12 @@ const EventsSection = () => {
             </ul>
             <h3>{selectedEvent.ehead}</h3>
             <h3>{selectedEvent.headno}</h3>
-            <button
+            {/* <button
               className="close-popup"
-              onClick={() => handleTeams(selectedIndex)} // Pass the stored index
+              onClick={() => handleTeams(selectedIndex)} 
             >
               Teams
-            </button>
+            </button> */}
             <button className="close-popup" onClick={() => setSelectedEvent(null)}>
               Close
             </button>

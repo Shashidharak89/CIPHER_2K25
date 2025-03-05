@@ -1,14 +1,14 @@
-import Register from "./Register";
-import Teams from "./Register-component/Teams";
-import TeamSelection from "./Register-component/TeamSelection";
+// import Register from "./Register";
+// import Teams from "./Register-component/Teams";
+// import TeamSelection from "./Register-component/TeamSelection";
 import './styles/RegisterSection.css';
 const RegisterSection=()=>{
     return(
         <div className="register-section">
 
-            <Register/>
+            {/* <Register/>
             <TeamSelection/>
-            <Teams/>
+            <Teams/> */}
 
         </div>
     );
