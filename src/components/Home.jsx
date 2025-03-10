@@ -9,6 +9,7 @@ const Home=()=>{
         <div>
             <HeroSection/>
             <EventsSection/>
+
             {/* <Register/> */}
             {/* <BugSlayer/> */}
 

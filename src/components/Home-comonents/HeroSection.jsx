@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import "./styles/HeroSection.css";
+import bg from './images/bg.jpg'
 
 const textVariants = {
   hidden: { opacity: 0, y: 100, scale: 0.8 },
@@ -28,10 +29,10 @@ const boxVariants = {
 };
 
 const texts = [
-  "SACRED HEART COLLEGE MADANTHYAR",
-  "Department of BCA",
-  "IT FORUM PRESENTS",
-  "CIPHER 2K25",
+  // "SACRED HEART COLLEGE MADANTHYAR",
+  // "Department of BCA",
+  // "IT FORUM PRESENTS",
+  // "CIPHER 2K25",
   '"Would You Like to Play a Game?"',
 ];
 
@@ -60,6 +61,7 @@ const HeroSection = () => {
           </div>
         ))}
       </div>
+<img src={bg} alt="" className="imagebg" />
       <div className="overlay"></div>
     </section>
   );

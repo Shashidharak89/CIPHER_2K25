@@ -158,7 +158,12 @@ const EventsSection = () => {
   return (
     <section className="events-section">
       {eventsData.map((event, index) => (
-        <div key={index} className="event-box">
+        <motion.div 
+        initial={{ rotate: -10, scale: 0.8, opacity: 0 }}
+        whileInView={{ rotate: 0, scale: 1, opacity: 1 }}
+        transition={{ duration: 0.1, ease: "easeOut" }}
+               
+        key={index} className="event-box">
           <img src={event.img} alt="" className="eventimg" />
           <button
             className="view-more"
@@ -175,7 +180,7 @@ const EventsSection = () => {
             className="event-name">{event.name}</motion.h2>
           <p className="event-description">{event.description}</p>
 
-        </div>
+        </motion.div>
       ))}
       {selectedEvent && (
         <div className="popup-overlay show">
