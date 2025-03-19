@@ -1,12 +1,14 @@
 import React from 'react';
-import HeroSection from './Home-comonents/HeroSection';
-import EventsSection from './Home-comonents/EventsSection';
-import Register from './Register';
-import TeamSelection from './Register-component/TeamSelection';
-import BugSlayer from './Event-components/BugSlayer';
-import RegisterSection from './RegisterSection';
-import RegisterLatest from './RegisterLatest';
+// import HeroSection from './Home-comonents/HeroSection';
+// import EventsSection from './Home-comonents/EventsSection';
+// import Register from './Register';
+// import TeamSelection from './Register-component/TeamSelection';
+// import BugSlayer from './Event-components/BugSlayer';
+// import RegisterSection from './RegisterSection';
+// import RegisterLatest from './RegisterLatest';
 import HeroCL from './Home-comonents/HeroCL';
+import DepInfoCL2 from './Home-comonents/DepInfoCL2';
+// import DepInfoCL from './Home-comonents/DepInfoCL';
 // import NavbarCL from './NavbarCL';
 const Home=()=>{
     return (
@@ -14,13 +16,15 @@ const Home=()=>{
             {/* <HeroSection/> */}
             <HeroCL/>
             {/* <NavbarCL/> */}
-            <EventsSection/>
+            {/* <EventsSection/> */}
 
-            <Register/>
+            {/* <Register/> */}
             {/* <BugSlayer/> */}
 
             {/* <TeamSelection/> */}
-            <RegisterLatest/>
+            {/* <RegisterLatest/> */}
+            {/* <DepInfoCL/> */}
+            <DepInfoCL2/>
         </div>
     )
 }

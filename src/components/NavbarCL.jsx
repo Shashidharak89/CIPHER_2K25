@@ -40,7 +40,7 @@ const NavbarCL = () => {
 
         <div className={`navbar-links ${isOpen ? 'active' : ''}`}>
           <ul>
-            <li><Link to="/home" className="navbar-link">Home</Link></li>
+            <li><Link to="/" className="navbar-link">Home</Link></li>
             <li><Link to="/events" className="navbar-link">Events</Link></li>
             <li><Link to="/schedule" className="navbar-link">Schedule</Link></li>
             <li><Link to="/sponsors" className="navbar-link">Sponsors</Link></li>
