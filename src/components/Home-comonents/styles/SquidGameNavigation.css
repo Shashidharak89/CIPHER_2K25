@@ -1,0 +1,496 @@
+.squid-game-navigation {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  /* Creative Background */
+  .squid-game-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  /* Background elements */
+  .background-element {
+    position: absolute;
+    opacity: 0.2;
+    bottom: -100px;
+    animation: floatUp linear infinite;
+    pointer-events: none;
+  }
+  
+  .bg-circle {
+    border-radius: 50%;
+    border: 2px solid #ff0066;
+  }
+  
+  .bg-triangle {
+    width: 0 !important;
+    height: 0 !important;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #ff0066;
+  }
+  
+  .bg-square {
+    border: 2px solid #ff0066;
+  }
+  
+  .bg-umbrella {
+    border-radius: 50% 50% 0 0;
+    border: 2px solid #ff0066;
+    border-bottom: none;
+    position: relative;
+  }
+  
+  .bg-umbrella::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background-color: #ff0066;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Spotlights */
+  .spotlight {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.2;
+    pointer-events: none;
+  }
+  
+  .spotlight-1 {
+    background-color: #ff0066;
+    top: -100px;
+    left: 20%;
+    animation: spotlightMove1 15s infinite alternate ease-in-out;
+  }
+  
+  .spotlight-2 {
+    background-color: #9900cc;
+    bottom: -100px;
+    right: 20%;
+    animation: spotlightMove2 18s infinite alternate ease-in-out;
+  }
+  
+  /* Money particles for Squid Game theme */
+  .money-particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  
+  .money-particle {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background-color: rgba(76, 175, 80, 0.3);
+    border: 1px solid rgba(76, 175, 80, 0.8);
+    top: -50px;
+    animation: moneyFall linear infinite;
+    transform: rotate(10deg);
+  }
+  
+  .money-particle::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(76, 175, 80, .8);
+    left: 5px;
+    top: -3px;
+  }
+  
+  /* Mask animation when scrolled into view */
+  .squid-game-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: maskFadeOut 3s forwards;
+    z-index: 100;
+  }
+  
+  .squid-game-mask-circle,
+  .squid-game-mask-triangle,
+  .squid-game-mask-square {
+    position: absolute;
+    opacity: 0;
+    animation: shapeAppear 2s forwards;
+  }
+  
+  .squid-game-mask-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #ff0066;
+    animation-delay: 0.3s;
+  }
+  
+  .squid-game-mask-triangle {
+    width: 0;
+    height: 0;
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 120px solid #ff0066;
+    transform: translateX(-120px);
+    animation-delay: 0.6s;
+  }
+  
+  .squid-game-mask-square {
+    width: 100px;
+    height: 100px;
+    border: 4px solid #ff0066;
+    transform: translateX(120px);
+    animation-delay: 0.9s;
+  }
+  
+  /* Navigation container */
+  .squid-game-navigation-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .squid-game-navigation-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .squid-game-navigation-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    padding: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: rgba(255, 0, 102, 0.1);
+    border: 2px solid #ff0066;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    transform: scale(0);
+    animation: popIn 0.5s forwards;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+  }
+  
+  .squid-game-navigation-item::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff0066, transparent);
+    top: 0;
+    left: -100%;
+    transition: all 0.5s ease;
+    z-index: -1;
+  }
+  
+  .squid-game-navigation-item:hover::before {
+    left: 0;
+  }
+  
+  .squid-game-navigation-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 0, 102, 0.3);
+  }
+  
+  .squid-game-navigation-item.clicked {
+    animation: pulse 0.5s;
+  }
+  
+  .squid-game-navigation-icon {
+    margin-bottom: 15px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .shape-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .shape-square {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .shape-umbrella {
+    width: 40px;
+    height: 20px;
+    border-radius: 20px 20px 0 0;
+    border: 3px solid #ffffff;
+    border-bottom: none;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  
+  .shape-umbrella::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    background-color: #ffffff;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .squid-game-navigation-item:hover .shape-circle,
+  .squid-game-navigation-item:hover .shape-triangle,
+  .squid-game-navigation-item:hover .shape-square,
+  .squid-game-navigation-item:hover .shape-umbrella {
+    transform: scale(1.2) rotate(360deg);
+  }
+  
+  .squid-game-navigation-text {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 0, 102, 0.7);
+  }
+  
+  /* Doll animation */
+  .squid-game-doll {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 140px;
+    animation: dollMove 4s infinite alternate;
+    z-index: 10;
+  }
+  
+  .squid-game-doll-head {
+    width: 60px;
+    height: 60px;
+    background-color: #ff0066;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+  }
+  
+  .squid-game-doll-head::before,
+  .squid-game-doll-head::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #000000;
+    border-radius: 50%;
+    top: 20px;
+  }
+  
+  .squid-game-doll-head::before {
+    left: 15px;
+  }
+  
+  .squid-game-doll-head::after {
+    right: 15px;
+  }
+  
+  .squid-game-doll-body {
+    width: 40px;
+    height: 80px;
+    background-color: #ff0066;
+    border-radius: 20px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .squid-game-doll-body::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    background-color: #ff0066;
+    border-radius: 10px;
+    top: 20px;
+    left: -10px;
+  }
+  
+  /* Animations */
+  @keyframes popIn {
+    0% {
+      transform: scale(0);
+    }
+    80% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+      background-color: rgba(255, 0, 102, 0.5);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes maskFadeOut {
+    0% {
+      background-color: #0a0a0a;
+    }
+    90% {
+      background-color: #0a0a0a;
+    }
+    100% {
+      background-color: transparent;
+    }
+  }
+  
+  @keyframes shapeAppear {
+    0% {
+      opacity: 0;
+      transform: translateY(50px) scale(0.5);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0) scale(1.2);
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(0) scale(3);
+    }
+  }
+  
+  @keyframes dollMove {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    25% {
+      transform: translateX(-20px) rotate(-5deg);
+    }
+    75% {
+      transform: translateX(20px) rotate(5deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+  
+  /* Background element animations */
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 0.2;
+    }
+    50% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(-1000px) rotate(360deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Spotlight animations */
+  @keyframes spotlightMove1 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(200px, 200px);
+    }
+  }
+  
+  @keyframes spotlightMove2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-200px, -200px);
+    }
+  }
+  
+  /* Money falling animation */
+  @keyframes moneyFall {
+    0% {
+      transform: translateY(0) rotate(10deg);
+      opacity: 0.6;
+    }
+    80% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translateY(1000px) rotate(45deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .squid-game-navigation-container {
+      flex-direction: column;
+    }
+  
+    .squid-game-navigation-item {
+      margin: 10px 0;
+      width: 100px;
+      height: 100px;
+    }
+  }

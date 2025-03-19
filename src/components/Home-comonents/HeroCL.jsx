@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './styles/HeroCL.css';
-import SquidGameNav from './SquidGameNav';
+// import SquidGameNav from './SquidGameNav';
+import SquidGameNavigation from './SquidGameNavigation';
 
 const HeroCL = () => {
   const textRef = useRef(null);
@@ -127,17 +128,20 @@ const HeroCL = () => {
       </div>
       
 
-      <SquidGameNav/>
+      {/* <SquidGameNav/> */}
       {/* Navigation section */}
-      {/* <div className="navigation-section" ref={nextSectionRef}>
-        <div className="nav-container">
+      <div className="navigation-section" ref={nextSectionRef}>
+      <SquidGameNavigation/>
+
+        {/* <div className="nav-container">
+        
           <div className="nav-item">Games</div>
           <div className="nav-item">Players</div>
           <div className="nav-item">Rules</div>
           <div className="nav-item">Prizes</div>
           <div className="nav-item">Join</div>
-        </div>
-      </div> */}
+        </div> */}
+      </div>
     </>
   );
 };
