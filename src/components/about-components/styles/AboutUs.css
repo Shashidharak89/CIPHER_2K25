@@ -1,0 +1,497 @@
+/* AboutUs.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+.cipher-about-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #181818;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  overflow: hidden;
+  /* padding: 3rem 1rem; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.cipher-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cipher-floating-objects {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.cipher-floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  pointer-events: none;
+  animation: cipher-float 15s infinite ease-in-out;
+  transition: transform 2s ease-in-out;
+}
+
+.cipher-floating-shape:nth-child(3n) {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border-radius: 0;
+}
+
+.cipher-floating-shape:nth-child(3n+1) {
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  border-radius: 0;
+}
+
+.cipher-mask-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0L100 50L50 100L0 50Z' fill='%23FF0067' fill-opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.cipher-card {
+  position: relative;
+  width: 90%;
+  max-width: 1100px;
+  background-color: #0d0d0d;
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  box-shadow: 0 20px 50px rgba(255, 0, 103, 0.3);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.cipher-card-triangle,
+.cipher-card-circle,
+.cipher-card-square {
+  position: absolute;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.cipher-card-triangle {
+  width: 400px;
+  height: 400px;
+  background-color: #FF0067;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  top: -100px;
+  right: -100px;
+  transform: rotate(30deg);
+  animation: cipher-pulse 5s infinite alternate;
+}
+
+.cipher-card-circle {
+  width: 300px;
+  height: 300px;
+  background-color: #00FF94;
+  border-radius: 50%;
+  bottom: -150px;
+  left: -150px;
+  animation: cipher-pulse 7s infinite alternate;
+}
+
+.cipher-card-square {
+  width: 200px;
+  height: 200px;
+  background-color: #ffffff;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation: cipher-rotate 20s infinite linear;
+}
+
+.cipher-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+.cipher-title {
+  font-size: 4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 0, 103, 0.7);
+  animation: cipher-flicker 5s infinite alternate;
+}
+
+.cipher-year {
+  color: #FF0067;
+}
+
+.cipher-divider {
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, #FF0067, #00FF94);
+  margin: 1.5rem auto;
+  border-radius: 5px;
+}
+
+.cipher-squid-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.cipher-squid-shapes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.cipher-triangle,
+.cipher-circle,
+.cipher-square {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff;
+  animation: cipher-bounce 2s infinite alternate;
+}
+
+.cipher-triangle {
+  background-color: #FF0067;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  animation-delay: 0s;
+}
+
+.cipher-circle {
+  background-color: #00FF94;
+  border-radius: 50%;
+  animation-delay: 0.3s;
+}
+
+.cipher-square {
+  background-color: #ffffff;
+  animation-delay: 0.6s;
+}
+
+.cipher-subtitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 1rem 0;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 148, 0.7);
+}
+
+.cipher-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #d0d0d0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cipher-college-info {
+  margin: 2.5rem 0;
+  padding: 1.5rem;
+  background-color: rgba(255, 0, 103, 0.1);
+  border-radius: 10px;
+  border-left: 5px solid #FF0067;
+}
+
+.cipher-college-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.cipher-department {
+  font-size: 1.1rem;
+  color: #00FF94;
+}
+
+.cipher-button-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.cipher-button {
+  position: relative;
+  padding: 1rem 2rem;
+  background-color: #FF0067;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cipher-button-secondary {
+  background-color: transparent;
+  border: 2px solid #00FF94;
+  color: #00FF94;
+}
+
+.cipher-button-text {
+  position: relative;
+  z-index: 2;
+}
+
+.cipher-button-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00FF94;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+
+.cipher-button-secondary .cipher-button-hover {
+  background-color: #00FF94;
+}
+
+.cipher-button:hover .cipher-button-hover {
+  transform: translateX(0);
+}
+
+.cipher-button:hover {
+  color: #000000;
+}
+
+.cipher-button-secondary:hover {
+  color: #000000;
+}
+
+.cipher-frontman {
+  position: absolute;
+  bottom: -50px;
+  right: 5%;
+  width: 150px;
+  height: 150px;
+  z-index: 4;
+  animation: cipher-rise 3s forwards;
+  opacity: 0;
+  animation-delay: 1s;
+}
+
+.cipher-frontman-mask {
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  mask-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' fill='%23000000'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-image: linear-gradient(45deg, #FF0067, #00FF94);
+}
+
+.cipher-players {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 3;
+}
+
+.cipher-player {
+  position: absolute;
+  bottom: -50px;
+  width: 40px;
+  height: 80px;
+  animation: cipher-player-rise 2s forwards;
+  opacity: 0;
+}
+
+.cipher-player-body {
+  width: 100%;
+  height: 100%;
+  background-color: #FF0067;
+  border-radius: 20px 20px 0 0;
+  position: relative;
+}
+
+.cipher-player-body::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: #000000;
+  border-radius: 50%;
+}
+
+.cipher-player-number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Animations */
+@keyframes cipher-float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(10px, -10px);
+  }
+  50% {
+    transform: translate(-5px, 5px);
+  }
+  75% {
+    transform: translate(-10px, -5px);
+  }
+}
+
+@keyframes cipher-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.05;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.1;
+  }
+}
+
+@keyframes cipher-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes cipher-flicker {
+  0%, 100% {
+    text-shadow: 0 0 15px rgba(255, 0, 103, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 25px rgba(255, 0, 103, 1);
+  }
+}
+
+@keyframes cipher-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes cipher-rise {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cipher-player-rise {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .cipher-title {
+    font-size: 3rem;
+    letter-spacing: 4px;
+  }
+  
+  .cipher-subtitle {
+    font-size: 2rem;
+  }
+  
+  .cipher-card {
+    padding: 3rem 1.5rem;
+  }
+  
+  .cipher-squid-shapes {
+    gap: 1rem;
+  }
+  
+  .cipher-triangle,
+  .cipher-circle,
+  .cipher-square {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .cipher-frontman {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cipher-title {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .cipher-subtitle {
+    font-size: 1.7rem;
+  }
+  
+  .cipher-card {
+    padding: 2rem 1rem;
+  }
+  
+  .cipher-squid-shapes {
+    gap: 0.8rem;
+  }
+  
+  .cipher-triangle,
+  .cipher-circle,
+  .cipher-square {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .cipher-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .cipher-player {
+    width: 30px;
+    height: 60px;
+  }
+}
