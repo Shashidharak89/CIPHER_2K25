@@ -42,7 +42,7 @@ const NavbarCL = () => {
           <ul>
             <li><Link to="/" className="navbar-link">Home</Link></li>
             <li><Link to="/events" className="navbar-link">Events</Link></li>
-            <li><Link to="/schedule" className="navbar-link">Schedule</Link></li>
+            <li><Link to="/about" className="navbar-link">About</Link></li>
             <li><Link to="/sponsors" className="navbar-link">Sponsors</Link></li>
             <li><Link to="/contact" className="navbar-link">Contact</Link></li>
             <li><Link to="/register" className="navbar-link register-button">Register</Link></li>
