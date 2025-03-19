@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import logo from './Home-comonents/images/logo.jpg';
 import './styles/NavbarCL.css';
 
 const NavbarCL = () => {
@@ -30,7 +31,7 @@ const NavbarCL = () => {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo-container">
-          <img src="https://cdn.pixabay.com/photo/2016/12/27/13/10/logo-1933884_1280.png" alt="CIPHER Logo" className="navbar-logo" />
+          <img src={logo} alt="CIPHER Logo" className="navbar-logo" />
           <div className="navbar-title-container">
             <h1 className="navbar-title">CIPHER-2K25</h1>
             <div className="navbar-subtitle">IT FEST</div>

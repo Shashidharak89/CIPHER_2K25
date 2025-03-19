@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './styles/HeroCL.css';
+import SquidGameNav from './SquidGameNav';
 
 const HeroCL = () => {
   const textRef = useRef(null);
@@ -125,8 +126,10 @@ const HeroCL = () => {
         </div>
       </div>
       
+
+      <SquidGameNav/>
       {/* Navigation section */}
-      <div className="navigation-section" ref={nextSectionRef}>
+      {/* <div className="navigation-section" ref={nextSectionRef}>
         <div className="nav-container">
           <div className="nav-item">Games</div>
           <div className="nav-item">Players</div>
@@ -134,7 +137,7 @@ const HeroCL = () => {
           <div className="nav-item">Prizes</div>
           <div className="nav-item">Join</div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
