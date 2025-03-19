@@ -9,6 +9,7 @@ import RegisterSection from './components/RegisterSection';
 import NavbarCL from './components/NavbarCL';
 import About from './components/About';
 import Contact from './components/Contact';
+import Developers from './components/Developers';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         <Route path="/events" element={<EventsSection/>} />
 
         <Route path="/about" element={<About/>} />
+
+        <Route path="/developers" element={<Developers/>} />
 
         <Route path="/contact" element={<Contact/>} />
 

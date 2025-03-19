@@ -1,0 +1,335 @@
+.devcl-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    padding: 2rem;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+  }
+  
+  .devcl-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .devcl-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .devcl-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(to right, #4cc9f0, #f72585);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: devcl-glow 3s ease-in-out infinite alternate;
+  }
+  
+  @keyframes devcl-glow {
+    0% {
+      text-shadow: 0 0 10px rgba(76, 201, 240, 0.5);
+    }
+    100% {
+      text-shadow: 0 0 20px rgba(247, 37, 133, 0.8), 0 0 30px rgba(114, 9, 183, 0.6);
+    }
+  }
+  
+  .devcl-cards-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+  }
+  
+  .devcl-profile-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 
+      0 15px 35px rgba(0, 0, 0, 0.3),
+      0 0 20px rgba(255, 255, 255, 0.1) inset;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+  }
+  
+  .devcl-profile-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(255, 255, 255, 0.2) inset;
+  }
+  
+  .devcl-card-shashi {
+    background: linear-gradient(135deg, rgba(67, 97, 238, 0.2), rgba(58, 12, 163, 0.2));
+    border: 1px solid rgba(67, 97, 238, 0.3);
+  }
+  
+  .devcl-card-wilson {
+    background: linear-gradient(135deg, rgba(247, 37, 133, 0.2), rgba(114, 9, 183, 0.2));
+    border: 1px solid rgba(247, 37, 133, 0.3);
+  }
+  
+  .devcl-card-inner {
+    padding: 2rem;
+  }
+  
+  .devcl-profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .devcl-avatar-container {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    position: relative;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  }
+  
+  .devcl-avatar {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .devcl-avatar-shashi {
+    background-color: #4361ee;
+    background-image: radial-gradient(circle at 30% 30%, #4cc9f0 10%, transparent 40%);
+    animation: devcl-pulse 5s infinite alternate;
+  }
+  
+  .devcl-avatar-wilson {
+    background-color: #7209b7;
+    background-image: radial-gradient(circle at 70% 30%, #f72585 10%, transparent 40%);
+    animation: devcl-pulse 5s infinite alternate-reverse;
+  }
+  
+  @keyframes devcl-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(76, 201, 240, 0.7);
+      transform: scale(1);
+    }
+    50% {
+      box-shadow: 0 0 20px 10px rgba(114, 9, 183, 0.5);
+      transform: scale(1.05);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(247, 37, 133, 0.7);
+      transform: scale(1);
+    }
+  }
+  
+  .devcl-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 1px;
+  }
+  
+  .devcl-role {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0.5rem 0 0;
+    letter-spacing: 1px;
+  }
+  
+  .devcl-profile-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .devcl-bio {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .devcl-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .devcl-skill-tag {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+  }
+  
+  .devcl-card-shashi .devcl-skill-tag {
+    background: linear-gradient(to right, #4361ee, #3a0ca3);
+  }
+  
+  .devcl-card-wilson .devcl-skill-tag {
+    background: linear-gradient(to right, #f72585, #7209b7);
+  }
+  
+  .devcl-skill-tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .devcl-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .devcl-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .devcl-card-shashi .devcl-social-link {
+    background: linear-gradient(135deg, #4361ee, #3a0ca3);
+  }
+  
+  .devcl-card-wilson .devcl-social-link {
+    background: linear-gradient(135deg, #f72585, #7209b7);
+  }
+  
+  .devcl-social-link:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .devcl-social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .devcl-social-link:hover::before {
+    transform: translateX(0);
+  }
+  
+  .devcl-social-icon {
+    font-size: 0;
+  }
+  
+  .devcl-github::after {
+    content: "\f09b";
+    font-family: "Font Awesome 5 Brands";
+    font-size: 1.2rem;
+  }
+  
+  .devcl-linkedin::after {
+    content: "\f08c";
+    font-family: "Font Awesome 5 Brands";
+    font-size: 1.2rem;
+  }
+  
+  .devcl-portfolio::after {
+    content: "\f121";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 1.2rem;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .devcl-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .devcl-cards-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .devcl-profile-card {
+      max-width: 95%;
+    }
+  }
+  
+  /* Add floating animation for cards */
+  .devcl-card-shashi {
+    animation: devcl-float 6s ease-in-out infinite;
+  }
+  
+  .devcl-card-wilson {
+    animation: devcl-float 6s ease-in-out infinite 2s;
+  }
+  
+  @keyframes devcl-float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Add shine effect on hover */
+  .devcl-profile-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: rotate(30deg);
+    transition: all 0.7s ease;
+  }
+  
+  .devcl-profile-card:hover::after {
+    left: 130%;
+  }

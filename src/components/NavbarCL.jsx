@@ -43,7 +43,7 @@ const NavbarCL = () => {
             <li><Link to="/" className="navbar-link">Home</Link></li>
             <li><Link to="/events" className="navbar-link">Events</Link></li>
             <li><Link to="/about" className="navbar-link">About</Link></li>
-            <li><Link to="/sponsors" className="navbar-link">Sponsors</Link></li>
+            <li><Link to="/Developers" className="navbar-link">Developers</Link></li>
             <li><Link to="/contact" className="navbar-link">Contact</Link></li>
             <li><Link to="/register" className="navbar-link register-button">Register</Link></li>
           </ul>
@@ -60,8 +60,8 @@ const NavbarCL = () => {
         <ul>
           <li><Link to="/home" className="navbar-sidebar-link" onClick={toggleMenu}>Home</Link></li>
           <li><Link to="/events" className="navbar-sidebar-link" onClick={toggleMenu}>Events</Link></li>
-          <li><Link to="/schedule" className="navbar-sidebar-link" onClick={toggleMenu}>Schedule</Link></li>
-          <li><Link to="/sponsors" className="navbar-sidebar-link" onClick={toggleMenu}>Sponsors</Link></li>
+          <li><Link to="/about" className="navbar-sidebar-link" onClick={toggleMenu}>About</Link></li>
+          <li><Link to="/developers" className="navbar-sidebar-link" onClick={toggleMenu}>Developers</Link></li>
           <li><Link to="/contact" className="navbar-sidebar-link" onClick={toggleMenu}>Contact</Link></li>
           <li><Link to="/register" className="navbar-sidebar-link register-button-mobile" onClick={toggleMenu}>Register</Link></li>
         </ul>
