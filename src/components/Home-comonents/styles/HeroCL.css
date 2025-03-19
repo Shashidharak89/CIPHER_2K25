@@ -1,3 +1,4 @@
+/* Main container styles */
 .hero-container {
     height: 100vh;
     width: 100%;
@@ -23,9 +24,65 @@
     z-index: 1;
   }
   
+  /* Floating shapes animation */
+  .floating-shape {
+    position: absolute;
+    z-index: 2;
+    opacity: 0.4;
+    pointer-events: none;
+    animation: floatAround 20s linear infinite, colorPulse 8s infinite;
+  }
+  
+  .floating-shape.circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  
+  .floating-shape.triangle {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 60px solid white;
+  }
+  
+  .floating-shape.square {
+    width: 60px;
+    height: 60px;
+    border: 2px solid white;
+  }
+  
+  @keyframes floatAround {
+    0% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    25% {
+      transform: translate(100px, -50px) rotate(90deg) scale(1.2);
+    }
+    50% {
+      transform: translate(50px, 100px) rotate(180deg) scale(0.8);
+    }
+    75% {
+      transform: translate(-100px, 50px) rotate(270deg) scale(1.1);
+    }
+    100% {
+      transform: translate(0, 0) rotate(360deg) scale(1);
+    }
+  }
+  
+  @keyframes colorPulse {
+    0% { border-color: #ff3d7f; }
+    33% { border-color: #32de84; }
+    66% { border-color: #4a90e2; }
+    100% { border-color: #ff3d7f; }
+  }
+  
+  /* Content styling */
   .content {
     position: relative;
-    z-index: 5;
+    z-index: 3;
     text-align: center;
     padding: 2rem;
   }
@@ -43,93 +100,6 @@
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s forwards;
-  }
-  
-  /* Particles animation (Three.js-like effect) */
-  .particles-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 2;
-    overflow: hidden;
-  }
-  
-  .particle {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    pointer-events: none;
-  }
-  
-  /* 3D Cube animation (similar to Three.js effects) */
-  .cube-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 3;
-    perspective: 1000px;
-    pointer-events: none;
-  }
-  
-  .cube {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 30%;
-    right: 15%;
-    transform-style: preserve-3d;
-    animation: rotate 20s infinite linear;
-  }
-  
-  .face {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    opacity: 0.2;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-  }
-  
-  .front {
-    transform: translateZ(75px);
-    background: linear-gradient(45deg, rgba(0, 128, 255, 0.3), rgba(0, 255, 255, 0.3));
-  }
-  
-  .back {
-    transform: rotateY(180deg) translateZ(75px);
-    background: linear-gradient(45deg, rgba(255, 0, 128, 0.3), rgba(255, 0, 255, 0.3));
-  }
-  
-  .right {
-    transform: rotateY(90deg) translateZ(75px);
-    background: linear-gradient(45deg, rgba(0, 255, 128, 0.3), rgba(128, 255, 0, 0.3));
-  }
-  
-  .left {
-    transform: rotateY(-90deg) translateZ(75px);
-    background: linear-gradient(45deg, rgba(255, 128, 0, 0.3), rgba(255, 255, 0, 0.3));
-  }
-  
-  .top {
-    transform: rotateX(90deg) translateZ(75px);
-    background: linear-gradient(45deg, rgba(128, 0, 255, 0.3), rgba(0, 0, 255, 0.3));
-  }
-  
-  .bottom {
-    transform: rotateX(-90deg) translateZ(75px);
-    background: linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(255, 128, 128, 0.3));
-  }
-  
-  @keyframes rotate {
-    0% {
-      transform: rotateX(0) rotateY(0) rotateZ(0);
-    }
-    100% {
-      transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-    }
   }
   
   @keyframes fadeInUp {
@@ -160,7 +130,6 @@
     transition: all 0.3s;
     margin-top: 2rem;
     animation: pulse 2s infinite;
-    z-index: 10;
   }
   
   .glowing-btn::before {
@@ -177,104 +146,240 @@
   .glowing-btn:hover {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
     transform: scale(1.05);
+    background-color: rgba(255, 105, 180, 0.3);
   }
   
   .glowing-btn:hover::before {
     left: 100%;
   }
   
-  .glowing-btn:active {
-    transform: scale(0.95);
-  }
-  
   @keyframes pulse {
     0% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 0 0 rgba(255, 105, 180, 0.6);
     }
     70% {
-      box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+      box-shadow: 0 0 0 15px rgba(255, 105, 180, 0);
     }
     100% {
-      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+      box-shadow: 0 0 0 0 rgba(255, 105, 180, 0);
     }
   }
   
-  /* Add responsive styles */
+  /* Squid Game Themed Elements */
+  .squid-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .pink-soldier {
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    background-color: #ff69b4;
+    bottom: 0;
+    opacity: 0.7;
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 250"><path d="M50,0 C60,50 70,100 50,150 C40,180 30,200 50,250 L20,250 C10,200 10,150 20,100 C30,50 40,25 50,0" /></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 250"><path d="M50,0 C60,50 70,100 50,150 C40,180 30,200 50,250 L20,250 C10,200 10,150 20,100 C30,50 40,25 50,0" /></svg>');
+    mask-size: contain;
+    -webkit-mask-size: contain;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    animation: sway 5s ease-in-out infinite;
+  }
+  
+  .pink-soldier.left {
+    left: 5%;
+    animation-delay: 0.5s;
+  }
+  
+  .pink-soldier.right {
+    right: 5%;
+    transform: scaleX(-1);
+  }
+  
+  @keyframes sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+  }
+  
+  /* Mask animations for transition */
+  .mask-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+  }
+  
+  .mask-container.show {
+    opacity: 1;
+  }
+  
+  .front-man-mask, .circle-mask, .triangle-mask, .square-mask {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scale(0);
+    opacity: 0;
+  }
+  
+  .mask-container.show .front-man-mask {
+    background-color: black;
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="25" y="20" width="50" height="60" rx="5" /><circle cx="50" cy="40" r="15" /></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="25" y="20" width="50" height="60" rx="5" /><circle cx="50" cy="40" r="15" /></svg>');
+    animation: maskAppear 0.5s ease-in forwards, maskFloat 3s ease-in-out infinite;
+    animation-delay: 0s, 0.5s;
+  }
+  
+  .mask-container.show .circle-mask {
+    border-radius: 50%;
+    border: 5px solid #ff69b4;
+    animation: maskAppear 0.5s ease-in forwards, maskFloat 3s ease-in-out infinite;
+    animation-delay: 0.1s, 0.6s;
+    left: 30%;
+  }
+  
+  .mask-container.show .triangle-mask {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #ff69b4;
+    animation: maskAppear 0.5s ease-in forwards, maskFloat 3s ease-in-out infinite;
+    animation-delay: 0.2s, 0.7s;
+  }
+  
+  .mask-container.show .square-mask {
+    border: 5px solid #ff69b4;
+    animation: maskAppear 0.5s ease-in forwards, maskFloat 3s ease-in-out infinite;
+    animation-delay: 0.3s, 0.8s;
+    right: 30%;
+  }
+  
+  @keyframes maskAppear {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes maskFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+  }
+  
+  /* Navigation section */
+  .navigation-section {
+    height: 100vh;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .navigation-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff69b4 0%, #1a1a1a 70%);
+    opacity: 0.1;
+    pointer-events: none;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 2px solid #ff69b4;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    z-index: 2;
+  }
+  
+  .nav-item {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .nav-item::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #ff69b4;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .nav-item:hover {
+    color: #ff69b4;
+  }
+  
+  .nav-item:hover::before {
+    width: 80%;
+  }
+  
+  /* Responsive design */
   @media (max-width: 768px) {
     .hero-text {
       font-size: 2.5rem;
     }
     
-    .cube {
-      width: 100px;
-      height: 100px;
+    .nav-container {
+      flex-direction: column;
+      gap: 1rem;
     }
     
-    .face {
-      width: 100px;
-      height: 100px;
-    }
-    
-    .front, .back {
-      transform: translateZ(50px);
-    }
-    
-    .right, .left {
-      transform: rotateY(90deg) translateZ(50px);
-    }
-    
-    .top, .bottom {
-      transform: rotateX(90deg) translateZ(50px);
+    .pink-soldier {
+      width: 80px;
+      height: 200px;
     }
   }
   
-  /* Add some additional effects when scrolling */
-  @keyframes colorChange {
-    0% { color: #ff0000; }
-    25% { color: #00ff00; }
-    50% { color: #0000ff; }
-    75% { color: #ffff00; }
-    100% { color: #ff0000; }
+  /* Smooth scrolling for whole page */
+  html {
+    scroll-behavior: smooth;
   }
   
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
+  /* Add animation for shape symbols similar to Squid Game */
+  .shape-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    animation: shapeRotate 20s linear infinite;
   }
   
-  /* Next section styling */
-  .next-section {
-    min-height: 100vh;
-    padding: 5rem 2rem;
-    background-color: #121212;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .next-section h2 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    animation: fadeIn 1s ease-in;
-  }
-  
-  .next-section p {
-    font-size: 1.5rem;
-    max-width: 800px;
-    text-align: center;
-    animation: fadeIn 1.5s ease-in;
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  
-  /* GSAP-like staggered animation for background elements */
-  @keyframes floatIn {
-    0% { transform: translateY(100px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+  @keyframes shapeRotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
   }

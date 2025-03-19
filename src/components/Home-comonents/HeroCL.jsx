@@ -4,82 +4,20 @@ import './styles/HeroCL.css';
 const HeroCL = () => {
   const textRef = useRef(null);
   const containerRef = useRef(null);
-  const particlesRef = useRef(null);
-  const [particles, setParticles] = useState([]);
   const nextSectionRef = useRef(null);
+  const [showMasks, setShowMasks] = useState(false);
 
-  // Function to scroll to the next section
-  const scrollToNextSection = () => {
-    const heroHeight = containerRef.current.offsetHeight;
-    window.scrollTo({
-      top: heroHeight,
-      behavior: 'smooth'
+  useEffect(() => {
+    // Initialize animations
+    const letters = textRef.current.querySelectorAll('.letter');
+    letters.forEach((letter, index) => {
+      letter.style.animationDelay = `${index * 0.1}s`;
     });
-  };
 
-  // Create particle animation similar to Three.js effects
-  useEffect(() => {
-    const createParticles = () => {
-      const particleCount = 50;
-      const newParticles = [];
+    // Create floating shapes for background animation
+    createFloatingShapes();
 
-      for (let i = 0; i < particleCount; i++) {
-        newParticles.push({
-          id: i,
-          x: Math.random() * window.innerWidth,
-          y: Math.random() * window.innerHeight,
-          size: Math.random() * 5 + 1,
-          speedX: (Math.random() - 0.5) * 2,
-          speedY: (Math.random() - 0.5) * 2,
-          opacity: Math.random() * 0.5 + 0.2
-        });
-      }
-
-      setParticles(newParticles);
-    };
-
-    createParticles();
-
-    // Animation loop for particles
-    let animationId;
-    const animateParticles = () => {
-      setParticles(prevParticles => 
-        prevParticles.map(particle => {
-          // Update particle position
-          let x = particle.x + particle.speedX;
-          let y = particle.y + particle.speedY;
-          
-          // Bounce off edges
-          if (x > window.innerWidth || x < 0) {
-            particle.speedX *= -1;
-            x = particle.x + particle.speedX;
-          }
-          
-          if (y > window.innerHeight || y < 0) {
-            particle.speedY *= -1;
-            y = particle.y + particle.speedY;
-          }
-          
-          return {
-            ...particle,
-            x,
-            y
-          };
-        })
-      );
-      
-      animationId = requestAnimationFrame(animateParticles);
-    };
-    
-    animateParticles();
-    
-    // Clean up animation
-    return () => {
-      cancelAnimationFrame(animationId);
-    };
-  }, []);
-
-  useEffect(() => {
+    // Handle scroll animation
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       const container = containerRef.current;
@@ -104,38 +42,67 @@ const HeroCL = () => {
       }
     };
 
+    // Create floating shapes for background animation
+    function createFloatingShapes() {
+      const container = containerRef.current;
+      const shapesCount = 5;
+      
+      // Remove any existing shapes
+      const existingShapes = container.querySelectorAll('.floating-shape');
+      existingShapes.forEach(shape => shape.remove());
+      
+      for (let i = 0; i < shapesCount; i++) {
+        const shape = document.createElement('div');
+        shape.className = 'floating-shape';
+        shape.style.top = `${Math.random() * 100}%`;
+        shape.style.left = `${Math.random() * 100}%`;
+        shape.style.animationDuration = `${10 + Math.random() * 20}s`;
+        shape.style.animationDelay = `${Math.random() * 5}s`;
+        
+        // Randomly create circle or triangle or square
+        const shapeType = Math.floor(Math.random() * 3);
+        if (shapeType === 0) {
+          shape.classList.add('circle');
+        } else if (shapeType === 1) {
+          shape.classList.add('triangle');
+        } else {
+          shape.classList.add('square');
+        }
+        
+        container.appendChild(shape);
+      }
+    }
+
     window.addEventListener('scroll', handleScroll);
-    
-    // Initialize animations
-    const letters = textRef.current.querySelectorAll('.letter');
-    letters.forEach((letter, index) => {
-      letter.style.animationDelay = `${index * 0.1}s`;
-    });
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
+  const handleEnterClick = () => {
+    setShowMasks(true);
+    
+    // After showing masks, scroll to next section
+    setTimeout(() => {
+      const nextSection = document.querySelector('.navigation-section');
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 1000);
+  };
+
   return (
     <>
       <div className="hero-container" ref={containerRef}>
-        <div className="particles-container" ref={particlesRef}>
-          {particles.map(particle => (
-            <div 
-              key={particle.id}
-              className="particle"
-              style={{
-                left: `${particle.x}px`,
-                top: `${particle.y}px`,
-                width: `${particle.size}px`,
-                height: `${particle.size}px`,
-                opacity: particle.opacity
-              }}
-            />
-          ))}
-        </div>
         <div className="overlay"></div>
+        
+        {/* Squid Game themed elements */}
+        <div className="squid-elements">
+          <div className="pink-soldier left"></div>
+          <div className="pink-soldier right"></div>
+        </div>
+        
         <div className="content">
           <h1 className="hero-text" ref={textRef}>
             {Array.from("Would you like to play a game?").map((letter, index) => (
@@ -144,25 +111,29 @@ const HeroCL = () => {
               </span>
             ))}
           </h1>
-          <div className="glowing-btn" onClick={scrollToNextSection}>
+          <div className="glowing-btn" onClick={handleEnterClick}>
             <span>ENTER</span>
           </div>
         </div>
-        <div className="cube-container">
-          <div className="cube">
-            <div className="face front"></div>
-            <div className="face back"></div>
-            <div className="face right"></div>
-            <div className="face left"></div>
-            <div className="face top"></div>
-            <div className="face bottom"></div>
-          </div>
+        
+        {/* Squid Game masks animation */}
+        <div className={`mask-container ${showMasks ? 'show' : ''}`}>
+          <div className="front-man-mask"></div>
+          <div className="circle-mask"></div>
+          <div className="triangle-mask"></div>
+          <div className="square-mask"></div>
         </div>
       </div>
-      <div className="next-section" ref={nextSectionRef}>
-        {/* This is where your next section content would go */}
-        <h2>Next Section Content</h2>
-        <p>This is the section that appears after the hero.</p>
+      
+      {/* Navigation section */}
+      <div className="navigation-section" ref={nextSectionRef}>
+        <div className="nav-container">
+          <div className="nav-item">Games</div>
+          <div className="nav-item">Players</div>
+          <div className="nav-item">Rules</div>
+          <div className="nav-item">Prizes</div>
+          <div className="nav-item">Join</div>
+        </div>
       </div>
     </>
   );
