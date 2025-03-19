@@ -1,4 +1,5 @@
 .devcl-container {
+    margin-top: 60px;
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -6,7 +7,8 @@
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
   }
@@ -59,6 +61,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     width: 100%;
+    margin-bottom: 3rem;
   }
   
   .devcl-profile-card {
@@ -209,7 +212,7 @@
   .devcl-social-links {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.8rem;
     margin-top: 0.5rem;
   }
   
@@ -225,6 +228,7 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    font-size: 1.2rem;
   }
   
   .devcl-card-shashi .devcl-social-link {
@@ -256,47 +260,173 @@
     transform: translateX(0);
   }
   
-  .devcl-social-icon {
-    font-size: 0;
+  /* Portfolio section */
+  .devcl-portfolio-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 2rem 0 3rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  .devcl-github::after {
-    content: "\f09b";
-    font-family: "Font Awesome 5 Brands";
-    font-size: 1.2rem;
+  .devcl-portfolio-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
   
-  .devcl-linkedin::after {
-    content: "\f08c";
-    font-family: "Font Awesome 5 Brands";
-    font-size: 1.2rem;
+  .devcl-portfolio-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
   }
   
-  .devcl-portfolio::after {
-    content: "\f121";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    font-size: 1.2rem;
+  .devcl-portfolio-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   }
   
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .devcl-title {
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
-    }
-    
-    .devcl-cards-wrapper {
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    .devcl-profile-card {
-      max-width: 95%;
-    }
+  .devcl-portfolio-shashi {
+    background: linear-gradient(135deg, #4361ee, #3a0ca3);
   }
   
-  /* Add floating animation for cards */
+  .devcl-portfolio-wilson {
+    background: linear-gradient(135deg, #f72585, #7209b7);
+  }
+  
+  .devcl-portfolio-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .devcl-portfolio-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+  
+  .devcl-portfolio-link:hover::before {
+    transform: translateX(0);
+  }
+  
+  .devcl-external-icon {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    margin-left: 0.2rem;
+  }
+  
+  /* Footer styles */
+  .devcl-footer {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 2rem 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+  }
+  
+  .devcl-footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .devcl-footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .devcl-footer-social {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .devcl-footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+  }
+  
+  .devcl-footer-social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .devcl-footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 1.5rem auto 0;
+    padding: 1.5rem 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+  }
+  
+  .devcl-website-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #4361ee, #7209b7);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .devcl-website-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Float animation for cards */
   .devcl-card-shashi {
     animation: devcl-float 6s ease-in-out infinite;
   }
@@ -317,7 +447,7 @@
     }
   }
   
-  /* Add shine effect on hover */
+  /* Shine effect on hover */
   .devcl-profile-card::after {
     content: '';
     position: absolute;
@@ -332,4 +462,41 @@
   
   .devcl-profile-card:hover::after {
     left: 130%;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 992px) {
+    .devcl-footer-content,
+    .devcl-footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .devcl-title {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .devcl-cards-wrapper {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .devcl-profile-card {
+      max-width: 85%;
+    }
+    
+    .devcl-portfolio-links {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .devcl-footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
   }
