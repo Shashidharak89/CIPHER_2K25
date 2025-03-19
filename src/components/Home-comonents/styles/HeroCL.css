@@ -1,0 +1,280 @@
+.hero-container {
+    height: 100vh;
+    width: 100%;
+    background-image: url('https://th.bing.com/th/id/OIP.s8Ya-Y-8mLLxCp9ZzCGf8AHaEK?rs=1&pid=ImgDetMain');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    perspective: 1000px;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .hero-text {
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  
+  .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s forwards;
+  }
+  
+  /* Particles animation (Three.js-like effect) */
+  .particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    overflow: hidden;
+  }
+  
+  .particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    pointer-events: none;
+  }
+  
+  /* 3D Cube animation (similar to Three.js effects) */
+  .cube-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    perspective: 1000px;
+    pointer-events: none;
+  }
+  
+  .cube {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 30%;
+    right: 15%;
+    transform-style: preserve-3d;
+    animation: rotate 20s infinite linear;
+  }
+  
+  .face {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    opacity: 0.2;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+  
+  .front {
+    transform: translateZ(75px);
+    background: linear-gradient(45deg, rgba(0, 128, 255, 0.3), rgba(0, 255, 255, 0.3));
+  }
+  
+  .back {
+    transform: rotateY(180deg) translateZ(75px);
+    background: linear-gradient(45deg, rgba(255, 0, 128, 0.3), rgba(255, 0, 255, 0.3));
+  }
+  
+  .right {
+    transform: rotateY(90deg) translateZ(75px);
+    background: linear-gradient(45deg, rgba(0, 255, 128, 0.3), rgba(128, 255, 0, 0.3));
+  }
+  
+  .left {
+    transform: rotateY(-90deg) translateZ(75px);
+    background: linear-gradient(45deg, rgba(255, 128, 0, 0.3), rgba(255, 255, 0, 0.3));
+  }
+  
+  .top {
+    transform: rotateX(90deg) translateZ(75px);
+    background: linear-gradient(45deg, rgba(128, 0, 255, 0.3), rgba(0, 0, 255, 0.3));
+  }
+  
+  .bottom {
+    transform: rotateX(-90deg) translateZ(75px);
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.3), rgba(255, 128, 128, 0.3));
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotateX(0) rotateY(0) rotateZ(0);
+    }
+    100% {
+      transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Glowing button effect */
+  .glowing-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    background: transparent;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    margin-top: 2rem;
+    animation: pulse 2s infinite;
+    z-index: 10;
+  }
+  
+  .glowing-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.4s;
+  }
+  
+  .glowing-btn:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transform: scale(1.05);
+  }
+  
+  .glowing-btn:hover::before {
+    left: 100%;
+  }
+  
+  .glowing-btn:active {
+    transform: scale(0.95);
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+    }
+    70% {
+      box-shadow: 0 0 0 15px rgba(255, 255, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+  
+  /* Add responsive styles */
+  @media (max-width: 768px) {
+    .hero-text {
+      font-size: 2.5rem;
+    }
+    
+    .cube {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .face {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .front, .back {
+      transform: translateZ(50px);
+    }
+    
+    .right, .left {
+      transform: rotateY(90deg) translateZ(50px);
+    }
+    
+    .top, .bottom {
+      transform: rotateX(90deg) translateZ(50px);
+    }
+  }
+  
+  /* Add some additional effects when scrolling */
+  @keyframes colorChange {
+    0% { color: #ff0000; }
+    25% { color: #00ff00; }
+    50% { color: #0000ff; }
+    75% { color: #ffff00; }
+    100% { color: #ff0000; }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  /* Next section styling */
+  .next-section {
+    min-height: 100vh;
+    padding: 5rem 2rem;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .next-section h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  .next-section p {
+    font-size: 1.5rem;
+    max-width: 800px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* GSAP-like staggered animation for background elements */
+  @keyframes floatIn {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }

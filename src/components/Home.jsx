@@ -6,11 +6,13 @@ import TeamSelection from './Register-component/TeamSelection';
 import BugSlayer from './Event-components/BugSlayer';
 import RegisterSection from './RegisterSection';
 import RegisterLatest from './RegisterLatest';
+import HeroCL from './Home-comonents/HeroCL';
 // import NavbarCL from './NavbarCL';
 const Home=()=>{
     return (
         <div>
-            <HeroSection/>
+            {/* <HeroSection/> */}
+            <HeroCL/>
             {/* <NavbarCL/> */}
             <EventsSection/>
 
