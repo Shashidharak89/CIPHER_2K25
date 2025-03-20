@@ -1,6 +1,6 @@
 /* Base styles for the Squid Game Events component */
 /* Using unique prefix sqg_events_ for all classes */
-
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 /* Fullscreen overlay for intro animation */
 .adjust-margin{
     margin-top: 100px;
@@ -168,7 +168,7 @@
   }
   
   .sqg_events_intro_letter {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 6rem;
     font-weight: 900;
     color: white;
@@ -253,7 +253,7 @@
   }
   
   .sqg_events_final_letter {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-weight: 900;
     font-size: 48px;
     color: #ff0067;
