@@ -73,8 +73,8 @@ const FooterCL3 = () => {
 
       <div className="cipher__footer-bottom">
         <div className="cipher__footer-countdown">
-          <span className="cipher__footer-countdown-text">Game Begins In: </span>
-          <div className="cipher__footer-timer">456:05:59:59</div>
+          <span className="cipher__footer-countdown-text">Game Begins On: </span>
+          <div className="cipher__footer-timer">9 April,2025</div>
         </div>
         <div className="cipher__footer-copyright">
           © 2025 BCA Department. All players have agreed to the terms.

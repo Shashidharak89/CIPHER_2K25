@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SampleContext from "../contexts/SampleContext";
 import { motion } from 'framer-motion';
 import bug_slayer from './images/bug_slayer.jpg';
+import EventTitle from "../Event-components/EventTitle";
 
 const eventsData = [
   {
@@ -156,6 +157,9 @@ const EventsSection = () => {
   };
 
   return (
+    <div>
+      <EventTitle/>
+
     <section className="events-section">
       {eventsData.map((event, index) => (
         <motion.div 
@@ -211,6 +215,7 @@ const EventsSection = () => {
         </div>
       )}
     </section>
+    </div>
   );
 };
 
