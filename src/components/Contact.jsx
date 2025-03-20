@@ -1,13 +1,13 @@
 
 import React from "react";
 // import ContactUs from "./contact-components/ContactUs";
-import ContactCL3 from "./contact-components/ContactCL3";
+import ContactCL4 from "./contact-components/ContactCL4";
 
 const Contact = () => {
     return (
         <div>
             {/* <ContactUs /> */}
-            <ContactCL3/>
+            <ContactCL4/>
         </div>
     )
 }

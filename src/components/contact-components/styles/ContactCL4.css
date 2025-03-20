@@ -1,0 +1,530 @@
+/* ContactCL4.css - Squid Game themed contact form */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.cipher_contact_wrapper {
+    margin-top: 80px;
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #0a0a10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 2rem; */
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Intro Animation */
+.cipher_intro_animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: cipher_bg_pulse 4s ease-in-out forwards;
+}
+
+.cipher_triangle,
+.cipher_circle,
+.cipher_square {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cipher_triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 87px solid #ff0579;
+    opacity: 0;
+    animation: cipher_shape_appear 0.8s ease-in-out 0.2s forwards,
+        cipher_shape_disappear 0.5s ease-in-out 1.3s forwards;
+}
+
+.cipher_circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #14d9e5;
+    opacity: 0;
+    animation: cipher_shape_appear 0.8s ease-in-out 1.0s forwards,
+        cipher_shape_disappear 0.5s ease-in-out 2.1s forwards;
+}
+
+.cipher_square {
+    width: 85px;
+    height: 85px;
+    background-color: #ff2424;
+    opacity: 0;
+    animation: cipher_shape_appear 0.8s ease-in-out 1.8s forwards,
+        cipher_shape_disappear 0.5s ease-in-out 2.9s forwards;
+}
+
+.cipher_text_reveal {
+    position: absolute;
+    color: white;
+    font-size: 3.5rem;
+    font-weight: bold;
+    opacity: 0;
+    letter-spacing: 3px;
+    animation: cipher_text_reveal 1s ease-in-out 2.5s forwards;
+}
+
+.cipher_subtitle_reveal {
+    position: absolute;
+    color: #ff0579;
+    font-size: 1.5rem;
+    top: 60%;
+    opacity: 0;
+    letter-spacing: 8px;
+    animation: cipher_text_reveal 1s ease-in-out 3s forwards;
+}
+
+/* Main Contact Container */
+.cipher_contact_container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #121225;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(255, 5, 121, 0.3),
+        0 0 60px rgba(20, 217, 229, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.cipher_visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.cipher_hidden {
+    display: none;
+}
+
+/* Squid Game Mask Design */
+.cipher_contact_mask {
+    width: 100%;
+    height: 120px;
+    background-color: #0f0f1e;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cipher_mask_design {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    position: relative;
+    background-color: transparent;
+}
+
+.cipher_mask_design:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 6px solid #ff0579;
+    box-sizing: border-box;
+    animation: cipher_pulse 2s infinite;
+}
+
+.cipher_mask_design:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    box-sizing: border-box;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    border: 6px solid #14d9e5;
+    animation: cipher_rotate 8s linear infinite;
+}
+
+/* Content Section */
+.cipher_content_section {
+    padding: 2rem;
+}
+
+.cipher_heading_container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.cipher_contact_title {
+    color: white;
+    font-size: 2.5rem;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.cipher_red_light {
+    width: 15px;
+    height: 15px;
+    background-color: #ff2424;
+    border-radius: 50%;
+    margin-left: 15px;
+    animation: cipher_blink 1.5s infinite;
+    box-shadow: 0 0 10px #ff2424;
+}
+
+.cipher_contact_content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .cipher_contact_content {
+        flex-direction: row;
+    }
+
+    .cipher_info_section,
+    .cipher_form_section {
+        width: 50%;
+    }
+}
+
+/* Info Section */
+.cipher_info_section {
+    color: white;
+}
+
+.cipher_event_info {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+.cipher_card {
+    background-color: #1a1a30;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid #ff0579;
+}
+
+.cipher_card_symbol {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 3px solid #14d9e5;
+    border-radius: 3px;
+    animation: cipher_rotate 5s linear infinite;
+}
+
+.cipher_card_details {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.cipher_card_details p {
+    margin: 8px 0;
+}
+
+.cipher_pink_soldiers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.cipher_soldier {
+    width: 70px;
+    height: 100px;
+    background-color: #ff0579;
+    position: relative;
+    border-radius: 50% 50% 0 0 / 60% 60% 0 0;
+}
+
+.cipher_soldier:before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    background-color: black;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+}
+
+.cipher_soldier1 {
+    transform: rotate(-5deg);
+}
+
+.cipher_soldier2 {
+    transform: rotate(5deg);
+}
+
+/* Form Section */
+.cipher_form_section {
+    width: 70%;
+    background-color: #1a1a30;
+    border-radius: 10px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.cipher_form_section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff0579, #14d9e5);
+}
+
+.cipher_contact_form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.cipher_form_group {
+    position: relative;
+}
+
+.cipher_input,
+.cipher_textarea {
+    width: 100%;
+    background-color: #0f0f1e;
+    border: 2px solid #262645;
+    color: white;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.cipher_input:focus,
+.cipher_textarea:focus {
+    border-color: #ff0579;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 5, 121, 0.2);
+}
+
+.cipher_textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.cipher_submit_btn {
+    background-color: #121225;
+    color: white;
+    border: none;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    border: 2px solid #ff0579;
+}
+
+.cipher_btn_text {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.cipher_btn_icon {
+    margin-left: 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #14d9e5;
+    position: relative;
+    z-index: 1;
+}
+
+.cipher_submit_btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #ff0579, transparent);
+    transition: all 0.5s ease;
+}
+
+.cipher_submit_btn:hover:before {
+    left: 100%;
+}
+
+.cipher_submit_btn:hover {
+    box-shadow: 0 0 15px rgba(255, 5, 121, 0.5);
+}
+
+/* Animations */
+@keyframes cipher_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cipher_pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes cipher_blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes cipher_shape_appear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes cipher_shape_disappear {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
+@keyframes cipher_text_reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes cipher_bg_pulse {
+    0% {
+        background-color: #000;
+    }
+
+    50% {
+        background-color: #0a0a14;
+    }
+
+    100% {
+        background-color: #000;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767px) {
+    .cipher_contact_title {
+        font-size: 1.8rem;
+    }
+
+    .cipher_text_reveal {
+        font-size: 2.5rem;
+    }
+
+    .cipher_subtitle_reveal {
+        font-size: 1.2rem;
+    }
+
+    .cipher_contact_content {
+        gap: 3rem;
+    }
+
+    .cipher_soldier {
+        width: 50px;
+        height: 80px;
+    }
+
+    .cipher_soldier:before {
+        width: 30px;
+        height: 15px;
+        top: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cipher_content_section {
+        padding: 1.5rem;
+    }
+
+    .cipher_contact_title {
+        font-size: 1.5rem;
+    }
+
+    .cipher_card {
+        padding: 1rem;
+    }
+
+    .cipher_form_section {
+        padding: 1.5rem;
+        width: 80%;
+    }
+}

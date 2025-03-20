@@ -1,0 +1,128 @@
+.cipher_confirmation_overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: cipher_fade_in 0.3s ease-in-out;
+  }
+  
+  .cipher_confirmation_container {
+    background-color: #111;
+    border: 2px solid #ff0066;
+    width: 90%;
+    max-width: 400px;
+    padding: 30px 20px;
+    border-radius: 12px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 0, 102, 0.6);
+    animation: cipher_scale_in 0.4s ease-out forwards;
+  }
+  
+  .cipher_confirmation_icon {
+    width: 80px;
+    height: 80px;
+    background-color: #ff0066;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: cipher_pulse 1s infinite alternate;
+  }
+  
+  .cipher_checkmark {
+    width: 30px;
+    height: 50px;
+    border-right: 4px solid white;
+    border-bottom: 4px solid white;
+    transform: rotate(45deg);
+    margin-top: -5px;
+    margin-left: 5px;
+    animation: cipher_draw_check 0.5s ease-in-out forwards;
+  }
+  
+  .cipher_confirmation_title {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-family: 'Arial', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .cipher_confirmation_message {
+    color: #ccc;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .cipher_confirmation_decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+  }
+  
+  .cipher_confirmation_triangle {
+    width: 0;
+    height: 0;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 20px solid #ff0066;
+    animation: cipher_rotate 2s linear infinite;
+  }
+  
+  .cipher_confirmation_circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    animation: cipher_blink 1.5s ease-in-out infinite alternate;
+  }
+  
+  .cipher_confirmation_square {
+    width: 20px;
+    height: 20px;
+    background-color: #ff0066;
+    animation: cipher_rotate 3s linear infinite;
+  }
+  
+  @keyframes cipher_fade_in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes cipher_scale_in {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes cipher_pulse {
+    from { box-shadow: 0 0 0 0 rgba(255, 0, 102, 0.7); }
+    to { box-shadow: 0 0 0 15px rgba(255, 0, 102, 0); }
+  }
+  
+  @keyframes cipher_draw_check {
+    0% { width: 0; height: 0; opacity: 0; }
+    50% { width: 0; height: 50px; opacity: 1; }
+    100% { width: 30px; height: 50px; opacity: 1; }
+  }
+  
+  @keyframes cipher_rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes cipher_blink {
+    from { opacity: 0.4; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1.1); }
+  }
