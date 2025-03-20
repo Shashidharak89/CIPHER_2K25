@@ -10,6 +10,10 @@ import tresurehunt from './images/event/tresurehunt.jpeg';
 import gaming from './images/event/gaming.jpeg';
 import EventTitle from "../Event-components/EventTitle";
 import design_maze from './images/event/design_maze.jpg';
+import round_and from './images/event/round_and.jpg';
+import trail_triva from './images/event/trail_triva.jpg';
+import squid_sketch from './images/event/squid_sketch.jpg';
+import squid_innovate from './images/event/squid_innovate.jpg';
 
 const eventsData = [
   {
@@ -31,7 +35,7 @@ const eventsData = [
   {
     name: "Round And Round",
     description: "A thrilling dance competition awaits!",
-    img: "/eventimgs/coding.jpeg",
+    img: round_and,
     rules: "Filmy-style dance.Each team must have a min 5 - 9 max members.Performance duration should be between 4+1 minutes.Stage setup 2min.Remixes of filmy songs are allowed.The performance will be judged on creativity and the use of props. Team heads must submit their final tracks to the host at least 1 day before the fest.Any inappropriate behaviour or offensive content in performances will lead to disqualification.The judges decisions will be last and final.",
     ehead: "Thejadri",
     headno: "87625 68184"
@@ -55,7 +59,7 @@ const eventsData = [
   {
     name: "Trail Trivia",
     description: "Test your coding skills against the best!",
-    img: "/eventimgs/coding.jpeg",
+    img: trail_triva,
     rules: "Each team will consist of 4 participants, with 2 participants coming from each class(minimum one boy or girl).There will be no eliminations during the first day's round.The top 4 teams will be selected for the finals.Points will be reset to zero for the finals.No mobile phones or smart watches are allowed during the event.GENERAL RULES and updates regarding rounds will be provided prior to the round.Participants cannot be involved in the treasure hunt, photography, or video events.Taking help from non-participants will lead to the immediate disqualification of the team.",
     ehead: "Sharath",
     headno: "82175 79389"
@@ -63,7 +67,7 @@ const eventsData = [
   {
     name: "Squid Innovate",
     description: "Test your coding skills against the best!",
-    img: "/eventimgs/coding.jpeg",
+    img: squid_innovate,
     rules: "Each team must consist of 4 members.(2- I BCA , 2-II BCA). Ready-made models or commercially available models are strictly not permitted. If found, the team will be disqualified. Usage of laptops, mobile phones, and internet is allowed. Teams must prepare their models in advance and present them on the scheduled exhibition day. Each team will have 5-10 minutes for their presentation, followed by a Q&A session. Lots picking for exhibition will be done on the previous day of the event. All members are expected to maintain decorum and discipline throughout the event.",
     ehead: "Rashmitha",
     headno: "96112 94611"
@@ -120,7 +124,7 @@ const eventsData = [
   {
     name: "Squid Sketch",
     description: "Test your coding skills against the best!",
-    img: "/eventimgs/coding.jpeg",
+    img: squid_sketch,
     rules: "Time allotted: 1 hour.Number of participants – 2The theme of the content is given on the spot.Laptops are provided by event handlers.No participants are allowed to bring mobile phones.Internet facility will be provided (If required).Participants are asked to gather before 10 min of the event.Each teams are allowed to create only one poster.Pre-edited posters are not allowed.Using templates in Canva are not allowed. If found the team will be disqualified.",
     ehead: "Ashwin Rodrigues",
     headno: "8317383882"
