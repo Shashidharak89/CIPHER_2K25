@@ -2,7 +2,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom'; // Import Routes and Route
 // import Navbar from './components/Navbar';
 import Home from './components/Home';
-import Footer from './components/Footer';
+// import Footer from './components/Footer';
+import FooterCL3 from './components/FooterCL3';
 import EventsSection from './components/Home-comonents/EventsSection';
 import BugSlayer from './components/Event-components/BugSlayer';
 import RegisterSection from './components/RegisterSection';
@@ -35,7 +36,8 @@ function App() {
         {/* <Route path="/team" element={<BugSlayer />} /> */}
 
       </Routes>
-      <Footer />
+      <FooterCL3/>
+      {/* <Footer /> */}
     </>
   );
 }

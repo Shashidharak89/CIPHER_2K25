@@ -10,6 +10,7 @@
   }
   
   .cipher_main_container {
+    margin-top: 60px;
     position: relative;
     min-height: 100vh;
     background-color: var(--cipher-darker);
