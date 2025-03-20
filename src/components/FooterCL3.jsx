@@ -40,32 +40,32 @@ const FooterCL3 = () => {
 
         <div className="cipher__footer-sections">
           <div className="cipher__footer-section">
-            <h3 className="cipher__footer-section-title">Events</h3>
+            {/* <h3 className="cipher__footer-section-title">Events</h3>
             <ul className="cipher__footer-list">
               <li className="cipher__footer-list-item">Code Wars</li>
               <li className="cipher__footer-list-item">Hackathon</li>
               <li className="cipher__footer-list-item">UI Dalgona</li>
               <li className="cipher__footer-list-item">Debug or Die</li>
-            </ul>
+            </ul> */}
           </div>
 
           <div className="cipher__footer-section">
-            <h3 className="cipher__footer-section-title">Connect</h3>
+            {/* <h3 className="cipher__footer-section-title">Connect</h3>
             <ul className="cipher__footer-list">
               <li className="cipher__footer-list-item">Instagram</li>
               <li className="cipher__footer-list-item">Twitter</li>
               <li className="cipher__footer-list-item">Discord</li>
               <li className="cipher__footer-list-item">LinkedIn</li>
-            </ul>
+            </ul> */}
           </div>
 
           <div className="cipher__footer-section">
             <h3 className="cipher__footer-section-title">Contact</h3>
             <ul className="cipher__footer-list">
-              <li className="cipher__footer-list-item">Email: cipher2k25@bca.edu</li>
+              <li className="cipher__footer-list-item">Email: cipher2k25@gmail.con</li>
               <li className="cipher__footer-list-item">Phone: +91 98765 43210</li>
               <li className="cipher__footer-list-item">BCA Department</li>
-              <li className="cipher__footer-list-item">University Campus</li>
+              <li className="cipher__footer-list-item">SHC</li>
             </ul>
           </div>
         </div>
@@ -77,7 +77,7 @@ const FooterCL3 = () => {
           <div className="cipher__footer-timer">9 April,2025</div>
         </div>
         <div className="cipher__footer-copyright">
-          © 2025 BCA Department. All players have agreed to the terms.
+          © CIPHER-2K25 IT Fest. All rights reserved.
         </div>
       </div>
 

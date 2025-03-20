@@ -121,7 +121,7 @@ const DevCL = () => {
             <canvas ref={canvasRef} className="devcl-canvas"></canvas>
 
             <div className="devcl-content">
-                <h1 className="devcl-title">Cipher 2k25 Developers</h1>
+                <h1 className="devcl-title">DEVELOPERS</h1>
 
                 <div className="devcl-cards-wrapper">
                     {/* Shashidhara's Profile */}
@@ -131,7 +131,7 @@ const DevCL = () => {
                                 <div className="devcl-avatar-container">
                                     <div className="devcl-avatar devcl-avatar-shashi"></div>
                                 </div>
-                                <h2 className="devcl-name">Shashidhara</h2>
+                                <h2 className="devcl-name">Mr.Shashidhara K</h2>
                                 <p className="devcl-role">Full Stack Developer</p>
                             </div>
 
@@ -173,8 +173,8 @@ const DevCL = () => {
                                 <div className="devcl-avatar-container">
                                     <div className="devcl-avatar devcl-avatar-wilson"></div>
                                 </div>
-                                <h2 className="devcl-name">Wilson</h2>
-                                <p className="devcl-role">Frontend Developer</p>
+                                <h2 className="devcl-name">Mr.Wilson Rodrigous</h2>
+                                <p className="devcl-role">Full Stack Developer</p>
                             </div>
 
                             <div className="devcl-profile-body">
@@ -182,9 +182,9 @@ const DevCL = () => {
 
                                 <div className="devcl-skills">
                                     <span className="devcl-skill-tag">React</span>
-                                    <span className="devcl-skill-tag">CSS/SCSS</span>
-                                    <span className="devcl-skill-tag">Three.js</span>
-                                    <span className="devcl-skill-tag">Animation</span>
+                                    <span className="devcl-skill-tag">Node.js</span>
+                                    <span className="devcl-skill-tag">PHP</span>
+                                    <span className="devcl-skill-tag">MySQL</span>
                                 </div>
 
                                 <div className="devcl-social-links">
@@ -215,19 +215,19 @@ const DevCL = () => {
                     <div className="devcl-portfolio-links">
                         <a href="https://portfolioself-alpha.vercel.app" className="devcl-portfolio-link devcl-portfolio-shashi" target="_blank" rel="noopener noreferrer">
                             <Laptop style={{ marginRight: 8 }} />
-                            <span>Shashidhara's Portfolio</span>
+                            <span></span>
                             <ExternalLink style={{ marginLeft: 8, width: 16, height: 16 }} />
                         </a>
                         <a href="https://wilson-portfolio.dev" className="devcl-portfolio-link devcl-portfolio-wilson" target="_blank" rel="noopener noreferrer">
                             <Laptop style={{ marginRight: 8 }} />
-                            <span>Wilson's Portfolio</span>
+                            <span></span>
                             <ExternalLink style={{ marginLeft: 8, width: 16, height: 16 }} />
                         </a>
                     </div>
                 </div>
 
                 {/* Footer with Cipher 2k25 */}
-                <footer className="devcl-footer">
+                {/* <footer className="devcl-footer">
                     <div className="devcl-footer-content">
                         <div className="devcl-footer-logo">
                             <Code style={{ marginRight: 8 }} /> Cipher 2k25
@@ -249,14 +249,14 @@ const DevCL = () => {
                                 <Youtube style={footerIconStyle} />
                             </a>
                         </div>
-                    </div>
-                    <div className="devcl-footer-bottom">
+                    </div> */}
+                    {/* <div className="devcl-footer-bottom">
                         <p>© 2025 Cipher IT Fest. All rights reserved.</p>
                         <a href="https://cipher2k25.tech" className="devcl-website-link" target="_blank" rel="noopener noreferrer">
                             <Globe style={{ marginRight: 8, width: 16, height: 16 }} /> Visit Our Website
                         </a>
-                    </div>
-                </footer>
+                    </div> */}
+                {/* </footer> */}
             </div>
         </div>
     );

@@ -1,0 +1,489 @@
+/* FooterCL4.css - Squid Game themed footer styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Staatliches&display=swap');
+
+.cipher_footer_container {
+  background-color: #050112;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Intro Animation */
+.cipher_intro_animation {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.cipher_intro_animation_active {
+  opacity: 1;
+}
+
+.cipher_mask_outline {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cipher_triangle, .cipher_circle, .cipher_square {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.cipher_intro_animation_active .cipher_triangle {
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 90px solid #ff0078;
+  animation: cipher_triangle_anim 3s ease forwards;
+}
+
+.cipher_intro_animation_active .cipher_circle {
+  width: 80px;
+  height: 80px;
+  border: 5px solid #00a3ff;
+  border-radius: 50%;
+  animation: cipher_circle_anim 3s ease forwards;
+}
+
+.cipher_intro_animation_active .cipher_square {
+  width: 80px;
+  height: 80px;
+  background-color: #56c02b;
+  animation: cipher_square_anim 3s ease forwards;
+}
+
+.cipher_title_reveal {
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.cipher_title_text {
+  font-family: 'Staatliches', cursive;
+  font-size: 5rem;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 0, 120, 0.8);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.cipher_slogan_text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.cipher_intro_animation_active .cipher_title_text {
+  animation: cipher_text_reveal 1s ease forwards 2s;
+}
+
+.cipher_intro_animation_active .cipher_slogan_text {
+  animation: cipher_text_reveal 1s ease forwards 2.5s;
+}
+
+/* Main Footer Content */
+.cipher_footer_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 3rem 5%;
+  position: relative;
+  z-index: 1;
+}
+
+.cipher_footer_section {
+  margin-bottom: 2rem;
+}
+
+.cipher_footer_branding {
+  flex: 0 0 100%;
+  max-width: 400px;
+}
+
+.cipher_footer_heading {
+  font-family: 'Staatliches', cursive;
+  font-size: 2.5rem;
+  color: #ff0078;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.cipher_footer_tagline {
+  font-size: 1.2rem;
+  color: #00a3ff;
+  margin-bottom: 0.5rem;
+}
+
+.cipher_footer_dates {
+  font-size: 1rem;
+  color: #56c02b;
+}
+
+.cipher_footer_links, .cipher_footer_contact {
+  flex: 1;
+  min-width: 200px;
+}
+
+.cipher_footer_subheading {
+  font-family: 'Staatliches', cursive;
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.cipher_footer_subheading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #ff0078;
+}
+
+.cipher_footer_links_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cipher_footer_link_item {
+  margin-bottom: 0.8rem;
+}
+
+.cipher_footer_link {
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  padding-left: 15px;
+  transition: color 0.3s ease;
+}
+
+.cipher_footer_link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #ff0078;
+  clip-path: polygon(0 0, 0% 100%, 100% 50%);
+}
+
+.cipher_footer_link_hover:hover {
+  color: #00a3ff;
+}
+
+.cipher_footer_contact_info {
+  margin-bottom: 0.8rem;
+}
+
+.cipher_footer_contact_label {
+  font-weight: bold;
+  color: #56c02b;
+}
+
+.cipher_footer_contact_link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cipher_footer_contact_link:hover {
+  color: #00a3ff;
+}
+
+.cipher_footer_social {
+  display: flex;
+  gap: 15px;
+  margin-top: 1.5rem;
+}
+
+.cipher_social_icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #1a1a2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cipher_social_icon:hover {
+  transform: translateY(-5px);
+  background-color: #ff0078;
+}
+
+.cipher_social_icon_inner {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.cipher_social_icon_instagram .cipher_social_icon_inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  border-radius: 5px;
+}
+
+.cipher_social_icon_twitter .cipher_social_icon_inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1DA1F2;
+  clip-path: path('M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4 0 1.6 1.1 2.9 2.6 3.2-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z');
+}
+
+.cipher_social_icon_facebook .cipher_social_icon_inner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4267B2;
+  clip-path: path('M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z');
+}
+
+/* Footer Bottom */
+.cipher_footer_bottom {
+  background-color: #030108;
+  padding: 1.5rem 5%;
+  text-align: center;
+  position: relative;
+}
+
+.cipher_footer_shapes {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  opacity: 0.1;
+}
+
+.cipher_shape {
+  position: absolute;
+  animation: cipher_float 15s ease-in-out infinite;
+}
+
+.cipher_shape_circle {
+  width: 60px;
+  height: 60px;
+  border: 3px solid #00a3ff;
+  border-radius: 50%;
+  left: 10%;
+  bottom: -30px;
+}
+
+.cipher_shape_triangle {
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 52px solid #ff0078;
+  right: 15%;
+  bottom: -25px;
+}
+
+.cipher_shape_square {
+  width: 50px;
+  height: 50px;
+  background-color: #56c02b;
+  left: 48%;
+  bottom: -25px;
+}
+
+.cipher_copyright_text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  position: relative;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes cipher_triangle_anim {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  40% {
+    transform: scale(1.2) rotate(120deg);
+  }
+  60% {
+    transform: scale(0.8) rotate(240deg);
+  }
+  80% {
+    transform: scale(1) rotate(360deg);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(3) rotate(360deg);
+  }
+}
+
+@keyframes cipher_circle_anim {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  30% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  90% {
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(3);
+  }
+}
+
+@keyframes cipher_square_anim {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  40% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  80% {
+    transform: scale(1.2) rotate(45deg);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(3) rotate(90deg);
+  }
+}
+
+@keyframes cipher_text_reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cipher_float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+  .cipher_footer_content {
+    padding: 2rem 5%;
+  }
+  
+  .cipher_title_text {
+    font-size: 4rem;
+  }
+  
+  .cipher_slogan_text {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .cipher_intro_animation {
+    height: 250px;
+  }
+  
+  .cipher_footer_branding {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .cipher_footer_links, .cipher_footer_contact {
+    flex: 0 0 100%;
+  }
+  
+  .cipher_title_text {
+    font-size: 3.5rem;
+  }
+  
+  .cipher_slogan_text {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .cipher_intro_animation {
+    height: 200px;
+  }
+  
+  .cipher_title_text {
+    font-size: 2.5rem;
+  }
+  
+  .cipher_slogan_text {
+    font-size: 1rem;
+  }
+  
+  .cipher_footer_heading {
+    font-size: 2rem;
+  }
+  
+  .cipher_footer_subheading {
+    font-size: 1.3rem;
+  }
+  
+  .cipher_footer_social {
+    justify-content: center;
+  }
+}
