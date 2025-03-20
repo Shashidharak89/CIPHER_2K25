@@ -13,7 +13,7 @@ const RegisterSection=()=>{
             <TeamSelection/>
             <Teams/> */}
             <RegisterLatest/>
-            <TeamJoin/>
+            {/* <TeamJoin/> */}
             <TeamsLatest/>
 
         </div>
