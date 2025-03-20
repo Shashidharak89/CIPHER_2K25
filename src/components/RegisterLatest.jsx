@@ -49,7 +49,7 @@ const RegisterLatest = () => {
 
   return (
     <div className="register-container">
-      <h2 className="register-title">Register Your Team (Latest)</h2>
+      <h2 className="register-title">Register Your Team</h2>
       {message && <p className="message">{message}</p>}
       <form className="register-form" onSubmit={handleSubmit}>
         <input

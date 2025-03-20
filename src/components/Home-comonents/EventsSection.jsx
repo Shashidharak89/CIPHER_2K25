@@ -3,14 +3,18 @@ import "./styles/EventsSection.css";
 import { useNavigate } from "react-router-dom";
 import SampleContext from "../contexts/SampleContext";
 import { motion } from 'framer-motion';
-import bug_slayer from './images/bug_slayer.jpg';
+import bug_slayer from './images/event/bug_slayer.jpg';
+import mimic_mania from './images/event/mimic_mania.jpg';
+
 import EventTitle from "../Event-components/EventTitle";
+
+import design_maze from './images/event/design_maze.jpg';
 
 const eventsData = [
   {
     name: "BUG SLAYER",
     description: "Crack the code, rule the game.",
-    img: "/eventimgs/coding.jpeg",
+    img: bug_slayer,
     rules: "Each team should make a team of two members.There will be 3 rounds.Participants should have knowledge of C,C++,java, Data Structure and general knowledge of Computer Science.They should be comfortable using Turbo C and Visual Studio Code.There is elimination in each round.Internet and smart phones are strictly prohibited.Judges decision is final.",
     ehead: "Shashidhara K",
     headno: "7760770725"
@@ -18,7 +22,7 @@ const eventsData = [
   {
     name: "Design Maze",
     description: "Showcase your creativity in web design!",
-    img: "/eventimgs/coding.jpeg",
+    img: design_maze,
     rules: "Each team must consist of 2 participants.HTML and CSS are mandatory for designingThe event consists of 2 rounds, with elimination in the 1st round. Only selected teams will proceed to the final round.Internet access will be provided only if necessary, as decided by the organizers.The design challenge for each round will be revealed at the beginning of the round.Time limits for each round will be announced before the competition starts.",
     ehead: "Hrithika",
     headno: "74838 35150"
@@ -91,7 +95,7 @@ const eventsData = [
   {
     name: "Mimic Mania",
     description: "Test your coding skills against the best!",
-    img: "/eventimgs/coding.jpeg",
+    img: mimic_mania,
     rules: "There will be two participants.There will be multiple rounds. There must be two players on each team—one to play and the other to assist.Players have to finish the assignment in the allotted time for each round. The team receives a point if they properly estimate the task within the allotted time. Familiarity with web series and films(all language), as well as proficiency with IT and a few common expressions.Elimination is included.",
     ehead: "Kavya",
     headno: "87924 36605"
