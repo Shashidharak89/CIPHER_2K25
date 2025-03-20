@@ -146,19 +146,19 @@ const DevCL = () => {
                                 </div>
 
                                 <div className="devcl-social-links">
-                                    <a href="https://github.com/shashidhara" className="devcl-social-link devcl-github" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://github.com/Shashidharak89" className="devcl-social-link devcl-github" target="_blank" rel="noopener noreferrer">
                                         <Github style={iconStyle} />
                                     </a>
-                                    <a href="https://linkedin.com/in/shashidhara" className="devcl-social-link devcl-linkedin" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://www.linkedin.com/in/shashidhara-k-a2374b31b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="devcl-social-link devcl-linkedin" target="_blank" rel="noopener noreferrer">
                                         <Linkedin style={iconStyle} />
                                     </a>
                                     <a href="https://twitter.com/shashidhara" className="devcl-social-link devcl-twitter" target="_blank" rel="noopener noreferrer">
                                         <Twitter style={iconStyle} />
                                     </a>
-                                    <a href="https://instagram.com/shashidhara" className="devcl-social-link devcl-instagram" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://www.instagram.com/luminous_alpha_" className="devcl-social-link devcl-instagram" target="_blank" rel="noopener noreferrer">
                                         <Instagram style={iconStyle} />
                                     </a>
-                                    <a href="mailto:shashidhara@example.com" className="devcl-social-link devcl-email" target="_blank" rel="noopener noreferrer">
+                                    <a href="mailto:shashidharak334@gmail.com" className="devcl-social-link devcl-email" target="_blank" rel="noopener noreferrer">
                                         <Mail style={iconStyle} />
                                     </a>
                                 </div>
@@ -188,7 +188,7 @@ const DevCL = () => {
                                 </div>
 
                                 <div className="devcl-social-links">
-                                    <a href="https://github.com/wilson" className="devcl-social-link devcl-github" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://github.com/Willscreation" className="devcl-social-link devcl-github" target="_blank" rel="noopener noreferrer">
                                         <Github style={iconStyle} />
                                     </a>
                                     <a href="https://linkedin.com/in/wilson" className="devcl-social-link devcl-linkedin" target="_blank" rel="noopener noreferrer">
@@ -197,10 +197,10 @@ const DevCL = () => {
                                     <a href="https://twitter.com/wilson" className="devcl-social-link devcl-twitter" target="_blank" rel="noopener noreferrer">
                                         <Twitter style={iconStyle} />
                                     </a>
-                                    <a href="https://instagram.com/wilson" className="devcl-social-link devcl-instagram" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://www.instagram.com/wi_lson2132" className="devcl-social-link devcl-instagram" target="_blank" rel="noopener noreferrer">
                                         <Instagram style={iconStyle} />
                                     </a>
-                                    <a href="mailto:wilson@example.com" className="devcl-social-link devcl-email" target="_blank" rel="noopener noreferrer">
+                                    <a href="mailto:row654321@gmail.com" className="devcl-social-link devcl-email" target="_blank" rel="noopener noreferrer">
                                         <Mail style={iconStyle} />
                                     </a>
                                 </div>
@@ -218,7 +218,7 @@ const DevCL = () => {
                             <span></span>
                             <ExternalLink style={{ marginLeft: 8, width: 16, height: 16 }} />
                         </a>
-                        <a href="https://wilson-portfolio.dev" className="devcl-portfolio-link devcl-portfolio-wilson" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/Willscreation" className="devcl-portfolio-link devcl-portfolio-wilson" target="_blank" rel="noopener noreferrer">
                             <Laptop style={{ marginRight: 8 }} />
                             <span></span>
                             <ExternalLink style={{ marginLeft: 8, width: 16, height: 16 }} />
