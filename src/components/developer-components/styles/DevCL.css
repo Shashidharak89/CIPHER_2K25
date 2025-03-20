@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Staatliches&display=swap');
+
 .devcl-container {
     margin-top: 60px;
     position: relative;
@@ -10,7 +12,7 @@
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     padding-top: 2rem;
     padding-bottom: 2rem;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
     overflow: hidden;
   }
   

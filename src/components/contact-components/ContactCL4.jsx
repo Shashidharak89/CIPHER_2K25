@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 import './styles/ContactCL4.css';
 import SubmitConfirmation from './SubmitConfirmation';
 
@@ -7,20 +8,19 @@ const ContactCL4 = () => {
     name: '',
     email: '',
     message: '',
-    phone: ''
+    contact: '' // Changed from 'phone' to 'contact' to match API format
   });
+
   const [isVisible, setIsVisible] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
-  const contactRef = useRef(null);
   const [isIntroPlaying, setIsIntroPlaying] = useState(true);
+  const contactRef = useRef(null);
 
   useEffect(() => {
-    // Animation intro timer
     const introTimer = setTimeout(() => {
       setIsIntroPlaying(false);
     }, 4000);
 
-    // Intersection observer for scroll animation
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -46,14 +46,22 @@ const ContactCL4 = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Show confirmation instead of alert
-    setShowConfirmation(true);
-    // Reset form
-    setFormData({ name: '', email: '', message: '', phone: '' });
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/contact/contact', formData);
+      console.log('Response:', response.data);
+
+      // Show confirmation message
+      setShowConfirmation(true);
+
+      // Reset form fields
+      setFormData({ name: '', email: '', message: '', contact: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again.');
+    }
   };
 
   const handleCloseConfirmation = () => {
@@ -133,8 +141,8 @@ const ContactCL4 = () => {
                 <div className="cipher_form_group">
                   <input
                     type="tel"
-                    name="phone"
-                    value={formData.phone}
+                    name="contact"  // Updated name to match API request format
+                    value={formData.contact}
                     onChange={handleChange}
                     className="cipher_input"
                     placeholder="Contact Number"
@@ -161,12 +169,9 @@ const ContactCL4 = () => {
           </div>
         </div>
       </div>
-      
-      {/* Add the confirmation component */}
-      <SubmitConfirmation 
-        isVisible={showConfirmation} 
-        onClose={handleCloseConfirmation} 
-      />
+
+      {/* Confirmation Popup */}
+      <SubmitConfirmation isVisible={showConfirmation} onClose={handleCloseConfirmation} />
     </div>
   );
 };
