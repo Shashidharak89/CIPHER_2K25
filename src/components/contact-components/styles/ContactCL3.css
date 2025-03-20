@@ -1,0 +1,397 @@
+.cipher_contact_container {
+  margin-top: 60px;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Squid Game Shapes Animation */
+.cipher_squid_shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.cipher_triangle {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: transparent;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid #ff0078;
+  transition: all 2s ease-in-out;
+  animation: cipher_rotateSlow 15s infinite linear;
+}
+
+.cipher_circle {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #00ccff;
+  top: 20%;
+  right: 10%;
+  animation: cipher_pulsate 4s infinite ease-in-out;
+}
+
+.cipher_square {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background-color: #ffbe00;
+  bottom: 15%;
+  left: 15%;
+  animation: cipher_rotateSlow 12s infinite linear reverse;
+}
+
+@keyframes cipher_pulsate {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.3); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+@keyframes cipher_rotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Contact Content */
+.cipher_contact_content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(25, 25, 35, 0.85);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Header Styles */
+.cipher_contact_header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cipher_title {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 5px;
+  text-shadow: 0 0 10px rgba(255, 0, 120, 0.7);
+}
+
+.cipher_highlight {
+  color: #ff0078;
+}
+
+.cipher_subtitle {
+  font-size: 18px;
+  opacity: 0.7;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.cipher_divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.cipher_circle_divider {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #00ccff;
+}
+
+.cipher_triangle_divider {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 18px solid #ff0078;
+}
+
+.cipher_square_divider {
+  width: 18px;
+  height: 18px;
+  background-color: #ffbe00;
+}
+
+/* Form Styles */
+.cipher_contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cipher_form_group {
+  position: relative;
+}
+
+.cipher_input, .cipher_textarea {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.cipher_textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.cipher_input:focus, .cipher_textarea:focus {
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 15px rgba(255, 0, 120, 0.3);
+}
+
+.cipher_input_line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(to right, #00ccff, #ff0078);
+  transition: width 0.4s ease;
+}
+
+.cipher_input:focus + .cipher_input_line,
+.cipher_textarea:focus + .cipher_input_line {
+  width: 100%;
+}
+
+.cipher_submit_btn {
+  position: relative;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  padding: 16px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  cursor: pointer;
+  overflow: hidden;
+  margin-top: 15px;
+  align-self: center;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #ff0078, #ff2a6d);
+  box-shadow: 0 5px 15px rgba(255, 0, 120, 0.4);
+  transition: all 0.3s ease;
+}
+
+.cipher_button_text {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.cipher_button_mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #00ccff, #0088ff);
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: 1;
+}
+
+.cipher_button_mask_hover {
+  transform: translateX(0);
+}
+
+.cipher_submit_btn:hover {
+  box-shadow: 0 5px 20px rgba(0, 204, 255, 0.6);
+  transform: translateY(-3px);
+}
+
+/* Success Message Styles */
+.cipher_success_message {
+  text-align: center;
+  padding: 40px 20px;
+  animation: cipher_fadeIn 0.5s ease;
+}
+
+@keyframes cipher_fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cipher_success_icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgba(0, 204, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  position: relative;
+  border: 2px solid #00ccff;
+}
+
+.cipher_checkmark {
+  width: 30px;
+  height: 60px;
+  border-right: 4px solid #00ccff;
+  border-bottom: 4px solid #00ccff;
+  transform: rotate(45deg) translate(-5px, -10px);
+  animation: cipher_drawCheck 0.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes cipher_drawCheck {
+  from { height: 0; opacity: 1; }
+  to { height: 40px; opacity: 1; }
+}
+
+.cipher_success_text {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #00ccff;
+  text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+}
+
+.cipher_success_subtext {
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+/* Contact Info Styles */
+.cipher_contact_info {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+.cipher_info_card {
+  background-color: rgba(25, 25, 35, 0.85);
+  border-radius: 10px;
+  padding: 25px;
+  width: 230px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cipher_info_card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 0, 120, 0.3);
+}
+
+.cipher_info_icon {
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.cipher_location_icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0078' viewBox='0 0 24 24'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+}
+
+.cipher_email_icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300ccff' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+}
+
+.cipher_phone_icon {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffbe00' viewBox='0 0 24 24'%3E%3Cpath d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E");
+}
+
+.cipher_info_title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.cipher_info_text {
+  font-size: 14px;
+  opacity: 0.7;
+  line-height: 1.4;
+}
+
+/* Footer Styles */
+.cipher_footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cipher_footer_text {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 5px;
+}
+
+.cipher_footer_tagline {
+  font-size: 16px;
+  color: #ff0078;
+  font-style: italic;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cipher_contact_content {
+    padding: 30px 20px;
+  }
+  
+  .cipher_title {
+    font-size: 36px;
+  }
+  
+  .cipher_contact_info {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cipher_info_card {
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cipher_contact_container {
+    padding: 20px 15px;
+  }
+  
+  .cipher_title {
+    font-size: 28px;
+  }
+  
+  .cipher_subtitle {
+    font-size: 14px;
+  }
+  
+  .cipher_submit_btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,553 @@
+/* Base Styles & Variables */
+:root {
+    --cipher-pink: #ff0080;
+    --cipher-teal: #00ffea;
+    --cipher-purple: #9c00ff;
+    --cipher-dark: #0a0a10;
+    --cipher-darker: #050507;
+    --cipher-gray: #2a2a3a;
+    --cipher-light: #f0f0f0;
+  }
+  
+  .cipher_main_container {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--cipher-darker);
+    color: var(--cipher-light);
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    padding: 2rem 1rem;
+  }
+  
+  .cipher_background_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, var(--cipher-dark) 0%, var(--cipher-darker) 70%);
+    z-index: 0;
+    opacity: 0.8;
+  }
+  
+  /* Content Styles */
+  .cipher_content_wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .cipher_title_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .cipher_title_appear {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .cipher_title_box {
+    flex: 1;
+  }
+  
+  .cipher_main_title {
+    font-size: 4.5rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 2px;
+    color: var(--cipher-light);
+    text-shadow: 0 0 15px rgba(255, 0, 128, 0.6);
+  }
+  
+  .cipher_year_accent {
+    color: var(--cipher-pink);
+    position: relative;
+    display: inline-block;
+  }
+  
+  .cipher_year_accent::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: var(--cipher-teal);
+    bottom: 5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: cipher_accent_line 1.5s forwards 0.8s;
+  }
+  
+  .cipher_subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    margin-top: 0.5rem;
+    color: var(--cipher-teal);
+    opacity: 0.9;
+    font-weight: 300;
+  }
+  
+  /* Squid Game Mask */
+  .cipher_squid_mask {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: cipher_mask_pulse 3s infinite alternate;
+  }
+  
+  .cipher_mask_circle, 
+  .cipher_mask_triangle, 
+  .cipher_mask_square {
+    position: absolute;
+    border: 2px solid var(--cipher-pink);
+    opacity: 0.8;
+  }
+  
+  .cipher_mask_circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    animation: cipher_rotate 15s linear infinite;
+  }
+  
+  .cipher_mask_triangle {
+    width: 0;
+    height: 0;
+    border: 35px solid transparent;
+    border-bottom: 60px solid transparent;
+    border-bottom-color: var(--cipher-teal);
+    background-color: transparent;
+    transform: rotate(180deg);
+    opacity: 0.6;
+    animation: cipher_rotate 10s linear infinite reverse;
+  }
+  
+  .cipher_mask_square {
+    width: 45px;
+    height: 45px;
+    border-color: var(--cipher-purple);
+    transform: rotate(45deg);
+    animation: cipher_rotate 12s linear infinite;
+  }
+  
+  /* Content Container */
+  .cipher_content_container {
+    background-color: rgba(10, 10, 16, 0.8);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(255, 0, 128, 0.2);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease 0.4s;
+    border: 1px solid rgba(255, 0, 128, 0.2);
+  }
+  
+  .cipher_content_fade_in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .cipher_section_heading {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+  }
+  
+  .cipher_section_heading::before {
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 3px;
+    background: var(--cipher-pink);
+    bottom: -8px;
+    left: 0;
+  }
+  
+  .cipher_description {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    color: rgba(240, 240, 240, 0.9);
+    max-width: 85ch;
+  }
+  
+  /* Features Grid */
+  .cipher_features_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  
+  .cipher_feature_card {
+    background-color: rgba(42, 42, 58, 0.4);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border-left: 3px solid var(--cipher-teal);
+  }
+  
+  .cipher_feature_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background-color: rgba(42, 42, 58, 0.6);
+    border-left-color: var(--cipher-pink);
+  }
+  
+  .cipher_feature_icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    position: relative;
+    opacity: 0.9;
+  }
+  
+  .cipher_icon_code::before,
+  .cipher_icon_hack::before,
+  .cipher_icon_game::before,
+  .cipher_icon_tech::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    background-size: 60%;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 234, 0.6));
+  }
+  
+  .cipher_icon_code::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300ffea' viewBox='0 0 24 24'%3E%3Cpath d='M16 18l6-6-6-6-1.4 1.4 4.6 4.6-4.6 4.6L16 18zm-8 0l-6-6 6-6 1.4 1.4-4.6 4.6 4.6 4.6L8 18z'/%3E%3C/svg%3E");
+  }
+  
+  .cipher_icon_hack::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ff0080' viewBox='0 0 24 24'%3E%3Cpath d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z'/%3E%3C/svg%3E");
+  }
+  
+  .cipher_icon_game::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%239c00ff' viewBox='0 0 24 24'%3E%3Cpath d='M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z'/%3E%3C/svg%3E");
+  }
+  
+  .cipher_icon_tech::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2300ffea' viewBox='0 0 24 24'%3E%3Cpath d='M20 18c1.1 0 1.99-.9 1.99-2L22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 6h16v10H4V6z'/%3E%3C/svg%3E");
+  }
+  
+  .cipher_feature_title {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--cipher-light);
+  }
+  
+  .cipher_feature_text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(240, 240, 240, 0.8);
+  }
+  
+  /* Countdown Section */
+  .cipher_countdown_container {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px dashed rgba(255, 0, 128, 0.3);
+    text-align: center;
+  }
+  
+  .cipher_countdown_title {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    color: var(--cipher-teal);
+  }
+  
+  .cipher_countdown_timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .cipher_time_unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+  }
+  
+  .cipher_time_value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(to bottom, var(--cipher-light), var(--cipher-teal));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+  
+  .cipher_time_label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--cipher-pink);
+    margin-top: 0.3rem;
+  }
+  
+  .cipher_time_separator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--cipher-pink);
+    position: relative;
+  }
+  
+  .cipher_time_separator::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--cipher-pink);
+  }
+  
+  /* Join Button */
+  .cipher_join_button {
+    position: relative;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: none;
+    border: 2px solid var(--cipher-pink);
+    color: var(--cipher-light);
+    border-radius: 4px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .cipher_button_highlight {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 0, 128, 0.4), transparent);
+    transition: all 0.4s ease;
+  }
+  
+  .cipher_join_button:hover {
+    background-color: rgba(255, 0, 128, 0.15);
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.4);
+    transform: translateY(-3px);
+  }
+  
+  .cipher_join_button:hover .cipher_button_highlight {
+    left: 100%;
+  }
+  
+  /* Floating Background Shapes */
+  .cipher_floating_shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .cipher_shape {
+    position: absolute;
+    opacity: 0.15;
+    transition: transform 3s ease;
+  }
+  
+  .cipher_shape_1 {
+    top: 15%;
+    left: 10%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid var(--cipher-pink);
+    border-radius: 0 0 0 20px;
+    transform: rotate(45deg);
+  }
+  
+  .cipher_shape_2 {
+    top: 70%;
+    right: 15%;
+    width: 60px;
+    height: 60px;
+    background-color: var(--cipher-teal);
+    border-radius: 50%;
+    filter: blur(30px);
+  }
+  
+  .cipher_shape_3 {
+    top: 40%;
+    right: 8%;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--cipher-purple);
+    transform: rotate(30deg);
+  }
+  
+  .cipher_shape_4 {
+    bottom: 20%;
+    left: 15%;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid var(--cipher-teal);
+    opacity: 0.1;
+  }
+  
+  .cipher_shape_5 {
+    top: 20%;
+    right: 30%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--cipher-pink);
+    border-radius: 50%;
+    filter: blur(40px);
+  }
+  
+  .cipher_shape_6 {
+    bottom: 30%;
+    right: 40%;
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(--cipher-teal);
+    border-radius: 10px;
+    transform: rotate(20deg);
+  }
+  
+  /* Animations */
+  @keyframes cipher_rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes cipher_mask_pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+  }
+  
+  @keyframes cipher_accent_line {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .cipher_main_title {
+      font-size: 3.8rem;
+    }
+    
+    .cipher_content_container {
+      padding: 2rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .cipher_title_container {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+    
+    .cipher_main_title {
+      font-size: 3.2rem;
+    }
+    
+    .cipher_section_heading {
+      font-size: 1.6rem;
+    }
+    
+    .cipher_section_heading::before {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .cipher_content_container {
+      padding: 1.8rem;
+    }
+    
+    .cipher_about_section {
+      text-align: center;
+    }
+    
+    .cipher_description {
+      text-align: left;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .cipher_main_title {
+      font-size: 2.8rem;
+    }
+    
+    .cipher_subtitle {
+      font-size: 1rem;
+    }
+    
+    .cipher_squid_mask {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .cipher_content_container {
+      padding: 1.5rem;
+    }
+    
+    .cipher_section_heading {
+      font-size: 1.4rem;
+    }
+    
+    .cipher_description {
+      font-size: 1rem;
+    }
+    
+    .cipher_features_grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .cipher_countdown_timer {
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    
+    .cipher_time_unit {
+      min-width: 70px;
+    }
+    
+    .cipher_time_value {
+      font-size: 2rem;
+    }
+    
+    .cipher_join_button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+    }
+  }
