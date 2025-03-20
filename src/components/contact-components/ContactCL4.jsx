@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import './styles/ContactCL4.css';
 import SubmitConfirmation from './SubmitConfirmation';
+import SampleContext from '../contexts/SampleContext';
 
 const ContactCL4 = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,8 @@ const ContactCL4 = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [isIntroPlaying, setIsIntroPlaying] = useState(true);
   const contactRef = useRef(null);
+
+  const {URL}=useContext(SampleContext);
 
   useEffect(() => {
     const introTimer = setTimeout(() => {
@@ -50,7 +53,7 @@ const ContactCL4 = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/contact/contact', formData);
+      const response = await axios.post(URL+'/api/contact/contact', formData);
       console.log('Response:', response.data);
 
       // Show confirmation message
