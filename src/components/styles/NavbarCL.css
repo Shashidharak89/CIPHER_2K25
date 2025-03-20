@@ -1,4 +1,6 @@
 /* Squid Game Theme Color Palette */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
 :root {
     --primary-pink: #ff0a8a;
     --primary-teal: #18e0d0;
@@ -10,7 +12,7 @@
   }
   
   @font-face {
-    font-family: 'SquidGame';
+    font-family: 'Orbitron', sans-serif;
     src: url('https://fonts.cdnfonts.com/css/game-of-squids') format('woff2');
     font-weight: normal;
     font-style: normal;
@@ -68,7 +70,7 @@
   }
   
   .navbar-title {
-    font-family: 'SquidGame', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: var(--light-text);
@@ -92,7 +94,7 @@
   }
   
   .navbar-subtitle {
-    font-family: 'SquidGame', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 0.9rem;
     color: var(--primary-teal);
     letter-spacing: 3px;
@@ -115,7 +117,7 @@
     position: relative;
     color: var(--light-text);
     text-decoration: none;
-    font-family: 'SquidGame', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
     padding: 0.5rem 0;
@@ -268,7 +270,7 @@
   .navbar-sidebar-link {
     color: var(--light-text);
     text-decoration: none;
-    font-family: 'SquidGame', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-size: 1.3rem;
     font-weight: 600;
     transition: all 0.3s ease;
