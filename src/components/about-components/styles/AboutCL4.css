@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Staatliches&display=swap');
+
+:root {
+    --cipher-pink: #ff0080;
+    --cipher-blue: #0077ff;
+    --cipher-purple: #9900ff;
+    --cipher-dark: #0c0c14;
+    --cipher-darker: #06060a;
+    --cipher-text: #ffffff;
+    --cipher-text-secondary: #b3b3b3;
+    --cipher-border-radius: 8px;
+}
+
+.cipher__about-container {
+    margin-top: 60px;
+    background-color: var(--cipher-dark);
+    background-image:
+        radial-gradient(circle at 10% 20%, #1e0c2a 0%, transparent 60%),
+        radial-gradient(circle at 90% 80%, #120c2a 0%, transparent 40%);
+    min-height: 100vh;
+    color: var(--cipher-text);
+    font-family: 'Roboto', sans-serif;
+    padding: 5% 8%;
+    position: relative;
+    overflow: hidden;
+}
+
+.cipher__shape-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cipher__circle,
+.cipher__triangle,
+.cipher__square {
+    position: absolute;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-out;
+}
+
+.cipher__shape-visible {
+    opacity: 0.15;
+    transform: translateY(0);
+}
+
+.cipher__circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid var(--cipher-pink);
+    top: 10%;
+    right: 5%;
+}
+
+.cipher__triangle {
+    width: 0;
+    height: 0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    border-bottom: 220px solid var(--cipher-purple);
+    top: 60%;
+    left: 5%;
+}
+
+.cipher__square {
+    width: 180px;
+    height: 180px;
+    border: 4px solid var(--cipher-blue);
+    bottom: 15%;
+    right: 15%;
+    transform: rotate(45deg);
+}
+
+.cipher__content-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cipher__main-title {
+    font-family: 'Staatliches', cursive;
+    font-size: 5rem;
+    margin-bottom: 0;
+    letter-spacing: 4px;
+    text-align: center;
+    background: linear-gradient(90deg, var(--cipher-pink), var(--cipher-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
+}
+
+.cipher__subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 0.5rem;
+    color: var(--cipher-text-secondary);
+    letter-spacing: 2px;
+}
+
+.cipher__highlight {
+    color: var(--cipher-pink);
+    font-weight: 700;
+    -webkit-text-fill-color: var(--cipher-pink);
+}
+
+.cipher__divider {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--cipher-pink), var(--cipher-blue), transparent);
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.cipher__about-content {
+    padding: 2rem;
+    background-color: rgba(12, 12, 20, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: var(--cipher-border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.cipher__text-block {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.cipher__card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.cipher__info-card {
+    background: linear-gradient(135deg, rgba(12, 12, 20, 0.8), rgba(18, 12, 42, 0.8));
+    border-radius: var(--cipher-border-radius);
+    padding: 1.5rem;
+    border-left: 3px solid var(--cipher-pink);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cipher__info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.cipher__card-title {
+    color: var(--cipher-pink);
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.cipher__card-text {
+    font-size: 1rem;
+    color: var(--cipher-text-secondary);
+    line-height: 1.5;
+}
+
+.cipher__text-highlight {
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.cipher__countdown-container {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: var(--cipher-border-radius);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.cipher__countdown-title {
+    margin-top: 0;
+    color: var(--cipher-text-secondary);
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.cipher__timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+}
+
+.cipher__time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+}
+
+.cipher__time-number {
+    font-family: 'Staatliches', cursive;
+    font-size: 3rem;
+    color: var(--cipher-pink);
+    line-height: 1;
+}
+
+.cipher__time-label {
+    font-size: 0.8rem;
+    color: var(--cipher-text-secondary);
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.cipher__cta-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.cipher__register-button {
+    background: linear-gradient(45deg, var(--cipher-pink), var(--cipher-purple));
+    color: white;
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 20px rgba(255, 0, 128, 0.3);
+}
+
+.cipher__register-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 0, 128, 0.5);
+}
+
+.cipher__button-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: cipher__button-shimmer 3s infinite;
+}
+
+@keyframes cipher__button-shimmer {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.cipher__card-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cipher__fade-in 0.5s forwards;
+    animation-delay: 0s;
+}
+
+@keyframes cipher__fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .cipher__main-title {
+        font-size: 4rem;
+    }
+
+    .cipher__subtitle {
+        font-size: 1.3rem;
+    }
+
+    .cipher__circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .cipher__triangle {
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        border-bottom: 175px solid var(--cipher-purple);
+    }
+
+    .cipher__square {
+        width: 140px;
+        height: 140px;
+    }
+
+    .cipher__time-number {
+        font-size: 2.5rem;
+    }
+
+    .cipher__timer {
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cipher__main-title {
+        font-size: 3rem;
+    }
+
+    .cipher__subtitle {
+        font-size: 1.1rem;
+    }
+
+    .cipher__about-container {
+        padding: 5% 5%;
+    }
+
+    .cipher__time-number {
+        font-size: 2rem;
+    }
+
+    .cipher__time-unit {
+        min-width: 50px;
+    }
+
+    .cipher__circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .cipher__triangle {
+        border-left: 75px solid transparent;
+        border-right: 75px solid transparent;
+        border-bottom: 130px solid var(--cipher-purple);
+    }
+
+    .cipher__square {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cipher__main-title {
+        font-size: 2.5rem;
+    }
+
+    .cipher__subtitle {
+        font-size: 1rem;
+    }
+
+    .cipher__text-block {
+        font-size: 1rem;
+    }
+
+    .cipher__timer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .cipher__time-unit {
+        min-width: 40px;
+    }
+
+    .cipher__time-number {
+        font-size: 1.5rem;
+    }
+
+    .cipher__time-label {
+        font-size: 0.6rem;
+    }
+
+    .cipher__register-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    .cipher__circle,
+    .cipher__triangle,
+    .cipher__square {
+        opacity: 0.08;
+    }
+}
