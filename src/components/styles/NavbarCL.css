@@ -48,6 +48,7 @@
     display: flex;
     align-items: center;
     animation: logoFloat 3s ease-in-out infinite;
+    gap:20px;
   }
   
   .navbar-logo {
@@ -336,8 +337,8 @@
   }
   
   @keyframes titleShimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% { transform: translateX(-20%); }
+    100% { transform: translateX(30%); }
   }
   
   @keyframes subtitleGlow {
