@@ -5,9 +5,10 @@ import SampleContext from "../contexts/SampleContext";
 import { motion } from 'framer-motion';
 import bug_slayer from './images/event/bug_slayer.jpg';
 import mimic_mania from './images/event/mimic_mania.jpg';
-
+import itmanager from './images/event/itmanager.jpeg';
+import tresurehunt from './images/event/tresurehunt.jpeg';
+import gaming from './images/event/gaming.jpeg';
 import EventTitle from "../Event-components/EventTitle";
-
 import design_maze from './images/event/design_maze.jpg';
 
 const eventsData = [
@@ -38,7 +39,7 @@ const eventsData = [
   {
     name: "Top To Survive",
     description: "Battle it out in the ultimate gaming challenge!",
-    img: "/eventimgs/coding.jpeg",
+    img: gaming,
     rules: "Participants: 3(2-Boys, 1-Girl).Games will be disclosed on the spot.Top 4 will be selected to final.Players can get their own requirements like Phone , earphone, Finger sleeve, powder(if nessasory ) etc.",
     ehead: "Lakshan m Shetty",
     headno: "89512 85746"
@@ -46,7 +47,7 @@ const eventsData = [
   {
     name: "The Front man Challenge",
     description: "Game on: play to win, survive the game",
-    img: "/eventimgs/coding.jpeg",
+    img: itmanager,
     rules: "Number of participants: 1.Number of rounds: 4.Qualification for the next round will be based on the performance of participants, in the previous round.Round 1, 2 & 3 will be conducted prior the fest.Topics will be disclosed on the same day.Top 4 teams will be selected for the final round.The Judges dicision will be final.There is elimination in every round.",
     ehead: "Vinita Viniyola Fernandes",
     headno: "76249 85619"
@@ -70,7 +71,7 @@ const eventsData = [
   {
     name: "The Survival hunt",
     description: "Test your coding skills against the best!",
-    img: "/eventimgs/coding.jpeg",
+    img: tresurehunt,
     rules: "Make a team of 2 memebers, Each team must include one participant from each year. Taking help from non-participants will lead to the immediate disqualification of the team. Participants cannot be involved in the IT Quiz, Photography & videography events. GENERAL RULES for each round will be updated prior to the start of the round.",
     ehead: "Sanath Shetty",
     headno: "97416 30689"
