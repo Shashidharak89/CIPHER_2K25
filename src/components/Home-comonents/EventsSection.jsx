@@ -12,6 +12,7 @@ import gaming from './images/event/gaming.jpeg';
 import ontrack from './images/event/ontrack.jpeg';
 import video from './images/event/video.jpeg';
 import posterdesign from './images/event/posterdesign.jpeg';
+import itmodel from './images/event/itmodel.jpeg';
 import itquiz from './images/event/itquiz.jpeg';
 import vlog from './images/event/vlog.jpeg';
 import surpeise from './images/event/surpeise.jpeg';
@@ -99,7 +100,7 @@ const eventsData = [
   {
     name: "Squilog",
     description: "Lights, Camera, Action – Your Story Awaits!",
-    img: volg,
+    img: vlog,
     rules: "The competition duration is strictly 1 minute.Each team must consist of exactly 2 participants.Please ensure that no vulgarity is allowed Respect Privacy and GENERAL RULES avoid filming in restricted areas.Participants are allowed to shoot their vlogs between 8:00 am - 9:30 am and 3:45 pm - 4:30 pm.The topic and its corresponding guidelines for the vlog will be provided soon.The vlog must be presented in either Kannada or English.The decision of the judges and organisers shall be final and binding on all participants.",
     ehead: "Mahammad Razik",
     headno: "73376 16956"
