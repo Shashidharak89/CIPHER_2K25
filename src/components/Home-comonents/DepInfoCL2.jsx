@@ -139,7 +139,7 @@ const DepInfoCL2 = () => {
           <div className="cipher-details">
             <div className="cipher-detail-item">
               <div className="cipher-detail-icon cipher-icon-calendar"></div>
-              <span className="cipher-detail-text">Coming Soon</span>
+              <span className="cipher-detail-text">09-04-2025</span>
             </div>
             <div className="cipher-detail-item">
               <div className="cipher-detail-icon cipher-icon-location"></div>
