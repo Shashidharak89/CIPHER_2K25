@@ -152,7 +152,7 @@ const DevCL = () => {
                                     <a href="https://www.linkedin.com/in/shashidhara-k-a2374b31b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="devcl-social-link devcl-linkedin" target="_blank" rel="noopener noreferrer">
                                         <Linkedin style={iconStyle} />
                                     </a>
-                                    <a href="https://twitter.com/shashidhara" className="devcl-social-link devcl-twitter" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://twitter.com" className="devcl-social-link devcl-twitter" target="_blank" rel="noopener noreferrer">
                                         <Twitter style={iconStyle} />
                                     </a>
                                     <a href="https://www.instagram.com/luminous_alpha_" className="devcl-social-link devcl-instagram" target="_blank" rel="noopener noreferrer">
@@ -191,10 +191,10 @@ const DevCL = () => {
                                     <a href="https://github.com/Willscreation" className="devcl-social-link devcl-github" target="_blank" rel="noopener noreferrer">
                                         <Github style={iconStyle} />
                                     </a>
-                                    <a href="https://linkedin.com/in/wilson" className="devcl-social-link devcl-linkedin" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://linkedin.com" className="devcl-social-link devcl-linkedin" target="_blank" rel="noopener noreferrer">
                                         <Linkedin style={iconStyle} />
                                     </a>
-                                    <a href="https://twitter.com/wilson" className="devcl-social-link devcl-twitter" target="_blank" rel="noopener noreferrer">
+                                    <a href="https://twitter.com" className="devcl-social-link devcl-twitter" target="_blank" rel="noopener noreferrer">
                                         <Twitter style={iconStyle} />
                                     </a>
                                     <a href="https://www.instagram.com/wi_lson2132" className="devcl-social-link devcl-instagram" target="_blank" rel="noopener noreferrer">
