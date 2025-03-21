@@ -387,8 +387,44 @@
     100% { transform: translate(-50%, -50%) rotate(360deg); }
   }
 
+  @media (max-width: 690px) {
+    .hero-text {
+      font-size: 1.7em;
+    }
+  }
+  @media (max-width: 606px) {
+    .hero-text {
+      font-size: 1.6em;
+    }
+  }
+  @media (max-width: 579px) {
+    .hero-text {
+      font-size: 1.5em;
+    }
+  }
+  @media (max-width: 551px) {
+    .hero-text {
+      font-size: 1.9em;
+    }
+  }
   @media (max-width: 500px) {
     .hero-text {
-      font-size: 1.8rem;
+      font-size: 1.8em;
+    }
+  }
+
+  @media (max-width: 474px) {
+    .hero-text {
+      font-size: 1.6em;
+    }
+  }
+  @media (max-width: 435px) {
+    .hero-text {
+      font-size: 1.4em;
+    }
+  }
+  @media (max-width: 400px) {
+    .hero-text {
+      font-size: 1.3em;
     }
   }
