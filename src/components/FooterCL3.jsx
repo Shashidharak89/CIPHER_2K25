@@ -63,9 +63,9 @@ const FooterCL3 = () => {
             <h3 className="cipher__footer-section-title">Contact</h3>
             <ul className="cipher__footer-list">
               <li className="cipher__footer-list-item">Email: cipher2k25@gmail.con</li>
-              <li className="cipher__footer-list-item">Phone: +91 98765 43210</li>
+              <li className="cipher__footer-list-item">Phone: +91 7259450386</li>
               <li className="cipher__footer-list-item">BCA Department</li>
-              <li className="cipher__footer-list-item">SHC</li>
+              <li className="cipher__footer-list-item">Sacred Heart College, Madanthyar</li>
             </ul>
           </div>
         </div>

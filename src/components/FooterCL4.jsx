@@ -72,10 +72,10 @@ const FooterCL4 = () => {
           <h3 className="cipher_footer_subheading">Contact Us</h3>
           <p className="cipher_footer_contact_info">
             <span className="cipher_footer_contact_label">Email:</span> 
-            <a href="mailto:cipher2k25@bca.edu" className="cipher_footer_contact_link">cipher2k25@bca.edu</a>
+            <a href="mailto:cipher2k25@bca.edu" className="cipher_footer_contact_link">cipher2k25@gmail.com</a>
           </p>
           <p className="cipher_footer_contact_info">
-            <span className="cipher_footer_contact_label">Phone:</span> +91 9876543210
+            <span className="cipher_footer_contact_label">Phone:</span> +91 7259450386
           </p>
           <div className="cipher_footer_social">
             <a href="#" className="cipher_social_icon cipher_social_icon_instagram">
