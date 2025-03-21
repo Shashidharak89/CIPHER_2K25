@@ -41,8 +41,10 @@ const RegisterLatest = () => {
       });
       setMessage(res.data.message);
       console.log("Data submitted successfully");
+      alert("Team Registered successfully");
     } catch (error) {
       setMessage(error.response?.data?.error || "Something went wrong");
+      alert("Something went wrong");
     }
     setLoading(false);
   };
