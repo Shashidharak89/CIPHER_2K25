@@ -102,7 +102,7 @@ const ContactCL4 = () => {
               <div className="cipher_card">
                 <div className="cipher_card_symbol"></div>
                 <div className="cipher_card_details">
-                  <p>Location: BCA Department</p>
+                  <p>Location:Department of BCA, SHC</p>
                   <p>Date: April 09, 2025</p>
                   <p>Email: cipher2k25@gmail.com</p>
                   <p>Phone: +91 7760770725</p>

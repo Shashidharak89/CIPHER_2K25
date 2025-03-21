@@ -129,7 +129,7 @@ const DepInfoCL2 = () => {
         </div>
         
         <div className="cipher-info">
-          <h2 className="cipher-title">Welcome to the Games</h2>
+          <h2 className="cipher-title">Only the Sharpest minds survive CIPHER</h2>
           <div className="cipher-description">
             <p className="cipher-text">An electrifying IT fest hosted by the Department of BCA</p>
             <p className="cipher-text">Sacred Heart College, Madanthyar</p>
