@@ -83,11 +83,11 @@ const AboutCL4 = () => {
       
       <div className="cipher__content-wrapper">
         <h1 className="cipher__main-title">CIPHER <span className="cipher__highlight">2K25</span></h1>
-        <h2 className="cipher__subtitle">BCA Department's Annual Tech Fest</h2>
+        <h2 className="cipher__subtitle">BCA Department's Annual IT Fest</h2>
         
         <div className="cipher__divider"></div>
         
-        <div className="cipher__about-content">
+        <div className="cipher__about-content">``
           <p className="cipher__text-block">
             Welcome to <span className="cipher__highlight">CIPHER 2K25</span>, where technology meets the thrilling world of Squid Game! This year, our BCA department brings you a gaming-inspired tech fest that pushes boundaries and challenges participants like never before.
           </p>

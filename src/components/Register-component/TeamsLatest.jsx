@@ -72,7 +72,7 @@ const TeamsLatest = () => {
           <div className="sg-circle-small"></div>
           <div className="sg-square-small"></div>
         </div>
-        <h1 className="sg-title">PLAYER TEAMS</h1>
+        <h1 className="sg-title">TEAMS LIST</h1>
       </div>
 
       <div className="sg-teams-list">
