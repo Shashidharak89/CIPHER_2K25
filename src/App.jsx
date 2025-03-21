@@ -11,11 +11,13 @@ import NavbarCL from './components/NavbarCL';
 import About from './components/About';
 import Contact from './components/Contact';
 import Developers from './components/Developers';
+import PreCL from './components/Home-comonents/PreCL';
 
 function App() {
   return (
     <>
       <NavbarCL />
+      <PreCL/>
       <Routes>
         <Route path="/" element={<Home />} />
 

@@ -1,0 +1,446 @@
+/* PreCL.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+.cipher_preloader_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  overflow: hidden;
+}
+
+.cipher_show {
+  opacity: 1;
+}
+
+.cipher_content_wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.cipher_logo_container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 2rem;
+}
+
+.cipher_shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.cipher_triangle {
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-bottom: 200px solid #FF0F7B;
+  animation: cipher_triangle_anim 3s ease-in-out forwards;
+}
+
+.cipher_circle {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 15px solid #45CAFF;
+  animation: cipher_circle_anim 3s ease-in-out forwards;
+}
+
+.cipher_square {
+  width: 120px;
+  height: 120px;
+  border: 15px solid #7B2CBF;
+  animation: cipher_square_anim 3s ease-in-out forwards;
+}
+
+.cipher_text_container {
+  text-align: center;
+  color: white;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: cipher_text_reveal 0.8s ease-out 0.5s forwards;
+}
+
+.cipher_title {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 8px;
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 0 10px #FF0F7B, 0 0 20px #FF0F7B;
+}
+
+.cipher_year {
+  color: #45CAFF;
+  font-weight: 700;
+  text-shadow: 0 0 10px #45CAFF, 0 0 20px #45CAFF;
+}
+
+.cipher_slogan {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  letter-spacing: 2px;
+  color: #ccc;
+}
+
+.cipher_masked_players {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cipher_player {
+  width: 60px;
+  height: 100px;
+  background-color: #FF006E;
+  margin: 0 15px;
+  position: relative;
+  border-radius: 10px;
+  opacity: 0;
+  animation: cipher_player_appear 0.5s ease-out forwards;
+}
+
+.cipher_player::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #121212;
+}
+
+.cipher_player_1 {
+  animation-delay: 1s;
+}
+
+.cipher_player_2 {
+  animation-delay: 1.2s;
+  background-color: #3A86FF;
+}
+
+.cipher_player_3 {
+  animation-delay: 1.4s;
+  background-color: #8338EC;
+}
+
+.cipher_countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100px;
+  width: 100%;
+}
+
+.cipher_counter, .cipher_begin {
+  position: absolute;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #fff;
+  opacity: 0;
+}
+
+.cipher_counter:nth-child(1) {
+  animation: cipher_count 1s ease-in-out 0s forwards;
+}
+
+.cipher_counter:nth-child(2) {
+  animation: cipher_count 1s ease-in-out 1s forwards;
+}
+
+.cipher_counter:nth-child(3) {
+  animation: cipher_count 1s ease-in-out 2s forwards;
+}
+
+.cipher_begin {
+  font-size: 2.5rem;
+  color: #FF006E;
+  animation: cipher_begin 0.5s ease-in-out 3s forwards;
+}
+
+.cipher_department {
+  position: absolute;
+  bottom: 50px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1.2rem;
+  color: #fff;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: cipher_department 1s ease-in-out 0.8s forwards;
+}
+
+/* Animations */
+@keyframes cipher_triangle_anim {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(360deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(360deg);
+  }
+}
+
+@keyframes cipher_circle_anim {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  20% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes cipher_square_anim {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+  }
+  40% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  80% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(90deg);
+  }
+}
+
+@keyframes cipher_text_reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cipher_player_appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cipher_count {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes cipher_begin {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes cipher_department {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .cipher_title {
+    font-size: 3rem;
+    letter-spacing: 4px;
+  }
+  
+  .cipher_slogan {
+    font-size: 1.2rem;
+  }
+  
+  .cipher_logo_container {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .cipher_triangle {
+    border-left: 80px solid transparent;
+    border-right: 80px solid transparent;
+    border-bottom: 140px solid #FF0F7B;
+  }
+  
+  .cipher_circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .cipher_square {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .cipher_player {
+    width: 40px;
+    height: 70px;
+    margin: 0 10px;
+  }
+  
+  .cipher_player::before {
+    width: 25px;
+    height: 25px;
+    top: 15px;
+  }
+  
+  .cipher_counter, .cipher_begin {
+    font-size: 3rem;
+  }
+  
+  .cipher_begin {
+    font-size: 2rem;
+  }
+  
+  .cipher_department {
+    font-size: 1rem;
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cipher_title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  
+  .cipher_slogan {
+    font-size: 1rem;
+  }
+  
+  .cipher_logo_container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cipher_triangle {
+    border-left: 60px solid transparent;
+    border-right: 60px solid transparent;
+    border-bottom: 100px solid #FF0F7B;
+  }
+  
+  .cipher_circle {
+    width: 80px;
+    height: 80px;
+    border-width: 10px;
+  }
+  
+  .cipher_square {
+    width: 70px;
+    height: 70px;
+    border-width: 10px;
+  }
+  
+  .cipher_player {
+    width: 30px;
+    height: 50px;
+    margin: 0 8px;
+  }
+  
+  .cipher_player::before {
+    width: 20px;
+    height: 20px;
+    top: 10px;
+  }
+  
+  .cipher_counter, .cipher_begin {
+    font-size: 2.5rem;
+  }
+  
+  .cipher_begin {
+    font-size: 1.5rem;
+  }
+  
+  .cipher_department {
+    font-size: 0.8rem;
+    bottom: 20px;
+  }
+}
