@@ -59,7 +59,7 @@ const SquidGameNavigation = () => {
     { name: 'Events', path: '/events', shape: 'circle' },
     { name: 'About', path: '/about', shape: 'triangle' },
     { name: 'Contact', path: '/contact', shape: 'square' },
-    { name: 'Registration', path: '/register', shape: 'umbrella' }
+    { name: 'Register', path: '/register', shape: 'umbrella' }
   ];
 
   // Generate background elements
