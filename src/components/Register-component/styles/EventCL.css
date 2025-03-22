@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+.squid_game_container {
+  background-color: #121212;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 2rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.squid_game_title {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.squid_game_title_text {
+  display: block;
+  font-size: 4rem;
+  font-weight: 900;
+  letter-spacing: 0.5rem;
+  background: linear-gradient(90deg, #ff69b4, #1e90ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+  animation: squid_game_text_glow 3s infinite alternate;
+}
+
+.squid_game_title_subtitle {
+  display: block;
+  font-size: 1.5rem;
+  color: #ff69b4;
+  letter-spacing: 0.3rem;
+  margin-top: 0.5rem;
+  text-shadow: 0 0 5px rgba(255, 105, 180, 0.7);
+}
+
+.squid_game_events_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.squid_game_event_card {
+  background-color: #1e1e1e;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  padding: 1.5rem;
+}
+
+.squid_game_event_card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
+}
+
+.squid_game_event_card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 105, 180, 0.1), rgba(30, 144, 255, 0.1));
+  z-index: -1;
+}
+
+.squid_game_event_card_expanded {
+  grid-column: 1 / -1;
+  transform: scale(1.02);
+}
+
+.squid_game_event_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.squid_game_event_symbol {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.squid_game_event_symbol::before {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 3px solid #ff69b4;
+  animation: squid_game_symbol_morph 4s infinite;
+}
+
+.squid_game_event_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff69b4, #1e90ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.squid_game_event_slots {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.squid_game_event_slots_filled {
+  color: #ff69b4;
+  font-weight: bold;
+}
+
+.squid_game_event_slots_separator {
+  margin: 0 0.3rem;
+  color: #666;
+}
+
+.squid_game_event_slots_total {
+  color: #1e90ff;
+  font-weight: bold;
+}
+
+.squid_game_event_name {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+.squid_game_event_name::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #ff69b4, #1e90ff);
+  animation: squid_game_line_expand 2s infinite alternate;
+}
+
+.squid_game_event_progress {
+  height: 6px;
+  background-color: #333;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.squid_game_event_progress_bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ff69b4, #1e90ff);
+  animation: squid_game_progress_pulse 2s infinite;
+  transition: width 0.5s ease;
+}
+
+.squid_game_participants_container {
+  animation: squid_game_fade_in 0.5s ease;
+  margin-top: 2rem;
+}
+
+.squid_game_participants_title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ff69b4;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+.squid_game_participants_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.squid_game_team {
+  background-color: #252525;
+  border-radius: 8px;
+  padding: 1rem;
+  border-left: 3px solid #ff69b4;
+  transition: all 0.3s ease;
+}
+
+.squid_game_team:hover {
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+.squid_game_team_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.squid_game_team_name {
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.squid_game_team_count {
+  font-size: 0.9rem;
+  color: #1e90ff;
+}
+
+.squid_game_team_members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.squid_game_team_member {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.squid_game_team_member_avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #333;
+  position: relative;
+  overflow: hidden;
+}
+
+.squid_game_team_member_avatar::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  background-color: #1e90ff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(30, 144, 255, 0.7);
+}
+
+.squid_game_team_member_name {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.squid_game_no_participants {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  padding: 1rem;
+}
+
+.squid_game_loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 1rem;
+}
+
+.squid_game_loader_circle,
+.squid_game_loader_triangle,
+.squid_game_loader_square {
+  width: 40px;
+  height: 40px;
+  animation: squid_game_loader_rotate 3s infinite linear;
+}
+
+.squid_game_loader_circle {
+  border: 4px solid #ff69b4;
+  border-radius: 50%;
+  animation-delay: 0s;
+}
+
+.squid_game_loader_triangle {
+  background-color: transparent;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid #1e90ff;
+  width: 0;
+  height: 0;
+  animation-delay: 0.3s;
+}
+
+.squid_game_loader_square {
+  background-color: transparent;
+  border: 4px solid #ff69b4;
+  animation-delay: 0.6s;
+}
+
+.squid_game_error {
+  color: #ff69b4;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 2rem;
+  background-color: rgba(255, 105, 180, 0.1);
+  border-radius: 10px;
+  border-left: 4px solid #ff69b4;
+  margin: 3rem;
+}
+
+/* Animations */
+@keyframes squid_game_text_glow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(30, 144, 255, 0.7);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+  }
+}
+
+@keyframes squid_game_line_expand {
+  0% {
+    width: 40%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes squid_game_progress_pulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes squid_game_fade_in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes squid_game_loader_rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes squid_game_symbol_morph {
+  0% {
+    border-radius: 0%;
+  }
+  33% {
+    border-radius: 50%;
+    border-color: #ff69b4;
+  }
+  66% {
+    border-radius: 0%;
+    transform: rotate(45deg);
+    border-color: #1e90ff;
+  }
+  100% {
+    border-radius: 0%;
+    transform: rotate(0deg);
+    border-color: #ff69b4;
+  }
+}
