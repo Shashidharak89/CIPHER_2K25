@@ -79,7 +79,7 @@ const RegisterLatest = () => {
           required
           value={numMembers}
           onChange={(e) => {
-            const count = parseInt(e.target.value, 10);
+            const count = parseInt(e.target.value, 15);
             setNumMembers(count);
             setMembers(Array.from({ length: count }, () => ({ name: "" })));
           }}
