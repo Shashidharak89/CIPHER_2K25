@@ -1,0 +1,401 @@
+/* EventCL2 - Squid Game Theme */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap');
+
+.squidEventContainer {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 8px 32px rgba(255, 0, 132, 0.3);
+}
+
+.squidEventHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.squidEventTitle {
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #ff0084;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(255, 0, 132, 0.8);
+  animation: squidPulse 2s infinite alternate;
+}
+
+.squidEventSubtitle {
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  color: #00ccff;
+  margin-bottom: 1.5rem;
+}
+
+.squidEventDecoration {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.squidSymbol {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid white;
+  animation: squidRotate 8s infinite linear;
+}
+
+.squidSymbolCircle {
+  border-radius: 50%;
+  border-color: #ff0084;
+  animation-delay: 0s;
+}
+
+.squidSymbolTriangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  background-color: transparent;
+  border-color: #00ccff;
+  animation-delay: 0.2s;
+}
+
+.squidSymbolSquare {
+  border-color: #9933ff;
+  animation-delay: 0.4s;
+}
+
+.squidEventList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.squidEventCard {
+  background-color: #1e1e1e;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  position: relative;
+  border-left: 4px solid #ff0084;
+}
+
+.squidEventCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(255, 0, 132, 0.4);
+}
+
+.squidEventCardExpanded {
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(255, 0, 132, 0.5);
+}
+
+.squidEventCardHeader {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.squidEventCardHeader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 0, 132, 0.05) 0%, transparent 100%);
+  z-index: 0;
+}
+
+.squidEventCardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.squidEventCardBadge {
+  background-color: #ff0084;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 1;
+}
+
+.squidEventCardStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.squidEventCardStatusLabel {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+.squidEventCardStatusValue {
+  color: #00ccff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.squidEventCardContent {
+  max-height: 0;
+  animation: squidSlideDown 0.5s forwards;
+}
+
+.squidEventCardSection {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.squidEventCardSectionTitle {
+  color: #00ccff;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.5rem;
+}
+
+.squidEventNoParticipants {
+  color: #b0b0b0;
+  font-style: italic;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.squidEventParticipantsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.squidEventTeamItem {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.squidEventTeamHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.squidEventTeamHeader:hover {
+  background-color: rgba(255, 0, 132, 0.1);
+}
+
+.squidEventTeamName {
+  font-weight: 700;
+  color: white;
+}
+
+.squidEventTeamExpandIcon {
+  font-size: 0.75rem;
+  transition: transform 0.3s ease;
+  color: #b0b0b0;
+}
+
+.squidEventTeamExpandIconActive {
+  transform: rotate(180deg);
+  color: #ff0084;
+}
+
+.squidEventTeamMembers {
+  padding: 0.75rem 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  animation: squidSlideDown 0.3s forwards;
+}
+
+.squidEventTeamMember {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.squidEventTeamMember:last-child {
+  border-bottom: none;
+}
+
+.squidEventTeamMemberIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #9933ff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.squidEventTeamMemberIcon::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+
+.squidEventTeamMemberName {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+}
+
+.squidEventCardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.squidEventCardInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.squidEventCardInfoLabel {
+  color: #b0b0b0;
+  font-size: 0.9rem;
+}
+
+.squidEventCardInfoValue {
+  color: #00ccff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.squidEventCardButton {
+  background-color: #ff0084;
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.squidEventCardButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.squidEventCardButton:hover {
+  background-color: #cc006b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 132, 0.5);
+}
+
+.squidEventCardButton:hover::before {
+  left: 100%;
+  transition: left 0.5s ease;
+}
+
+.squidEventLoader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  background-color: #121212;
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 32px rgba(255, 0, 132, 0.3);
+}
+
+.squidLoaderCircle {
+  width: 5rem;
+  height: 5rem;
+  border: 4px solid rgba(255, 0, 132, 0.1);
+  border-left: 4px solid #ff0084;
+  border-radius: 50%;
+  animation: squidSpin 1s infinite linear;
+  margin-bottom: 1.5rem;
+}
+
+.squidLoaderText {
+  color: #ff0084;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  animation: squidPulse 1.5s infinite alternate;
+}
+
+/* Animations */
+@keyframes squidPulse {
+  0% {
+    opacity: 0.7;
+    text-shadow: 0 0 10px rgba(255, 0, 132, 0.4);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(255, 0, 132, 0.8), 0 0 30px rgba(255, 0, 132, 0.6);
+  }
+}
+
+@keyframes squidRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes squidSlideDown {
+  0% {
+    max-height: 0;
+    opacity: 0;
+  }
+  100% {
+    max-height: 1000px;
+    opacity: 1;
+  }
+}
+
+@keyframes squidSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

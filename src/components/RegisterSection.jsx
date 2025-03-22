@@ -6,6 +6,7 @@ import RegisterLatest from './RegisterLatest';
 import TeamsLatest from './Register-component/TeamsLatest';
 import './styles/RegisterSection.css';
 import EventCL from './Register-component/EventCL';
+// import EventCL2 from './Register-component/EventCL2';
 const RegisterSection=()=>{
     return(
         <div className="register-section">
@@ -17,6 +18,7 @@ const RegisterSection=()=>{
             <TeamJoin/>
             <TeamsLatest/>
             <EventCL/>
+            {/* <EventCL2/> */}
 
         </div>
     );
