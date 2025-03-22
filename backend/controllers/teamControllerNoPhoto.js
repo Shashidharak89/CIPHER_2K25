@@ -58,5 +58,7 @@ const verifyTeamPasswordNoPhoto = async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 };
-
-module.exports = { registerTeamNoPhoto, getAllTeamsNoPhoto, verifyTeamPasswordNoPhoto };
+const verifyServer = async (req, res) => {
+  res.status(200).send(true);
+}
+module.exports = { registerTeamNoPhoto, getAllTeamsNoPhoto, verifyTeamPasswordNoPhoto,verifyServer };
