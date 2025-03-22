@@ -104,7 +104,7 @@ const ContactCL4 = () => {
                 <div className="cipher_card_details">
                   <p>Location:Department of BCA, SHC</p>
                   <p>Date: April 09, 2025</p>
-                  <p>Email: cipher2k25@gmail.com</p>
+                  <p>Email: cipher2k25shc@gmail.com</p>
                   <p>Phone ( TECHNICAL SUPPORT ): <br />
                     +91 7760770725 <br />
                     +91 9481437620 <br />
