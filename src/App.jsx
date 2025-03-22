@@ -12,12 +12,14 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Developers from './components/Developers';
 import PreCL from './components/Home-comonents/PreCL';
+import VerifyServer from './components/VerifyServer';
 
 function App() {
   return (
     <>
       <NavbarCL />
       <PreCL/>
+      <VerifyServer/>
       <Routes>
         <Route path="/" element={<Home />} />
 
