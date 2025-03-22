@@ -40,14 +40,14 @@ const eventsData = [
     ehead: "Hrithika",
     headno: "74838 35150"
   },
-  {
-    name: "Round And Round",
-    description: "A thrilling dance competition awaits!",
-    img: dance,
-    rules: "Filmy-style dance.Each team must have a min 5 - 9 max members.Performance duration should be between 4+1 minutes.Stage setup 2min.Remixes of filmy songs are allowed.The performance will be judged on creativity and the use of props. Team heads must submit their final tracks to the host at least 1 day before the fest.Any inappropriate behaviour or offensive content in performances will lead to disqualification.The judges decisions will be last and final.",
-    ehead: "Thejadri",
-    headno: "87625 68184"
-  },
+  // {
+  //   name: "Round And Round",
+  //   description: "A thrilling dance competition awaits!",
+  //   img: dance,
+  //   rules: "Filmy-style dance.Each team must have a min 5 - 9 max members.Performance duration should be between 4+1 minutes.Stage setup 2min.Remixes of filmy songs are allowed.The performance will be judged on creativity and the use of props. Team heads must submit their final tracks to the host at least 1 day before the fest.Any inappropriate behaviour or offensive content in performances will lead to disqualification.The judges decisions will be last and final.",
+  //   ehead: "Thejadri",
+  //   headno: "87625 68184"
+  // },
   {
     name: "Top To Survive",
     description: "Battle it out in the ultimate gaming challenge!",

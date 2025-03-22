@@ -96,7 +96,7 @@ const AboutCL3 = () => {
             
             <p className="cipher_description">
               Our annual BCA department fest transforms the campus into a battleground of intellect, 
-              coding prowess, and technical innovation. With high stakes competitions, mind-bending puzzles, 
+              coding Progress, and technical innovation. With high stakes competitions, mind-bending puzzles, 
               and cutting-edge showcases, Cipher 2K25 tests your limits while celebrating the digital revolution.
             </p>
             
