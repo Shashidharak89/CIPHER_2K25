@@ -12,7 +12,6 @@ const RegisterLatest = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState(false);
-
   const { URL } = useContext(SampleContext);
 
   const handleMemberChange = (index, value) => {
@@ -74,17 +73,16 @@ const RegisterLatest = () => {
           type="number"
           className="num-of-members"
           min="1"
-          max="10"
+          max="15"
           placeholder="Number of Members"
           required
           value={numMembers}
           onChange={(e) => {
-            const count = parseInt(e.target.value, 15);
+            const count = parseInt(e.target.value, 10);
             setNumMembers(count);
             setMembers(Array.from({ length: count }, () => ({ name: "" })));
           }}
         />
-
         {members.map((member, index) => (
           <div key={index} className="member-input">
             <input
@@ -96,7 +94,6 @@ const RegisterLatest = () => {
             />
           </div>
         ))}
-
         <input
           type="password"
           placeholder="Password"
@@ -104,7 +101,6 @@ const RegisterLatest = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
         <button type="submit" className="register-btn" disabled={loading}>
           {loading ? "Registering..." : !status ? "Submit" : "Submitted"}
         </button>
