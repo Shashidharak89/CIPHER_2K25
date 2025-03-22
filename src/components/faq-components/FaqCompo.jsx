@@ -1,200 +1,163 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './styles/FaqCompo.css';
-import { useNavigate } from 'react-router-dom';
 
 const FaqCompo = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [isVisible, setIsVisible] = useState(false);
-  const faqRef = useRef(null);
-  const navigate = useNavigate();
-  
-  // Calculate time remaining until April 9, 2025
-  const calculateTimeRemaining = () => {
-    const eventDate = new Date('April 9, 2025 00:00:00').getTime();
-    const now = new Date().getTime();
-    const difference = eventDate - now;
-    
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-    
-    return { days, hours, minutes, seconds };
-  };
-  
-  const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining());
-  
-  useEffect(() => {
-    setIsVisible(true);
-    
-    const timer = setInterval(() => {
-      setTimeRemaining(calculateTimeRemaining());
-    }, 1000);
-    
-    const handleScroll = () => {
-      const faqElements = document.querySelectorAll('.cipher__faq__item');
-      faqElements.forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.8) {
-          element.classList.add('cipher__faq__item--visible');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearInterval(timer);
-    };
-  }, []);
-
-  const handleRegisterClick = () => {
-    navigate('/register');
-  };
+  const [filteredFaq, setFilteredFaq] = useState([]);
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
 
   const faqData = [
     {
       question: "What is Cipher 2k25?",
-      answer: "Cipher 2k25 is the annual technical and cultural fest organized by the BCA department. This year it features a thrilling Squid Game theme with various competitive events, workshops, and exciting prizes."
+      answer: "Cipher 2k25 is the annual technical fest organized by the BCA Department. This year's theme is inspired by Squid Game, featuring exciting technical competitions, workshops, and fun events for all BCA students!"
     },
     {
       question: "When and where will Cipher 2k25 be held?",
-      answer: "Cipher 2k25 will be held on April 9, 2025, at the Main Campus Auditorium and surrounding areas. All events will be clearly marked with Squid Game-inspired signage."
+      answer: "Cipher 2k25 will be held on April 9, 2025, at the Main Auditorium and BCA Block. The inaugural ceremony starts at 9:30 AM."
     },
     {
       question: "How can I register for Cipher 2k25?",
-      answer: "Registration is open online through our website cipher2k25.edu/register or you can visit the BCA department office. Early bird registration ends March 30, 2025. Each participant will receive a unique player number and mask upon registration."
+      answer: "Registration is open until April 7, 2025. You can register online through the register page or visit the registration desk at the BCA Department. Don't miss out on this exciting inter-class event!"
     },
     {
-      question: "What events will be featured in Cipher 2k25?",
-      answer: "Events include Coding Death Match, Tech Red Light Green Light, Glass Bridge Debugging Challenge, AI Marbles, Cyber Security Tug of War, Hackathons, Gaming tournaments, Technical paper presentations, and many more Squid Game-inspired challenges."
-    },
-    {
-      question: "Is Cipher 2k25 open to students from other colleges?",
-      answer: "Yes! We welcome participants from all colleges. Inter-college teams can register for most events. Some specialized tournaments may have specific eligibility criteria, so please check the event details."
+      question: "What events are planned for Cipher 2k25?",
+      answer: "We have coding challenges, hackathons, gaming tournaments, technical quiz, project exhibition, and special Squid Game-inspired survival challenges. Check the Events section on our website for a complete list and schedule."
     },
     {
       question: "Are there any participation certificates?",
-      answer: "All participants will receive digital certificates, and top performers will get exclusive Cipher 2k25 merchandise featuring Squid Game elements. Winners of major competitions will receive printed certificates during the closing ceremony."
+      answer: "Yes! All participants will receive digital participation certificates. Winners of various competitions will receive special merit certificates and recognition during the closing ceremony."
     },
     {
-      question: "Do I need prior technical knowledge to participate?",
-      answer: "Events range from beginner to advanced levels. We have events suitable for all skill levels, and some non-technical events as well. Check the difficulty rating for each event on our website."
-    },
-    {
-      question: "Will there be food available during the fest?",
-      answer: "Yes, we'll have food stalls serving themed refreshments including the famous Dalgona cookies! Food coupons are included in your registration kit."
+      question: "Can students from other departments participate?",
+      answer: "Cipher 2k25 is primarily an inter-class fest for BCA students. However, select events might be open to all students based on availability. Keep an eye on announcements for more details."
     }
   ];
+
+  useEffect(() => {
+    if (searchTerm.trim() === '') {
+      setFilteredFaq(faqData);
+    } else {
+      const filtered = faqData.filter(
+        item => 
+          item.question.toLowerCase().includes(searchTerm.toLowerCase()) || 
+          item.answer.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredFaq(filtered);
+    }
+  }, [searchTerm]);
+
+  useEffect(() => {
+    // Initialize filtered FAQ
+    setFilteredFaq(faqData);
+  }, []);
 
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  const filteredFaq = faqData.filter((item) => 
-    item.question.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    item.answer.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  const formatTimeUnit = (unit) => {
-    return unit < 10 ? `0${unit}` : unit;
-  };
-
   return (
-    <div className={`cipher__faq__container ${isVisible ? 'cipher__faq__container--visible' : ''}`} ref={faqRef}>
-      <div className="cipher__faq__header">
-        <div className="cipher__faq__logo">
-          <div className="cipher__faq__circle"></div>
-          <div className="cipher__faq__triangle"></div>
-          <div className="cipher__faq__square"></div>
-        </div>
-        <h1 className="cipher__faq__title">CIPHER 2K25</h1>
-        <h2 className="cipher__faq__subtitle">Frequently Asked Questions</h2>
-      </div>
+    <div className="cipher_faq_container">
+      <div className="cipher_faq_overlay"></div>
+      <div className="cipher_faq_triangle_decoration"></div>
+      <div className="cipher_faq_circle_decoration"></div>
+      <div className="cipher_faq_square_decoration"></div>
       
-      <div className="cipher__faq__image__container cipher__faq__desktop__image">
-        <div className="cipher__faq__mask__image">
-          <img 
-            src="https://th.bing.com/th/id/OIP.g22cZTnYodwLl5jsM125rQHaEK?rs=1&pid=ImgDetMain" 
-            alt="Squid Game" 
-            className="cipher__faq__main__image" 
-          />
-          <div className="cipher__faq__image__overlay"></div>
-        </div>
-      </div>
-      
-      <div className="cipher__faq__content">
-        <div className="cipher__faq__left">
-          <div className="cipher__faq__image__container cipher__faq__mobile__image">
-            <div className="cipher__faq__mask__image">
-              <img 
-                src="https://th.bing.com/th/id/OIP.g22cZTnYodwLl5jsM125rQHaEK?rs=1&pid=ImgDetMain" 
-                alt="Squid Game" 
-                className="cipher__faq__main__image" 
-              />
-              <div className="cipher__faq__image__overlay"></div>
-            </div>
+      <div className="cipher_faq_content">
+        <div className="cipher_faq_header">
+          <div className="cipher_faq_logo">
+            <div className="cipher_faq_triangle"></div>
+            <div className="cipher_faq_circle"></div>
+            <div className="cipher_faq_square"></div>
           </div>
+          <h1 className="cipher_faq_title">CIPHER <span className="cipher_faq_title_highlight">2k25</span></h1>
+          <p className="cipher_faq_subtitle">Frequently Asked Questions</p>
           
-          <div className="cipher__faq__counter">
-            <div className="cipher__faq__timer">
-              <div className="cipher__faq__timer__digits">456</div>
-              <div className="cipher__faq__timer__label">PLAYERS REGISTERED</div>
+          <div className={`cipher_faq_search_container ${isSearchFocused ? 'cipher_faq_search_focused' : ''}`}>
+            <div className="cipher_faq_search_icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M21 21L16.65 16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </div>
+            <input 
+              type="text" 
+              className="cipher_faq_search_input" 
+              placeholder="Search questions..." 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              onFocus={() => setIsSearchFocused(true)}
+              onBlur={() => setIsSearchFocused(false)}
+            />
+            {searchTerm && (
+              <button 
+                className="cipher_faq_search_clear" 
+                onClick={() => setSearchTerm('')}
+              >
+                ×
+              </button>
+            )}
           </div>
         </div>
         
-        <div className="cipher__faq__right">
-          <div className="cipher__faq__search__wrapper">
-            <input 
-              type="text" 
-              className="cipher__faq__search"
-              placeholder="Search questions..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <div className="cipher__faq__search__icon">⌕</div>
+        <div className="cipher_faq_image_container">
+          <img 
+            src="https://th.bing.com/th/id/OIP.g22cZTnYodwLl5jsM125rQHaEK?rs=1&pid=ImgDetMain" 
+            alt="Squid Game" 
+            className="cipher_faq_image" 
+          />
+          <div className="cipher_faq_image_overlay">
+            <p className="cipher_faq_image_text">Will you survive the games?</p>
+            <div className="cipher_faq_countdown">
+              <div className="cipher_faq_countdown_item">
+                <span className="cipher_faq_countdown_number">9</span>
+                <span className="cipher_faq_countdown_label">APRIL 2025</span>
+              </div>
+              {/* <div className="cipher_faq_countdown_shape"></div> */}
+            </div>
           </div>
-          
-          <div className="cipher__faq__list">
-            {filteredFaq.map((faq, index) => (
+        </div>
+
+        <div className="cipher_faq_accordion">
+          {filteredFaq.length > 0 ? (
+            filteredFaq.map((item, index) => (
               <div 
                 key={index} 
-                className={`cipher__faq__item ${activeIndex === index ? 'cipher__faq__item--active' : ''}`}
-                onClick={() => toggleAccordion(index)}
+                className={`cipher_faq_item ${activeIndex === index ? 'cipher_faq_active' : ''}`}
               >
-                <div className="cipher__faq__question">
-                  <span className="cipher__faq__question__number">{index + 1}</span>
-                  <span className="cipher__faq__question__text">{faq.question}</span>
-                  <span className="cipher__faq__icon">{activeIndex === index ? '−' : '+'}</span>
+                <div 
+                  className="cipher_faq_question" 
+                  onClick={() => toggleAccordion(index)}
+                >
+                  <span className="cipher_faq_number">{index + 1}</span>
+                  <p>{item.question}</p>
+                  <span className="cipher_faq_icon">
+                    {activeIndex === index ? '×' : '+'}
+                  </span>
                 </div>
-                <div className={`cipher__faq__answer ${activeIndex === index ? 'cipher__faq__answer--visible' : ''}`}>
-                  {faq.answer}
+                <div className="cipher_faq_answer">
+                  <p>{item.answer}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            ))
+          ) : (
+            <div className="cipher_faq_no_results">
+              <div className="cipher_faq_no_results_icon">?</div>
+              <p>No matching questions found</p>
+              <button className="cipher_faq_reset_search" onClick={() => setSearchTerm('')}>
+                Clear Search
+              </button>
+            </div>
+          )}
         </div>
-      </div>
-      
-      <div className="cipher__faq__footer">
-        <div className="cipher__faq__shapes">
-          <div className="cipher__faq__circle cipher__faq__shape--animate"></div>
-          <div className="cipher__faq__triangle cipher__faq__shape--animate"></div>
-          <div className="cipher__faq__square cipher__faq__shape--animate"></div>
-        </div>
-        <div className="cipher__faq__footer__text">
-          <p>Join us for the ultimate challenge at Cipher 2k25!</p>
-          <button className="cipher__faq__register__button" onClick={handleRegisterClick}>REGISTER NOW</button>
-        </div>
-        <div className="cipher__faq__countdown">
-          <span className="cipher__faq__countdown__label">COUNTDOWN TO APRIL 9:</span>
-          <span className="cipher__faq__countdown__time">
-            {formatTimeUnit(timeRemaining.days)}d : {formatTimeUnit(timeRemaining.hours)}h : {formatTimeUnit(timeRemaining.minutes)}m : {formatTimeUnit(timeRemaining.seconds)}s
-          </span>
+        
+        <div className="cipher_faq_footer">
+          <p className="cipher_faq_footer_text">Ready to play? Join us at Cipher 2k25</p>
+          <Link to="/register" className="cipher_faq_register_btn">
+            Register Now
+            <span className="cipher_faq_btn_highlight"></span>
+          </Link>
         </div>
       </div>
     </div>
