@@ -132,7 +132,7 @@ const TeamsLatest = () => {
                           />
                         </div>
                         <div className="sg-player-number">
-                          <span>{member._id.slice(-3)}</span>
+                          {/* <span>{member._id.slice(-3)}</span> */}
                         </div>
                       </div>
                       <div className="sg-member-info">

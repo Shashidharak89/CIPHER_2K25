@@ -74,7 +74,7 @@ const TeamJoin = () => {
       .then(() => {
         setIsAlreadyRegistered(true);
         setStatus("Registered");
-        console.log("event registered successfully..")
+        alert("event registered successfully..");
       })
       .catch((err) => console.error(err));
   };
