@@ -103,7 +103,7 @@ const FaqCompo = () => {
         
         <div className="cipher_faq_image_container">
           <img 
-            src="https://th.bing.com/th/id/OIP.g22cZTnYodwLl5jsM125rQHaEK?rs=1&pid=ImgDetMain" 
+            src="https://th.bing.com/th/id/OIP.K5xDUA8g_sXv4uOAeJYCBAHaEK?rs=1&pid=ImgDetMain" 
             alt="Squid Game" 
             className="cipher_faq_image" 
           />
