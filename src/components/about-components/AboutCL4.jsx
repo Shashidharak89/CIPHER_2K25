@@ -93,7 +93,7 @@ const AboutCL4 = () => {
           </p>
           
           <p className="cipher__text-block">
-            Each event is designed to test your technical prowess, problem-solving skills, and ability to perform under pressure – just like the contestants in the iconic series. But don't worry, the only elimination here is from the competition leaderboards!
+            Each event is designed to test your technical Progress, problem-solving skills, and ability to perform under pressure – just like the contestants in the iconic series. But don't worry, the only elimination here is from the competition leaderboards!
           </p>
           
           <div className="cipher__card-container">
