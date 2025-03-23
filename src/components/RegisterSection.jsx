@@ -14,7 +14,7 @@ const RegisterSection=()=>{
             {/* <Register/>
             <TeamSelection/>
             <Teams/> */}
-            <RegisterLatest/>
+            {/* <RegisterLatest/> */}
             <TeamJoin/>
             <TeamsLatest/>
             <EventCL/>

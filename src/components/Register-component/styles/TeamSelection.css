@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
 
 .team-selection {
+  margin-top: 70px;
+  margin-bottom: 40px;
     background: black;
     color: white;
     padding: 20px;
     border-radius: 10px;
     max-width: 400px;
-    margin: auto;
+    /* margin: auto; */
     text-align: center;
     font-family: 'Orbitron', sans-serif;
     box-shadow: 0px 0px 15px rgba(255, 0, 85, 0.6);

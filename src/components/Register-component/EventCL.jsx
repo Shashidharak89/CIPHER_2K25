@@ -70,7 +70,7 @@ const EventCL = () => {
               <div className="squid_game_event_slots">
                 <span className="squid_game_event_slots_filled">{event.participants ? event.participants.length : 0}</span>
                 <span className="squid_game_event_slots_separator">/</span>
-                <span className="squid_game_event_slots_total">{event.maxparticipants}</span>
+                <span className="squid_game_event_slots_total">{9}</span>
               </div>
             </div>
             
