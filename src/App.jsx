@@ -14,6 +14,7 @@ import Developers from './components/Developers';
 import PreCL from './components/Home-comonents/PreCL';
 import VerifyServer from './components/VerifyServer';
 import Faq from './components/Faq';
+import ContactRet from './components/ContactRet';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         <Route path="*" element={<Home />} />
 
         <Route path="/faq" element={<Faq />} />
+
+        <Route path="/admin" element={<ContactRet />} />
 
         <Route path="/events" element={<EventsSection/>} />
 
