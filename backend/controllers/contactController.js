@@ -2,12 +2,13 @@ const ContactUs = require('../models/ContactUs');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-// Create a transporter using Gmail
+// Configure nodemailer transporter
 const transporter = nodemailer.createTransport({
     service: 'gmail',
+    pool: true, // Enables reusing connections for better performance
     auth: {
         user: 'cipher2k25shc@gmail.com',
-        pass: process.env.PASSWORD, // Use password from .env file
+        pass: process.env.PASSWORD,
     },
 });
 
@@ -25,12 +26,18 @@ exports.storeMessage = async (req, res) => {
         const newMessage = new ContactUs({ name, email, contact, message });
         await newMessage.save();
 
-        // Send email confirmation to user
+        // Send confirmation email
         const mailOptions = {
-            from: 'cipher2k25shc@gmail.com',
+            from: '"Cipher 2K25 Support" <cipher2k25shc@gmail.com>', // Adds a sender name
+            replyTo: 'cipher2k25shc@gmail.com', // Helps with email trust
             to: email,
             subject: 'We Received Your Message!',
-            text: `Hello ${name},\n\nThank you for reaching out to us! We will get back to you soon.\n\nBest Regards,\nCipher 2K25`
+            html: `
+                <p>Dear <strong>${name}</strong>,</p>
+                <p>Thank you for reaching out to us. We appreciate your message and will get back to you soon.</p>
+                <p>Best Regards,</p>
+                <p><b>Cipher 2K25 Team</b></p>
+            `,
         };
 
         transporter.sendMail(mailOptions, (error, info) => {
