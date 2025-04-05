@@ -7,6 +7,7 @@ const eventRoutes=require("./routes/eventRoutes");
 const eventRoutesNoPhoto=require("./routes/eventRoutesNoPhoto");
 const teamNoPhotoRoutes=require("./routes/teamNoPhotoRoutes");
 const contactUs=require("./routes/contactRoutes");
+const bca2025Routes=require("./routes/bca2025Routes");
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use("/api/contact", contactUs);
 app.use("/api/teamlatest", teamNoPhotoRoutes);
 app.use("/api/event", eventRoutes);
 app.use("/api/eventlatest", eventRoutesNoPhoto);
+app.use("/api/bca2025", bca2025Routes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
