@@ -9,6 +9,8 @@ const ImageUpload = () => {
   const [image, setImage] = useState(null);
   const [message, setMessage] = useState('');
   const [previewUrl, setPreviewUrl] = useState(null);
+  const[upload,setUpload]=useState();
+  const[isUploaded,setIsUploaded]=useState();
   
   const { URL } = useContext(SampleContext);
   
@@ -26,6 +28,7 @@ const ImageUpload = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setUpload("Uploading");
     if (!name || !image) {
       setMessage("Name and image are required.");
       return;
@@ -38,11 +41,13 @@ const ImageUpload = () => {
 
     try {
       const res = await axios.post(URL + "/api/bca2025/upload", formData);
+
       setMessage("Uploaded successfully!");
       setName('');
       setProfileLink('');
       setImage(null);
       setPreviewUrl(null);
+      setIsUploaded(true);
       
       // Animation for success
       const uploadForm = document.querySelector('.squid__form');
@@ -73,7 +78,7 @@ const ImageUpload = () => {
       </div>
       
       <div className="squid__content">
-        <h1 className="squid__title">BCA 2025 <span className="squid__title--highlight">Final</span> Legacy</h1>
+        <h1 className="squid__title">3rd BCA 2025 <span className="squid__title--highlight"></span></h1>
         <p className="squid__subtitle">Our last 2 months together. Make it count.</p>
         
         <form onSubmit={handleSubmit} className="squid__form">
@@ -83,10 +88,10 @@ const ImageUpload = () => {
             <div className="squid__symbol--square"></div>
           </div>
           
-          <h2 className="squid__form-title">Player Registration</h2>
+          <h2 className="squid__form-title">Upload Your Profle</h2>
           
           <div className="squid__input-group">
-            <label className="squid__label">Player Name</label>
+            <label className="squid__label">Name</label>
             <input
               type="text"
               placeholder="Enter your name"
@@ -115,7 +120,7 @@ const ImageUpload = () => {
               <div className="squid__upload-icon">
                 <span className="squid__upload-plus">+</span>
               </div>
-              <span className="squid__upload-text">Choose Player Image</span>
+              <span className="squid__upload-text">Choose Your Image</span>
               <input
                 type="file"
                 accept="image/*"
@@ -139,8 +144,13 @@ const ImageUpload = () => {
           <button
             type="submit"
             className="squid__submit-button"
+            disabled={upload}
           >
-            <span className="squid__button-text">Register Player</span>
+            <span className="squid__button-text">
+              {upload?isUploaded?"Upload Completed":upload:"Upload"}
+              
+              
+              </span>
             <span className="squid__button-glow"></span>
           </button>
 

@@ -1,16 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import './styles/DisplayCL.css';
+import SampleContext from './contexts/SampleContext';
 
 const DisplayCL = () => {
   const [classMembers, setClassMembers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const {URL}=useContext(SampleContext);
 
   useEffect(() => {
     const fetchClassMembers = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:5000/api/bca2025/users');
+        const response = await fetch(URL+'/api/bca2025/users');
         
         if (!response.ok) {
           throw new Error('Failed to fetch class members');

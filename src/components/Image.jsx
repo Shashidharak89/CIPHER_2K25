@@ -6,7 +6,7 @@ const Image=()=>{
     return(
         <div>
             <ImageUpload/>
-            <ImageUpload/>
+            {/* <ImageUpload/> */}
             {/* <ImageDisplay/> */}
             <DisplayCL/>
 
