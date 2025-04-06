@@ -19,7 +19,8 @@ const DisplayCL = () => {
         }
         
         const data = await response.json();
-        setClassMembers(data);
+        const reveredData=data.reverse();
+        setClassMembers(reveredData);
       } catch (err) {
         setError(err.message);
         console.error('Error fetching class members:', err);
