@@ -8,6 +8,7 @@ import React from 'react';
 // import RegisterLatest from './RegisterLatest';
 import HeroCL from './Home-comonents/HeroCL';
 import DepInfoCL2 from './Home-comonents/DepInfoCL2';
+import DisplayCL from './DisplayCL';
 // import DepInfoCL from './Home-comonents/DepInfoCL';
 // import NavbarCL from './NavbarCL';
 const Home=()=>{
@@ -24,6 +25,7 @@ const Home=()=>{
             {/* <TeamSelection/> */}
             {/* <RegisterLatest/> */}
             {/* <DepInfoCL/> */}
+            <DisplayCL/>
             <DepInfoCL2/>
         </div>
     )
