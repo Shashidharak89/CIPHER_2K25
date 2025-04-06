@@ -39,7 +39,7 @@ const DisplayCL = () => {
           <div className="squid_game_triangle"></div>
           <div className="squid_game_square"></div>
         </div>
-        <p>Loading players...</p>
+        <p>Loading...</p>
       </div>
     );
   }
