@@ -86,7 +86,7 @@ const DisplayCL = () => {
             </div>
             <div className="squid_game_player_info">
               <h3 className="squid_game_player_name">{member.name}</h3>
-              <a 
+              {member.profileLink==="https://instagram.com"?"":<a 
                 href={member.profileLink} 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -98,7 +98,7 @@ const DisplayCL = () => {
                   </svg> */}
                 </span>
                 CONNECT
-              </a>
+              </a>}
             </div>
           </div>
         ))}
