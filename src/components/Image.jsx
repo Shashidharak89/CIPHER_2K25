@@ -1,12 +1,14 @@
 import ImageDisplay from "./ImageDisplay";
 import ImageUpload from "./ImageUpload";
+import DisplayCL from "./DisplayCL";
 
 const Image=()=>{
     return(
         <div>
             <ImageUpload/>
             <ImageUpload/>
-            <ImageDisplay/>
+            {/* <ImageDisplay/> */}
+            <DisplayCL/>
 
         </div>
     )
