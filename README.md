@@ -45,19 +45,4 @@
 
 ---
 
-<!-- Animations -->
-<style>
-@keyframes pulse {
-  0% { text-shadow: 0 0 5px #ff0066, 0 0 10px #ff3399; }
-  50% { text-shadow: 0 0 20px #ff0066, 0 0 30px #ff3399; }
-  100% { text-shadow: 0 0 5px #ff0066, 0 0 10px #ff3399; }
-}
-@keyframes glow {
-  from { text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc; }
-  to { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
-}
-@keyframes blink {
-  0%, 50%, 100% { opacity: 1; }
-  25%, 75% { opacity: 0; }
-}
-</style>
+
